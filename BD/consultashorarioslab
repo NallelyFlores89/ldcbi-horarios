@@ -1,0 +1,6 @@
+SELECT nombrelaboratorios
+FROM laboratorios
+
+
+
+

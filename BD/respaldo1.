@@ -1,0 +1,166 @@
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,1,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,2,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,3,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,4,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,5,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,6,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,7,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,8,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,9,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,10,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,11,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,12,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,13,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,14,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,15,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,16,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,17,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,18,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,19,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,20,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,21,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,22,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,23,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,24,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,25,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,26,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(3,27,NULL);
+
+
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,1,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,2,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,3,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,4,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,5,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,6,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,7,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,8,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,9,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,10,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,11,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,12,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,13,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,14,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,15,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,16,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,17,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,18,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,19,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,20,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,21,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,22,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,23,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,24,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,25,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,26,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(4,27,NULL);
+
+
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,1,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,2,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,3,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,4,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,5,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,6,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,7,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,8,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,9,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,10,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,11,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,12,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,13,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,14,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,15,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,16,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,17,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,18,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,19,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,20,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,21,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,22,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,23,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,24,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,25,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,26,NULL);
+INSERT INTO `mydb`.`dias_uea_has_horarios`(`iddias`,`idhorarios`,`iduea`)
+VALUES(5,27,NULL);

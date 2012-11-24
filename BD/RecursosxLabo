@@ -1,0 +1,3 @@
+SELECT recurso FROM recursos
+LEFT JOIN laboratorios_has_recursos ON recursos_idrecursos=idrecursos
+WHERE laboratorios_idlaboratorios=106;
