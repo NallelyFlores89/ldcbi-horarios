@@ -27,7 +27,7 @@
 				  	<dd><a href="#simple2">AT-106</a></dd>
 				  	<dd><a href="#simple3">AT-219</a></dd>
 				  	<dd><a href="#simple4">AT-220</a></dd>
-				</dl>
+			</dl>
 
 				<ul class="tabs-content">
 	            	<li class="active" id="simple1Tab">

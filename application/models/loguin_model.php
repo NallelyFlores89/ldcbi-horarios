@@ -1,7 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/* Author: Jorge Torres
- * Description: Login model class
- */
+
 class Loguin_model extends CI_Model{
 	function __construct(){
 		parent::__construct();
@@ -15,6 +13,7 @@ class Loguin_model extends CI_Model{
 		// Prep the query
 		$this->db->where('usuario', $username);
 		$this->db->where('pass', $password);
+		
 		
 		// Run the query
 		$query = $this->db->get('usuarioadmin');

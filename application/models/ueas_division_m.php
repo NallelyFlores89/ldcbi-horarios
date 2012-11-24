@@ -8,11 +8,12 @@
 		
 		}
 			
-		function obtenListaUeasCBI(){
-			$this->db->select('nombreuea, iduea');
-			$this->db->from('divisiones, uea');
-			$this->db->where('divisiones_iddivisiones',1);
-			$this->db->where('iddivisiones',1);
+		function obtenListaGruposCBI(){
+			$this->db->select('nombreuea, grupo.siglas, nombredivision');
+			$this->db->from('uea');
+			$this->db->join('divisiones', 'uea.divisiones_iddivisiones=divisiones.iddivisiones');
+			$this->db->join('grupo', 'uea.iduea=grupo.uea_iduea');
+			$this->db->where('uea.divisiones_iddivisiones',1);
 
 			$listaUeasCBI=$this->db->get(); //Vacía el contenido de la consulta en la variable
 			
@@ -20,11 +21,9 @@
 				$indice=1;
 				foreach ($listaUeasCBI->result_array() as $value) {
 					//print_r($value['nombreuea']);
-					$arregloUeasCBI[$indice] = $value['nombreuea']; //Guardando mis datos en un arreglo
+					$arregloUeasCBI[$indice] = $value; //Guardando mis datos en un arreglo
 					$indice=$indice+1;
 				}
-				
-				//print_r($arregloUeas);
 				return ($arregloUeasCBI); //Regreso información al controlador
 			}else{
 				$mensaje_error="No hay datos que cargar";
@@ -32,20 +31,19 @@
 			}//fin del else
 		} //Fin de obtenListaUeasCBI
 		
-		
 		function obtenListaUeasCBS(){
-			$this->db->select('nombreuea, iduea');
-			$this->db->from('divisiones, uea');
-			$this->db->where('divisiones_iddivisiones',2);
-			$this->db->where('iddivisiones',2);
+			$this->db->select('nombreuea, grupo.siglas, nombredivision');
+			$this->db->from('uea');
+			$this->db->join('divisiones', 'uea.divisiones_iddivisiones=divisiones.iddivisiones');
+			$this->db->join('grupo', 'uea.iduea=grupo.uea_iduea');
+			$this->db->where('uea.divisiones_iddivisiones',2);
 
 			$listaUeasCBS=$this->db->get(); //Vacía el contenido de la consulta en la variable
 			
 			if(($listaUeasCBS->num_rows())>0){
 				$indice=1;
 				foreach ($listaUeasCBS->result_array() as $value) {
-					//print_r($value['nombreuea']);
-					$arregloUeasCBS[$indice] = $value['nombreuea'];
+					$arregloUeasCBS[$indice] = $value;
 					$indice=$indice+1;
 				}
 				
@@ -58,10 +56,11 @@
 		}//Fin de obtenListaUeasCBS
 		
 		function obtenListaUeasCSH(){
-			$this->db->select('nombreuea, iduea');
-			$this->db->from('divisiones, uea');
-			$this->db->where('divisiones_iddivisiones',3);
-			$this->db->where('iddivisiones',3);
+			$this->db->select('nombreuea, grupo.siglas, nombredivision');
+			$this->db->from('uea');
+			$this->db->join('divisiones', 'uea.divisiones_iddivisiones=divisiones.iddivisiones');
+			$this->db->join('grupo', 'uea.iduea=grupo.uea_iduea');
+			$this->db->where('uea.divisiones_iddivisiones',3);
 
 			$listaUeasCSH=$this->db->get(); //Vacía el contenido de la consulta en la variable
 			
@@ -69,82 +68,108 @@
 				$indice=1;
 				
 				foreach ($listaUeasCSH->result_array() as $value) {
-					//print_r($value['nombreuea']);
-					$arregloUeasCSH[$indice] = $value['nombreuea'];
+					$arregloUeasCSH[$indice] = $value;
 					$indice=$indice+1;
 				}
 				return ($arregloUeasCSH);
 			}else{
-				return 0;
+ 				return '0';
 			}//fin del else
 		}//Fin de obtenListaUeasCSH
-		
-		function obtenListaDivisiones(){
-			$this->db->select('nombredivision');
-			$this->db->from('divisiones');
+				
+		function obtenListaUeaProfesorGrupo(){
+			$this->db->select('uea.nombreuea, grupo.siglas, grupo.grupo, profesores.nombre');
+			$this->db->from('grupo');
+			$this->db->join('profesores', 'grupo.profesores_idprofesores=profesores.idprofesores');
+			$this->db->join('uea','grupo.uea_iduea=uea.iduea');
+			
 
-			$listaDivisiones=$this->db->get(); //Vacía el contenido de la consulta en la variable
-			//print_r($listaDivisiones->result_array());
-			//return($listaDivisiones->result_array());
-			if(($listaDivisiones->num_rows())>0){
+			$listaUeaProfesorGrupo=$this->db->get(); //Vacía el contenido de la consulta en la variable
+			
+			if(($listaUeaProfesorGrupo->num_rows())>0){
 				$indice=1;
 				
-				foreach ($listaDivisiones->result_array() as $value) {
-					$arregloDivisiones[$indice] = $value['nombredivision'];
+				foreach ($listaUeaProfesorGrupo->result_array() as $value) {
+					$arregloUPG[$indice] = $value;
 					$indice=$indice+1;
 				}
-				return ($arregloDivisiones);
+				return ($arregloUPG);
 			}else{
 				return 0;
 			}//fin del else
-		} //Fin de obtenListaDivisiones
-
-	
-		function obtenListaLaboratorios(){
-			$this->db->select('nombrelaboratorios');
-			$this->db->from('laboratorios');
-
-			$listaLaboratorios=$this->db->get(); //Vacía el contenido de la consulta en la variable
 			
-			if(($listaLaboratorios->num_rows())>0){
+		} //fin obtenListaUeaProfesorGrupo
+
+		
+		function ueas($labo,$dia){
+			$this->db->select('idgrupo');
+			$this->db->from('laboratorios_grupo');
+			$this->db->where('idlaboratorios',$labo);			
+			$this->db->where('dias_iddias',$dia);			
+			$this->db->order_by('horarios_idhorarios', "asc"); 
+			
+			$ueaL=$this->db->get();
+			
+			if(($ueaL->num_rows())>0){
 				$indice=1;
+				$indice2=1;
 				
-				foreach ($listaLaboratorios->result_array() as $value) {
-					$arregloLaboratorios[$indice] = $value['nombrelaboratorios'];
+				foreach ($ueaL->result_array() as $value) {
+					$uL[$indice]=$value['idgrupo'];
+					
+					$this->db->select('siglas');
+					$this->db->from('grupo');
+					$this->db->where('idgrupo', $value['idgrupo']);
+					
+					$ueasLunes=$this->db->get();
+					
+					if($ueasLunes->num_rows()>0){
+						foreach ($ueasLunes->result_array() as $value2) {
+							$nombreUeasL[$indice2]=$value2['siglas'];
+						}
+					}
+					else
+						$nombreUeasL[$indice2]='';
+					
+					$indice=$indice+1;
+					$indice2=$indice2+1;
+					
+								
+				}
+
+				return ($nombreUeasL);
+			 }else{
+			 	return 'No hay datos';
+			}//fin del else
+		
+		} //fin ueas
+		
+				
+		function Obtenhorarios(){
+			$this->db->select('hora');
+			$this->db->from('horarios');
+			
+			$lHorarios=$this->db->get();
+			//print_r($lHorarios->result_array());
+
+			if(($lHorarios->num_rows())>0){
+				$indice=1;
+				foreach ($lHorarios->result_array() as $value) {
+					$arregloHorarios[$indice] = $value['hora'];
 					$indice=$indice+1;
 				}
-				return ($arregloLaboratorios);
+				return ($arregloHorarios);
 			}else{
 				return 0;
 			}//fin del else
-		}
-		
-		function obtenListaUeaGrupoProfesor(){
 			
-			$this->db->select('nombreuea,nombregrupo,nombre');
-			$this->db->from('uea, grupo, profesores');
-			$this->db->join('profesores_has_uea', 'profesores_idprofesores=idprofesores','left');
-			$this->db->where('idgrupo','iduea');
-			$this->db->where('profesores_has_uea.uea_iduea','iduea');
-
-			
-			$listaUeaGrupoProfesor=$this->db->get(); //Vacía el contenido de la consulta en la variable
-			
-			if(($listaUeaGrupoProfesor->num_rows())>0){
-				$indice=1;
-				
-				foreach ($listaUeaGrupoProfesor->result_array() as $value) {
-					print_r($value);
-					// $arregloLaboratorios[$indice] = $value['nombrelaboratorios'];
-					// $indice=$indice+1;
-				}
-				 return ($arregloLaboratorios);
-			}else{
-				return 'hfhf';
-			}//fin del else
-		}		
+		} //fin Obtenhorarios
 				
 	} //Fin de la clase
+
 ?>
+
+
+		
 
  

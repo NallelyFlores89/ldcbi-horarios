@@ -48,7 +48,26 @@
 			}else{
 				return 0;
 			}//fin del else
-		}		
+		} //fin de ObtenListaLaboratorios
+		
+		function Obtenhorarios(){
+			$this->db->select('hora');
+			$this->db->from('horarios');
+			
+			$lHorarios=$this->db->get();
+
+			if(($lHorarios->num_rows())>0){
+				$indice=1;
+				foreach ($lHorarios->result_array() as $value) {
+					$arregloHorarios[$indice] = $value['hora'];
+					$indice=$indice+1;
+				}
+				return ($arregloHorarios);
+			}else{
+				return 0;
+			}//fin del else
+			
+		} //fin Obtenhorarios		
 				
 	} //Fin de la clase
 ?>

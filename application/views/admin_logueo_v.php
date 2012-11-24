@@ -11,7 +11,7 @@
   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/foundation.min.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/modernizr.foundation.js"></script>
-  	<script src="<?=base_url(); ?>statics/foundation/javascripts/modernizr.foundation.js"></script>
+ 	<script src="<?=base_url(); ?>statics/js/jquery.popupWindow.js"></script>
 	<script src="<?=base_url(); ?>statics/js/logueo.js"></script>
 </head>
 
@@ -30,12 +30,11 @@
 				  		<input type="password" id="passInput" name="passInput"/>
 				  		
   						<input type="submit" id="LogueoAdminBtn" class="button large offset-by-two" value="Ingresar" />
-						<a href="" class="button large offset-by-two">Cancelar</a>
+						<a href="http://localhost/horarios/index.php/inicio" class="button large offset-by-two">Cancelar</a>
 					</form>
 				</fieldset>
 
-<!-- 				<input type="submit" id="cancelarLogueoBtn" class="button large offset-by-two" value="Cancelar"><br><br><br> -->
-				<p><a class="offset-by-nine" href="#">¿Olvidó su contraseña?</a></p>
+				<p><a class="offset-by-nine OlvidoPassBtn" href="http://localhost/horarios/index.php/recupera_pass_c" id="OlvidoPassBtn">¿Olvidó su contraseña?</a></p>
 			</div><!--twelve columns-->
 		</div> <!--row-->
 
