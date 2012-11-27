@@ -107,6 +107,25 @@
 			}			
 			
 		}
+		
+		function obtenerSemana(){
+			$this->db->select('semana');
+			$this->db->from('semanas');
+
+			$semanas=$this->db->get(); //Vacía el contenido de la consulta en la variable
+			$indice=1;
+			if(($semanas->num_rows())>0){ //Verificando si tengo datos a cargar
+				foreach ($semanas->result_array() as $value) {
+					$sem[$indice] = $value['semana']; //Guardando mis datos en un arreglo
+					$indice++;
+				 }
+			
+				return($sem);
+			}else{
+				return(0);
+			}			
+			
+		}
 
 		
 		

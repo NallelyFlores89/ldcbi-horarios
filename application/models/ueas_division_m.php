@@ -26,8 +26,7 @@
 				}
 				return ($arregloUeasCBI); //Regreso información al controlador
 			}else{
-				$mensaje_error="No hay datos que cargar";
-				return ($mensaje_error);
+				return (-1);
 			}//fin del else
 		} //Fin de obtenListaUeasCBI
 		
@@ -133,8 +132,6 @@
 					
 					$indice=$indice+1;
 					$indice2=$indice2+1;
-					
-								
 				}
 
 				return ($nombreUeasL);
@@ -164,6 +161,8 @@
 			}//fin del else
 			
 		} //fin Obtenhorarios
+		
+
 				
 	} //Fin de la clase
 

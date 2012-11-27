@@ -39,8 +39,20 @@
 			}
 			
 			$DataHorarios['hora']=$this->Solicitar_laboratorio_m->Obtenhorarios();
+			
+			$DataSem=$this->Agregar_horario_m->obtenerSemana();
+			
 
-			/**Validación del formulario**/			
+			$datos=Array(  //Enviando datos a la vista
+					'listaDivisiones' => $divisiones,
+					'listaLaboratorios' => $laboratorios,
+					'DataSem' => $DataSem,
+					'DataHorarios' => $DataHorarios['hora'],
+			);
+			
+			
+			/**Validación del formulario**/		
+				
 			$this->form_validation->set_rules('nombreInput', 'nombreInput', 'callback_nombreInput_check');
 			$this->form_validation->set_rules('numInput', 'numInput', 'callback_numInput_check');
 			$this->form_validation->set_rules('ueaInput', 'ueaInput', 'callback_ueaInput_check');
@@ -50,30 +62,25 @@
 			$this->form_validation->set_rules('checkboxes[]', 'checkboxes', 'required');
 			$this->form_validation->set_message('required','Debe seleccionar al menos un día');
 			
-			$datos=Array(
-					'listaDivisiones' => $divisiones,
-					'listaLaboratorios' => $laboratorios,
-					'DataHorarios' => $DataHorarios['hora'],
-			);
-			
+		
 			if($this->form_validation->run()){
 
 				echo "<pre>";
 					print_r($_POST);
 				echo "</pre>";
 				
-				//Insertando datos
+				//INSERTANDO DATOS
 				
 				$numEmp=$this->Agregar_horario_m->obtenerIdProfesor($_POST['numInput']);
 				
 				if($numEmp==0){ //Si no existe el profesor en la base de datos, lo inserta
-					$datos_profrT=Array(
+					$datos_profresoresT=Array(
 						'nombre' => $_POST['nombreInput'],
 						'numempleado' => $_POST['numInput'],
 						'correo' => 'correo@correo.com',
 					);					
 					
-					$this->db->insert('profesores', $datos_profrT);
+					$this->db->insert('profesores', $datos_profesoresT); //Insertan en la tabla profesores
 					echo"No existía el profesor, así que insertaré en la base de datos <br>";
 					print_r($datos_profrT); 
 				}
@@ -90,9 +97,6 @@
 				if($_POST['laboratoriosDropdown']=='AT-220')
 					$id_lab=220;
 				
-				
-				/////////////////////////////////////////////////////////////////
-				
 				if($this->Agregar_horario_m->obtenerClaveUea($_POST['claveInput'])==0){ //Si la UEA no existe, la insertará
 					$datos_ueaT=Array(
 						'nombreuea' => $_POST['ueaInput'],
@@ -101,7 +105,7 @@
 					);
 										
 					$this->db->insert('uea', $datos_ueaT); 
-					echo"<br>La uea no existía, así que la inserté en la BD::"; print_r($datos_ueaT);					
+					echo"<br>La uea no existía, así que la inserté en la BD::"; print_r($datos_ueaT); //Inserta en la tabla uea					
 					
 				};
 				
@@ -114,16 +118,18 @@
 						'siglas' => $_POST['siglasInput'],
 						'uea_iduea' => $iduea,
 						'profesores_idprofesores' => $idProf,
-				);		
-				echo"Insertando grupo en BD::";
+				);	
+					
+				echo"<br> Insertando grupo en BD::";
 				print_r($datos_grupoT);					
 				
-				$this->db->insert('grupo', $datos_grupoT); 
+				$this->db->insert('grupo', $datos_grupoT); //Inserta en la tabla grupo
 																		
 				$idGrupo=$this->Agregar_horario_m->obtenerIdGrupo($_POST['grupoInput']);
 				echo "<br>idGrupo:::::";print_r($idGrupo);	
 				
 				//OBTENIENDO ID DE HORARIO INICIAL
+				
 				switch ($_POST['HoraIDropdown']) {
 					case '8':
 						$horaI='08:00';
@@ -208,35 +214,44 @@
 						break;																																								
 				}
 
-				//Operaciones de hora
+				//OPERACIONES DE HORA
+				
 				$idHoraI=$this->Agregar_horario_m->obtenerIdHora($horaI);
 				$horas=($_POST['HoraFDropdown']-$_POST['HoraIDropdown'])*2;
-							
+			
+				echo"<br>la uea inicia"; print_r($idHoraI);
+				echo "<br> Durará "; print_r($horas); echo " medias horas";	
 				
-				// for ($i=0; $i <$horas; $i++) { 
-					// foreach ($_POST['checkboxes'] as $value) {
-						// $datos_diaUeaHorarioT= Array(
-							// 'iddias'=>$value,
-							// 'iduea'=>$iduea,
-							// 'idhorarios' => $idHoraI
-						// );
-// 	
-						// $this->db->insert('dias_uea_has_horarios', $datos_diaUeaHorarioT); 
-					// }
-					// $idHoraI++;
-// 
-				// }
-
+				
+				//OPERACIONES SEMANA
+				
+				$idSemI=$_POST['SemIDropdown'];
+				$semanas=(($_POST['SemFDropdown']-$_POST['SemIDropdown']));
+				
+				for ($j=0; $j <=$semanas; $j++) { 
+					for ($i=0; $i <=$horas; $i++) { 
+						foreach ($_POST['checkboxes'] as $value) {
+							$datos_laboratorios_grupoT= Array(
+								'idgrupo'=>$idGrupo,
+							);
+							echo"Actualizando la tabla";
+							echo "<br>";print_r($datos_laboratorios_grupoT);
+							$this->db->where('idlaboratorios',$id_lab);
+							$this->db->where('semanas_idsemanas', $idSemI);
+							$this->db->where('dias_iddias', $value);
+							$this->db->where('horarios_idhorarios', $idHoraI);
+							$this->db->update('laboratorios_grupo', $datos_laboratorios_grupoT); //Insertando en la tabla de laboratorios_grupo
+						}
+						$idHoraI++;
+					}
+					$idSemI++;
+				}
 
 			}
 			else{
 				$this->load->view('agregar_horario_v', $datos);
 			}
-			
-
 		} //Fin de index
-		
-	
 		
 		public function nombreInput_check($nombreInput){
 				if($nombreInput==''){

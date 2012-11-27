@@ -18,8 +18,6 @@
 	<script src="<?=base_url(); ?>statics/js/jquery.popupWindow.js"></script>
 	<script src="<?=base_url(); ?>statics/js/inicio_admin.js"></script>
 
-
-
 </head>
 
 <body>
@@ -50,7 +48,11 @@
 			
 			<ul class="tabs-content">
             	<li class="active" id="simple1Tab">
-	            	<table class="responsive contentHorario">
+            		<div class="row">
+						<input type="button" class="button vaciarHorario105Btn tiny alert offset-by-ten" value="Vaciar Horario 105"><br><br>
+
+					</div>
+            	   	<table class="responsive contentHorario">
 						<tr>
 							<th>Hora</th>
 							<th>Lunes</th>
@@ -65,11 +67,11 @@
 							foreach ($DataHorarios as $value) {
 								echo "<tr id='$value'>";
 									echo"<td class='hora'>$value</td>";
-									echo"<td id='l$indice'>$DataUL[$indice]</td>";
-									echo"<td id='ma$indice'>$DataUMa[$indice]</td>";
-									echo"<td id='mi$indice'>$DataUMi[$indice]</td>";
-									echo"<td id='j$indice'>$DataUJ[$indice]</td>";
-									echo"<td id='v$indice'>$DataUV[$indice]</td>";
+									echo"<td id='l$indice'>$DataUL105_1[$indice]</td>";
+									echo"<td id='ma$indice'>$DataUMa105_1[$indice]</td>";
+									echo"<td id='mi$indice'>$DataUMi105_1[$indice]</td>";
+									echo"<td id='j$indice'>$DataUJ105_1[$indice]</td>";
+									echo"<td id='v$indice'>$DataUV105_1[$indice]</td>";
 								echo "</tr>";
 								$indice++;
 							}
@@ -81,8 +83,32 @@
             	
             	<li id="simple2Tab">
 	            	
-					<h1>Tabla 106</h1>
-	
+            	   	<table class="responsive contentHorario">
+						<tr>
+							<th>Hora</th>
+							<th>Lunes</th>
+							<th>Martes</th>
+							<th>Miércoles</th>
+							<th>Jueves</th>
+							<th>Viernes</th>
+						</tr>
+		
+						<?php
+							$indice=1;
+							foreach ($DataHorarios as $value) {
+								echo "<tr id='$value'>";
+									echo"<td class='hora'>$value</td>";
+									echo"<td id='l$indice'>$DataUL106_1[$indice]</td>";
+									echo"<td id='ma$indice'>$DataUL106_1[$indice]</td>";
+									echo"<td id='mi$indice'>$DataUL106_1[$indice]</td>";
+									echo"<td id='j$indice'>$DataUL106_1[$indice]</td>";
+									echo"<td id='v$indice'>$DataUL106_1[$indice]</td>";
+								echo "</tr>";
+								$indice++;
+							}
+						?>
+		
+					</table> <!--TERMINA LA TABLA DE HORARIOS -->	
             	</li>
             	
             	<li id="simple3Tab">
