@@ -15,6 +15,8 @@
 		
 		function index()	{           //Cargamos vista
 			
+			$GrupoExiste=0;
+			
 			$DataDivision['datosDivision']=$this->Solicitar_laboratorio_m->ObtenListaDivisiones(); //Obteniendo mis datos
 	
 			if($DataDivision['datosDivision'] > 0){
@@ -42,15 +44,6 @@
 			
 			$DataSem=$this->Agregar_horario_m->obtenerSemana();
 			
-
-			$datos=Array(  //Enviando datos a la vista
-					'listaDivisiones' => $divisiones,
-					'listaLaboratorios' => $laboratorios,
-					'DataSem' => $DataSem,
-					'DataHorarios' => $DataHorarios['hora'],
-			);
-			
-			
 			/**Validación del formulario**/		
 				
 			$this->form_validation->set_rules('nombreInput', 'nombreInput', 'callback_nombreInput_check');
@@ -62,6 +55,13 @@
 			$this->form_validation->set_rules('checkboxes[]', 'checkboxes', 'required');
 			$this->form_validation->set_message('required','Debe seleccionar al menos un día');
 			
+			$datos=Array(  //Enviando datos a la vista
+					'listaDivisiones' => $divisiones,
+					'listaLaboratorios' => $laboratorios,
+					'DataSem' => $DataSem,
+					'DataHorarios' => $DataHorarios['hora'],
+					'GrupoExiste' => $GrupoExiste,
+			);
 		
 			if($this->form_validation->run()){
 
@@ -72,9 +72,10 @@
 				//INSERTANDO DATOS
 				
 				$numEmp=$this->Agregar_horario_m->obtenerIdProfesor($_POST['numInput']);
+				print_r($numEmp);
 				
 				if($numEmp==0){ //Si no existe el profesor en la base de datos, lo inserta
-					$datos_profresoresT=Array(
+					$datos_profesoresT=Array(
 						'nombre' => $_POST['nombreInput'],
 						'numempleado' => $_POST['numInput'],
 						'correo' => 'correo@correo.com',
@@ -82,7 +83,7 @@
 					
 					$this->db->insert('profesores', $datos_profesoresT); //Insertan en la tabla profesores
 					echo"No existía el profesor, así que insertaré en la base de datos <br>";
-					print_r($datos_profrT); 
+					print_r($datos_profesoresT); 
 				}
 
 				$idProf=$this->Agregar_horario_m->obtenerIdProfesor($_POST['numInput']); //Obteniendo id del profesor
@@ -112,19 +113,23 @@
 				$iduea=$this->Agregar_horario_m->obtenerIdUea($_POST['claveInput']);
 				echo "<br> el id de la uea es"; print_r($iduea);
 
-
-				$datos_grupoT=Array(         //Insertando el grupo
-						'grupo' => $_POST['grupoInput'],
-						'siglas' => $_POST['siglasInput'],
-						'uea_iduea' => $iduea,
-						'profesores_idprofesores' => $idProf,
-				);	
+				if(($idGrupo=$this->Agregar_horario_m->obtenerIdGrupo($_POST['grupoInput']))==0){
+	
+					$datos_grupoT=Array(         //Insertando el grupo
+							'grupo' => $_POST['grupoInput'],
+							'siglas' => $_POST['siglasInput'],
+							'uea_iduea' => $iduea,
+							'profesores_idprofesores' => $idProf,
+					);	
+						
+					echo"<br> Insertando grupo en BD::";
+					print_r($datos_grupoT);					
 					
-				echo"<br> Insertando grupo en BD::";
-				print_r($datos_grupoT);					
-				
-				$this->db->insert('grupo', $datos_grupoT); //Inserta en la tabla grupo
-																		
+					$this->db->insert('grupo', $datos_grupoT); //Inserta en la tabla grupo
+				}else{
+					$GrupoExiste=1;		
+				}
+																	
 				$idGrupo=$this->Agregar_horario_m->obtenerIdGrupo($_POST['grupoInput']);
 				echo "<br>idGrupo:::::";print_r($idGrupo);	
 				
@@ -246,8 +251,7 @@
 					}
 					$idSemI++;
 				}
-
-			}
+		}
 			else{
 				$this->load->view('agregar_horario_v', $datos);
 			}

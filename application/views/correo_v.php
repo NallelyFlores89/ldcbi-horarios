@@ -83,6 +83,16 @@
 					</div>
 					
 					<div class="row">
+						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Semana de inicio:</label>
+						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($semI); ?></label>
+					</div>
+
+					<div class="row">
+						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Semana Final:</label>
+						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($semF); ?></label>
+					</div>
+
+					<div class="row">
 						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Días:</label>
 						<label class="infCorreo seven columns" style="color:#000; font-size: 20px";><?php
 							foreach ($dias as $value) {
@@ -90,10 +100,15 @@
 							}
 						 ?></label>
 					</div>
-					
+
 					<div class="row">
 						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Recursos:</label>
 						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($recursos); ?></label>
+					</div>
+
+					<div class="row">
+						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Comentarios:</label>
+						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($comentarios); ?></label>
 					</div>
 				</div>
 			</div> <!--twelve colums-->

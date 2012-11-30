@@ -1,0 +1,4 @@
+SELECT nombreuea uea, nombregrupo grupo
+FROM uea, grupo
+WHERE grupo.uea_iduea=iduea 
+AND iduea=2;

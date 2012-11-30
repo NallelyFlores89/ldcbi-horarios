@@ -39,12 +39,15 @@
 			
 			 
 			$DataHorarios['hora']=$this->Solicitar_laboratorio_m->Obtenhorarios();
+			$DataSem=$this->Solicitar_laboratorio_m->obtenerSemana();
 
 			
 			$datos=Array(
 					'listaDivisiones' => $divisiones,
 					'listaLaboratorios' => $laboratorios,
-					'DataHorarios' => $DataHorarios['hora']
+					'DataHorarios' => $DataHorarios['hora'],
+					'DataSem' => $DataSem
+					
 
 			);
 
@@ -74,6 +77,9 @@
 					'hora_f' => $_POST['HoraFDropdown'],
 					'recursos' => $_POST['recursos'],
 					'dias' => $_POST['checkboxes'],
+					'semI' => $_POST['SemIDropdown'],
+					'semF' => $_POST['SemFDropdown'],
+ 					'comentarios' => $_POST['comentarios']
 				
 				);
 				

@@ -120,7 +120,7 @@
 							<div class="row">
 								<div class="twelve">
 									<div class="row>">
-						                <div class="four columns">
+						                <div class="six columns">
 							                <label for="HoraIDropdown">Hora de inicio</label>
 			
 										  	<select id="HoraIDropdown" name="HoraIDropdown">
@@ -136,7 +136,7 @@
 									</div>
 									
 									<div class="row">
-										<div class="four columns">
+										<div class="six columns">
 							                <label for="HoraFAltDropdown">Hora de Term</label>
 			
 										  	<select id="HoraFDropdown" name="HoraFDropdown">
@@ -150,6 +150,42 @@
 									  		</select>
 										</div>
 									</div>
+									
+									<div class="twelve">
+									<div class="row>">
+						                <div class="six columns">
+							                <label for="SemIDropdown">Semana de inicio</label>
+											
+										  	<select id="SemIDropdown" name="SemIDropdown">
+												<?php 
+													$add='SemI_';
+													foreach ($DataSem as $indice=>$valor) {
+														$id=$add.strtolower($indice);
+														echo "<option id=$id name=$id value=$indice>"; print_r($valor); echo "</option>";
+													
+													}
+											    ?>
+									  		</select>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="six columns">
+							                <label for="SemFDropdown">Semana Final</label>
+			
+										  	<select id="SemFDropdown" name="SemFDropdown">
+												<?php 
+													$horaVal=8.00;
+													$add='SemF_';
+													foreach ($DataSem as $indice=>$valor) {
+														$id=$add.strtolower($indice);
+														echo "<option id=$id name=$id value=$indice>"; print_r($valor); echo "</option>";
+													}
+											    ?>
+									  		</select>
+										</div>
+									</div>
+								</div><hr>
 								</div> <!--twelve -->	
 							</div>	<!--row-->			
 								
@@ -174,6 +210,12 @@
 							</div>
 					  		<?php echo form_error('checkboxes[]'); ?>
 
+						</div>
+						
+						<div class="row">
+							<label style="margin-top:20px;">Comentarios </label>
+							<textarea id="comentarios" name="comentarios" placeholder="Si desea, puede dejar un comentario adicional"></textarea>
+							
 						</div>
 						
 						<input type="submit" id="EnviarSolicitudBtn" class="button large offset-by-two" value="Enviar Solicitud" />

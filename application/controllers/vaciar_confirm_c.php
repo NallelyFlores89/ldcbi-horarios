@@ -19,15 +19,17 @@
 							$datos_laboratorios_grupoT= Array(
 								'idgrupo'=>NULL,
 							);
-							echo"Vaciando la tabla de horarios";
-							// $this->db->where('idlaboratorios',$id_lab);
-							// $this->db->where('semanas_idsemanas', $j);
-							// $this->db->where('dias_iddias', $k);
-							// $this->db->where('horarios_idhorarios', $i);
-							// $this->db->update('laboratorios_grupo', $datos_laboratorios_grupoT); //Insertando en la tabla de laboratorios_grupo
+							$this->db->where('idlaboratorios',105);
+							$this->db->where('semanas_idsemanas', $j);
+							$this->db->where('dias_iddias', $k);
+							$this->db->where('horarios_idhorarios', $i);
+							$this->db->update('laboratorios_grupo', $datos_laboratorios_grupoT); //Insertando en la tabla de laboratorios_grupo
 						}
 					}
 				}
+				
+				
+				echo"Vaciando la tabla de horarios";
 			}			
 			$this->load->view('vaciar_confirm_v');
 		}

@@ -106,14 +106,18 @@
 	  					<h5>CBI</h5>
 	  				    <ul class="disc">
 		  				    <?php  
-								foreach ($listaueasCBI['datosCBI'] as $valor) {
-									$cadena='('.$valor['siglas'].')';
-									echo "<li>";
-									print_r($valor['nombreuea']);
-									echo"<span class='siglasUEA'>";
-									print_r($cadena);
-									echo"</span>";
-									echo "</li>";									
+		  				    	if($listaueasCBI['datosCBI']==-1){
+		  				    		echo "<label class='noDatos'> No hay datos que cargar</label>";
+		  				    	}else{
+									foreach ($listaueasCBI['datosCBI'] as $valor) {
+										$cadena='('.$valor['siglas'].')';
+										echo "<li>";
+										print_r($valor['nombreuea']);
+										echo"<span class='siglasUEA'>";
+										print_r($cadena);
+										echo"</span>";
+										echo "</li>";									
+									}
 								}
 							?>
 	  				    </ul>
@@ -122,14 +126,19 @@
 	  					<h5>CBS</h5>
 	  				    <ul class="disc">
 		  				    <?php  
-								foreach ($listaueasCBS['datosCBS'] as $valor) {
-									$cadena='('.$valor['siglas'].')';
-									echo "<li>";
-									print_r($valor['nombreuea']);
-									echo"<span class='siglasUEA'>";
-									print_r($cadena);
-									echo"</span>";
-									echo "</li>";									
+		  				    	if($listaueasCBS['datosCBS']==-1){
+		  				    		echo "<label class='noDatos'> No hay datos que cargar</label>";
+		  				    		
+		  				    	}else{			    	
+									foreach ($listaueasCBS['datosCBS'] as $valor) {
+										$cadena='('.$valor['siglas'].')';
+										echo "<li>";
+										print_r($valor['nombreuea']);
+										echo"<span class='siglasUEA'>";
+										print_r($cadena);
+										echo"</span>";
+										echo "</li>";									
+									}
 								}
 							?>
 						</ul>
@@ -138,14 +147,18 @@
 	  					<h5>CSH</h5>
 	  				    <ul class="disc">
 		  				    <?php  
-								foreach ($listaueasCSH['datosCSH'] as $valor) {
-									$cadena='('.$valor['siglas'].')';
-									echo "<li>";
-									print_r($valor['nombreuea']);
-									echo"<span class='siglasUEA'>";
-									print_r($cadena);
-									echo"</span>";
-									echo "</li>";									
+		  				    	if($listaueasCSH['datosCSH']==-1){
+		  				    		echo "<label class='noDatos'> No hay datos que cargar</label>";
+								}else{
+									foreach ($listaueasCSH['datosCSH'] as $valor) {
+										$cadena='('.$valor['siglas'].')';
+										echo "<li>";
+										print_r($valor['nombreuea']);
+										echo"<span class='siglasUEA'>";
+										print_r($cadena);
+										echo"</span>";
+										echo "</li>";									
+									}
 								}
 							?>
 	  				    </ul>
@@ -162,15 +175,19 @@
 						<th>Profesor</th>
 						
 					</tr>
-						<?php  
-							foreach ($listaUPG['datosUPG'] as $valor) {
-								echo "<tr>";
-								echo"<td>";print_r($valor['nombreuea']); echo"</td>";
-								echo"<td>";print_r($valor['siglas']); echo"</td>";
-								echo"<td>";print_r($valor['grupo']); echo"</td>";
- 								echo"<td>";print_r($valor['nombre']); echo"</td>";
-								echo "</tr>";
-							 }								 
+						<?php
+							if($listaUPG['datosUPG']==-1){
+								echo "<label class='noDatos'> No hay datos que cargar</label>";
+							}else{
+								foreach ($listaUPG['datosUPG'] as $valor) {
+									echo "<tr>";
+									echo"<td>";print_r($valor['nombreuea']); echo"</td>";
+									echo"<td>";print_r($valor['siglas']); echo"</td>";
+									echo"<td>";print_r($valor['grupo']); echo"</td>";
+	 								echo"<td>";print_r($valor['nombre']); echo"</td>";
+									echo "</tr>";
+								 }
+							}								 
 						?>
 				</table> <!--TERMINA LA TABLA DE HORARIOS -->
 		

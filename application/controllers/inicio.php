@@ -7,25 +7,25 @@
 			parent::__construct();
 			
 			$this->load->helper(array('html', 'url'));
-			$this->load->model('Ueas_division_m'); //Cargando mi modelo
+			$this->load->model('Inicio_m'); //Cargando mi modelo
 		
 		}
 	
 		function index(){           //Cargamos vista
 			
-			$DataCBI['datosCBI']=$this->Ueas_division_m->obtenListaGruposCBI(); //Obteniendo mis datos
-			$DataCBS['datosCBS']=$this->Ueas_division_m->ObtenListaUeasCBS(); //Obteniendo mis datos
-			$DataCSH['datosCSH']=$this->Ueas_division_m->ObtenListaUeasCSH(); //Obteniendo mis datos
+			$DataCBI['datosCBI']=$this->Inicio_m->obtenListaGruposCBI(); //Obteniendo mis datos
+			$DataCBS['datosCBS']=$this->Inicio_m->ObtenListaUeasCBS(); //Obteniendo mis datos
+			$DataCSH['datosCSH']=$this->Inicio_m->ObtenListaUeasCSH(); //Obteniendo mis datos
 
-			$DataUPG['datosUPG']=$this->Ueas_division_m->obtenListaUeaProfesorGrupo();
+			$DataUPG['datosUPG']=$this->Inicio_m->obtenListaUeaProfesorGrupo();
 
-			$DataUL=$this->Ueas_division_m->ueas(105,1);
-			$DataUMa=$this->Ueas_division_m->ueas(105,2);
-			$DataUMi=$this->Ueas_division_m->ueas(105,3);
-			$DataUJ=$this->Ueas_division_m->ueas(105,4);
-			$DataUV=$this->Ueas_division_m->ueas(105,5);
+			$DataUL=$this->Inicio_m->ueas(105,1);
+			$DataUMa=$this->Inicio_m->ueas(105,2);
+			$DataUMi=$this->Inicio_m->ueas(105,3);
+			$DataUJ=$this->Inicio_m->ueas(105,4);
+			$DataUV=$this->Inicio_m->ueas(105,5);
 						
-			$DataHorarios['hora']=$this->Ueas_division_m->Obtenhorarios();
+			$DataHorarios['hora']=$this->Inicio_m->Obtenhorarios();
 
 			$datos=Array(
 					'listaueasCBI' => $DataCBI,
