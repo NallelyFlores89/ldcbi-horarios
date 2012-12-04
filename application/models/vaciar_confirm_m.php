@@ -8,7 +8,7 @@
 		
 		}
 			
-		function obtenerIdGrupo($lab, $sem, $dias, $horario){
+		function obtenerIdGrupo($lab, $sem, $dias, $horarios){
 			$this->db->select('idgrupo');
 			$this->db->from('laboratorios_grupo');
 			$this->db->where('idlaboratorios',$lab);
@@ -23,9 +23,10 @@
 				foreach ($idGrupo->result_array() as $value) {
 					$idGr[1] = $value['idgrupo'];
 				}
+
 				return ($idGr);
 			}else{
-				return 0;
+				return -1;
 			}//fin del else
 		
 		} //Fin de obtenerGrupo

@@ -13,39 +13,16 @@
 	
 		function Recursos()	{           //Cargamos vista
 
-			$DataRecursos105['datosRecursos']=$this->Recursos_m->obtenRecursos105(); //Obteniendo mis datos
-			
-			foreach ($DataRecursos105['datosRecursos'] as $indice => $valor) {
-				$Recursos105['recursos'][$indice]=$valor;		
-				
-			}
-
-			$DataRecursos106['datosRecursos']=$this->Recursos_m->obtenRecursos106(); //Obteniendo mis datos
-			
-			foreach ($DataRecursos106['datosRecursos'] as $indice => $valor) {
-				$Recursos106['recursos'][$indice]=$valor;		
-				
-			}			
-
-			$DataRecursos219['datosRecursos']=$this->Recursos_m->obtenRecursos219(); //Obteniendo mis datos
-			
-			foreach ($DataRecursos219['datosRecursos'] as $indice => $valor) {
-				$Recursos219['recursos'][$indice]=$valor;		
-				
-			}
-
-			$DataRecursos220['datosRecursos']=$this->Recursos_m->obtenRecursos220(); //Obteniendo mis datos
-			
-			foreach ($DataRecursos220['datosRecursos'] as $indice => $valor) {
-				$Recursos220['recursos'][$indice]=$valor;		
-				
-			}
+			$DataRecursos105=$this->Recursos_m->obtenRecursos(105); //Obteniendo mis datos
+			$DataRecursos106=$this->Recursos_m->obtenRecursos(106); //Obteniendo mis datos
+			$DataRecursos219=$this->Recursos_m->obtenRecursos(219); //Obteniendo mis datos
+			$DataRecursos220=$this->Recursos_m->obtenRecursos(220); //Obteniendo mis datos
 			
 			$RecursosLabos=Array(
-				'recursos105'=> $Recursos105,
-				'recursos106'=> $Recursos106,
-				'recursos219'=> $Recursos219,
-				'recursos220'=> $Recursos220
+				'recursos105'=> $DataRecursos105,
+				'recursos106'=> $DataRecursos106,
+				'recursos219'=> $DataRecursos219,
+				'recursos220'=> $DataRecursos220
 			);
 		
 			$this->load->view('recursos_v',$RecursosLabos);

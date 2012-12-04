@@ -13,6 +13,7 @@
 	<script src="<?=base_url(); ?>statics/js/jquery.popupWindow.js"></script>
   	<script src="<?=base_url(); ?>statics/js/recursos_admin.js"></script>
 
+  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/zurb.mega-drop.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
 	 	 	
@@ -36,69 +37,72 @@
 	            		<br>
 	            		<ul class="recursosAdmin">
 	            			<?php
-	            				// echo"<pre>";
-	            				// print_r($recursos105['recursos']);
-	            				// echo "</pre>";
 								
-								foreach ($recursos105['recursos'] as $indice => $valor) {
-									$add="-recurso105";
-									$id=$indice.$add;
-									echo"<div class='row'>";
-											echo "<li id=$id>";
-												echo"<div class='six columns'>";
-											 		print_r($valor); 
-												echo"</div>";
-													
-												echo"<div class='two columns'>";
-													echo " <a class='EliminarRecurso' href='#'>Eliminar</a>";
-												echo"</div>";
+								if($recursos105 != -1){
+		            				foreach ($recursos105 as $valor) {
+										$add="-recurso105";
+										$id=$valor['idrecursos'].$add;
+										$id_recurso=$valor['idrecursos'];
+										$id_lab = 105;
+										echo"<div class='row'>";
+												echo "<li id=$id>";
+													echo"<div class='six columns'>";
+												 		print_r($valor['recurso']); 
+													echo"</div>";
+														
+													echo"<div class='two columns'>";
+															echo "<a href='#' class='EliminarRecurso' onclick='ventanaElimina($id_recurso, $id_lab)'>Eliminar</a>";
+													echo"</div>";
 											
-												echo"<div class='two columns'>";
-													echo "<a class='EditarRecurso' href='#'>Editar</a>";
-												echo "</div>";
-											echo"</li>";
-									echo "</div>";
-									echo"<hr>";
+												
+													echo"<div class='two columns'>";
+														echo "<a class='EditarRecurso' href='#' onclick='ventanaEdita($id_recurso)'>Modificar</a>";
+													echo "</div>";
+												echo"</li>";
+										echo "</div>";
+										echo"<hr>";
+									}
+								}else{
+		  				    		echo "<label class='noDatos'> No hay datos que cargar</label>";
 								}	            			
 	            			?>
-	            			
 	            		</ul>
-	            		<br><br>
-						<a href="http://localhost/horarios/index.php/recursos_admin_c/agregar_recursos" class="normal button AgregarRecursos105Btn offset-by-one">Agregar recursos</a>
-						<a href="#" class="normal button VaciarRecursos105Btn offset-by-one">Vaciar recursos</a><br/><br/>
-	            		
-	            		
+	                        		
 	            	</li>
 				  	<li id="simple2Tab">
 	            		<br>
 	            		<ul class="recursosAdmin">
 							<?php
 								
-								foreach ($recursos106['recursos'] as $indice => $valor) {
-									$add="-recurso106";
-									$id=$indice.$add;
-									echo"<div class='row'>";
-											echo "<li id=$id>";
-												echo"<div class='six columns'>";
-											 		print_r($valor); 
-												echo"</div>";
-													
-												echo"<div class='two columns'>";
-													echo " <a class='EliminarRecurso' href='#'>Eliminar</a>";
-												echo"</div>";
-											
-												echo"<div class='two columns'>";
-													echo "<a class='EditarRecurso' href='#'>Editar</a>";
-												echo "</div>";
-											echo"</li>";
-									echo "</div>";
-									echo"<hr>";
+								if($recursos106 != -1){
+									
+									foreach ($recursos106 as $valor) {
+										$add="-recurso106";
+										$id=$valor['idrecursos'].$add;
+										$id_recurso=$valor['idrecursos'];
+										$id_lab = 106;
+										echo"<div class='row'>";
+												echo "<li id=$id>";
+													echo"<div class='six columns'>";
+												 		print_r($valor['recurso']); 
+													echo"</div>";
+														
+													echo"<div class='two columns'>";
+															echo "<a href='#' class='EliminarRecurso' onclick='ventanaElimina($id_recurso, $id_lab)'>Eliminar</a>";
+													echo"</div>";
+												
+													echo"<div class='two columns'>";
+														echo "<a class='EditarRecurso' href='#'>Modificar</a>";
+													echo "</div>";
+												echo"</li>";
+										echo "</div>";
+										echo"<hr>";
+									}
+								}else{
+									echo "<label class='noDatos'> No hay datos que cargar</label>";
 								}	            			
 	            			?>            			
 	            		</ul>
-	            		<br><br>
-						<a href="#" class="normal button AgregarRecursos106Btn offset-by-one">Agregar recursos</a>
-						<a href="#" class="normal button VaciarRecursos106Btn offset-by-one">Vaciar recursos</a><br/><br/>				  		
 				  	</li>
 				  	
 				  	<li id="simple3Tab">
@@ -106,65 +110,77 @@
 	            		<ul class="recursosAdmin">
 							<?php
 								
-								foreach ($recursos219['recursos'] as $indice => $valor) {
-									$add="-recurso219";
-									$id=$indice.$add;
-									echo"<div class='row'>";
-											echo "<li id=$id>";
-												echo"<div class='six columns'>";
-											 		print_r($valor); 
-												echo"</div>";
-													
-												echo"<div class='two columns'>";
-													echo " <a class='EliminarRecurso' href='#'>Eliminar</a>";
-												echo"</div>";
-											
-												echo"<div class='two columns'>";
-													echo "<a class='EditarRecurso' href='#'>Editar</a>";
-												echo "</div>";
-											echo"</li>";
-									echo "</div>";
-									echo"<hr>";
+								if($recursos219 != -1){
+								
+									foreach ($recursos219 as $valor) {
+										$add="-recurso219";
+										$id=$valor['idrecursos'].$add;
+										$id_recurso=$valor['idrecursos'];
+										$id_lab = 219;
+										echo"<div class='row'>";
+												echo "<li id=$id>";
+													echo"<div class='six columns'>";
+												 		print_r($valor['recurso']); 
+													echo"</div>";
+														
+													echo"<div class='two columns'>";
+														echo "<a href='#' class='EliminarRecurso' onclick='ventanaElimina($id_recurso, $id_lab)'>Eliminar</a>";
+													echo"</div>";
+												
+													echo"<div class='two columns'>";
+														echo "<a class='EditarRecurso' href='#'>Modificar</a>";
+													echo "</div>";
+												echo"</li>";
+										echo "</div>";
+										echo"<hr>";
+									}
+								}else{
+									echo "<label class='noDatos'> No hay datos que cargar</label>";
+									
 								}	            			
 	            			?> 	            			
 	            		</ul>
-	            		<br><br>
-						<a href="#" class="normal button AgregarRecursos219Btn offset-by-one">Agregar recursos</a>
-						<a href="#" class="normal button VaciarRecursos219Btn offset-by-one">Vaciar recursos</a><br/><br/>
 	             	</li>
 				  	
 				  	<li id="simple4Tab">
 	            		<br>
 	            		<ul class="recursosAdmin">
 							<?php
-							
-								foreach ($recursos220['recursos'] as $indice => $valor) {
-									$add="-recurso220";
-									$id=$indice.$add;
-									echo"<div class='row'>";
-											echo "<li id=$id>";
-												echo"<div class='six columns'>";
-											 		print_r($valor); 
-												echo"</div>";
-													
-												echo"<div class='two columns'>";
-													echo " <a class='EliminarRecurso' href='#'>Eliminar</a>";
-												echo"</div>";
-											
-												echo"<div class='two columns'>";
-													echo "<a class='EditarRecurso' href='#'>Editar</a>";
-												echo "</div>";
-											echo"</li>";
-									echo "</div>";
-									echo"<hr>";
+								if($recursos220 != -1){
+								
+									foreach ($recursos220 as $valor) {
+										$add="-recurso220";
+										$id=$valor['idrecursos'].$add;
+										$id_recurso=$valor['idrecursos'];
+										$id_lab = 220;
+										echo"<div class='row'>";
+												echo "<li id=$id>";
+													echo"<div class='six columns'>";
+												 		print_r($valor['recurso']); 
+													echo"</div>";
+														
+													echo"<div class='two columns'>";
+														echo "<a href='#' class='EliminarRecurso' onclick='ventanaElimina($id_recurso, $id_lab)'>Eliminar</a>";
+													echo"</div>";
+												
+													echo"<div class='two columns'>";
+														echo "<a class='EditarRecurso' href='#'>Modificar</a>";
+													echo "</div>";
+												echo"</li>";
+										echo "</div>";
+										echo"<hr>";
+									}
+								}else{
+									echo "<label class='noDatos'> No hay datos que cargar</label>";
 								}	            			
 	            			?> 	 	            			
 	            		</ul>
-	            		<br><br>
-						<a href="#" class="normal button AgregarRecursos220Btn offset-by-one">Agregar recursos</a>
-						<a href="#" class="normal button VaciarRecursos220Btn offset-by-one">Vaciar recursos</a><br/><br/>
 	            	</li>				  	
 				</ul>
+				
+				<br><br>
+				<a href="http://localhost/horarios/index.php/recursos_admin_c/agregar_recursos" class="normal button AgregarRecursosBtn offset-by-one">Agregar recursos</a>
+				<a href="http://localhost/horarios/index.php/recursos_admin_c/vaciar_recursos" class="normal button VaciarRecursosBtn offset-by-one">Vaciar recursos</a><br/><br/>
 			</div><!--twelve columns-->
 		</div> <!--row-->
 </body>

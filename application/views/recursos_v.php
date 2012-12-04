@@ -34,13 +34,13 @@
 	            		<br>
 	            		<ul>
 	            			<?php
-	            				// echo"<pre>";
-	            				// print_r($recursos105['recursos']);
-	            				// echo "</pre>";
-								
-								foreach ($recursos105['recursos'] as $indice => $valor) {
-									echo "<li>"; print_r($valor); echo "</li>";
-								}	            			
+								if($recursos105 != -1){
+									foreach ($recursos105 as $valor) {
+										echo "<li>"; print_r($valor['recurso']); echo "</li>";
+									}	
+								}else{
+									echo "<label class='noDatos'> No hay datos que cargar</label>";
+								}            			
 	            			?>
 	            			
 	            		</ul>
@@ -52,8 +52,12 @@
 	            		<br>
 	            		<ul>
 	            			<?php
-								foreach ($recursos106['recursos'] as $indice => $valor) {
-									echo "<li>"; print_r($valor); echo "</li>";
+		            			if($recursos106 != -1){
+		            				foreach ($recursos106 as $valor) {
+										echo "<li>"; print_r($valor['recurso']); echo "</li>";
+									}
+								}else{
+									echo "<label class='noDatos'> No hay datos que cargar</label>";
 								}	            			
 	            			?>	            			
 	            		</ul>				  		
@@ -63,9 +67,13 @@
 	            		<br>
 	            		<ul>
 	            			<?php
-								foreach ($recursos219['recursos'] as $indice => $valor) {
-									echo "<li>"; print_r($valor); echo "</li>";
-								}	            			
+			            		if($recursos219 != -1){
+									foreach ($recursos219 as $valor) {
+										echo "<li>"; print_r($valor['recurso']); echo "</li>";
+									}	        
+								}else{
+										echo "<label class='noDatos'> No hay datos que cargar</label>";
+								}    			
 	            			?>	            			
 	            		</ul>
 	             	</li>
@@ -74,8 +82,13 @@
 	            		<br>
 	            		<ul>
 	            			<?php
-								foreach ($recursos220['recursos'] as $indice => $valor) {
-									echo "<li>"; print_r($valor); echo "</li>";
+		            			if($recursos220 != -1){
+		            			
+									foreach ($recursos220['recursos'] as $indice => $valor) {
+										echo "<li>"; print_r($valor['recurso']); echo "</li>";
+									}
+								}else{
+									echo "<label class='noDatos'> No hay datos que cargar</label>";
 								}	            			
 	            			?>	 	            			
 	            		</ul>

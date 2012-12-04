@@ -65,14 +65,9 @@
 		
 			if($this->form_validation->run()){
 
-				echo "<pre>";
-					print_r($_POST);
-				echo "</pre>";
+				//INSERTANDO DATOS EN BD
 				
-				//INSERTANDO DATOS
-				
-				$numEmp=$this->Agregar_horario_m->obtenerIdProfesor($_POST['numInput']);
-				print_r($numEmp);
+				$numEmp=$this->Agregar_horario_m->obtenerIdProfesor($_POST['numInput']); //Profesor
 				
 				if($numEmp==0){ //Si no existe el profesor en la base de datos, lo inserta
 					$datos_profesoresT=Array(
@@ -82,12 +77,9 @@
 					);					
 					
 					$this->db->insert('profesores', $datos_profesoresT); //Insertan en la tabla profesores
-					echo"No existía el profesor, así que insertaré en la base de datos <br>";
-					print_r($datos_profesoresT); 
 				}
 
 				$idProf=$this->Agregar_horario_m->obtenerIdProfesor($_POST['numInput']); //Obteniendo id del profesor
-				echo "<br>El id del profesor es:"; print_r($idProf);
 				
 				if($_POST['laboratoriosDropdown']=='AT-105')
 					$id_lab=105;
@@ -106,15 +98,13 @@
 					);
 										
 					$this->db->insert('uea', $datos_ueaT); 
-					echo"<br>La uea no existía, así que la inserté en la BD::"; print_r($datos_ueaT); //Inserta en la tabla uea					
 					
 				};
 				
-				$iduea=$this->Agregar_horario_m->obtenerIdUea($_POST['claveInput']);
-				echo "<br> el id de la uea es"; print_r($iduea);
-
-				if(($idGrupo=$this->Agregar_horario_m->obtenerIdGrupo($_POST['grupoInput']))==0){
-	
+				$iduea=$this->Agregar_horario_m->obtenerIdUea($_POST['claveInput']); //id definitivo de UEA a manejar
+				
+				$idGrupo=$this->Agregar_horario_m->obtenerIdGrupo($_POST['grupoInput']);
+				if($idGrupo==0){
 					$datos_grupoT=Array(         //Insertando el grupo
 							'grupo' => $_POST['grupoInput'],
 							'siglas' => $_POST['siglasInput'],
@@ -122,16 +112,12 @@
 							'profesores_idprofesores' => $idProf,
 					);	
 						
-					echo"<br> Insertando grupo en BD::";
-					print_r($datos_grupoT);					
-					
 					$this->db->insert('grupo', $datos_grupoT); //Inserta en la tabla grupo
 				}else{
 					$GrupoExiste=1;		
 				}
 																	
-				$idGrupo=$this->Agregar_horario_m->obtenerIdGrupo($_POST['grupoInput']);
-				echo "<br>idGrupo:::::";print_r($idGrupo);	
+				$idGrupo=$this->Agregar_horario_m->obtenerIdGrupo($_POST['grupoInput']); //Id definitivo del grupo a manejar
 				
 				//OBTENIENDO ID DE HORARIO INICIAL
 				
@@ -219,28 +205,109 @@
 						break;																																								
 				}
 
+
+				switch ($_POST['HoraFDropdown']) {
+					case '8':
+						$horaF='08:00';
+						break;
+					case '8.5':
+						$horaF='08:30';
+						break;					
+					case '9':
+						$horaF='09:00';
+						break;
+					case '9.5':
+						$horaF='09:30';
+						break;
+					case '10':
+						$horaF='10:00';
+						break;
+					case '10.5':
+						$horaF='10:30';
+						break;						
+					case '11':
+						$horaF='11:00';
+						break;
+					case '11.5':
+						$horaF='11:30';
+						break;
+					case '12':
+						$horaF='12:00';
+						break;												
+					case '12.5':
+						$horaF='12:30';
+						break;
+					case '13':
+						$horaF='13:00';
+						break;
+					case '13.5':
+						$horaF='13:30';
+						break;
+					case '14':
+						$horaF='14:00';
+						break;
+					case '14.5':
+						$horaF='14:30';
+						break;
+					case '15':
+						$horaF='15:00';
+						break;
+					case '15.5':
+						$horaF='15:30';
+						break;
+					case '16':
+						$horaF='16:00';
+						break;
+					case '16.5':
+						$horaF='16:30';
+						break;
+					case '17':
+						$horaF='17:00';
+						break;																																																													
+					case '17.5':
+						$horaF='17:30';
+						break;
+					case '18':
+						$horaF='18:00';
+						break;
+					case '18.5':
+						$horaF='18:30';
+						break;
+					case '19':
+						$horaF='19:00';
+						break;
+					case '19.5':
+						$horaF='19:30';
+						break;
+					case '20':
+						$horaF='20:00';
+						break;
+					case '20.5':
+						$horaF='20:30';
+						break;		
+					case '21':
+						$horaF='21:00';
+						break;																																								
+				}
+
+
 				//OPERACIONES DE HORA
 				
 				$idHoraI=$this->Agregar_horario_m->obtenerIdHora($horaI);
-				$horas=($_POST['HoraFDropdown']-$_POST['HoraIDropdown'])*2;
-			
-				echo"<br>la uea inicia"; print_r($idHoraI);
-				echo "<br> Durará "; print_r($horas); echo " medias horas";	
-				
+				$idHoraF=$this->Agregar_horario_m->obtenerIdHora($horaF);
 				
 				//OPERACIONES SEMANA
 				
 				$idSemI=$_POST['SemIDropdown'];
-				$semanas=(($_POST['SemFDropdown']-$_POST['SemIDropdown']));
-				
-				for ($j=0; $j <=$semanas; $j++) { 
-					for ($i=0; $i <=$horas; $i++) { 
-						foreach ($_POST['checkboxes'] as $value) {
+				$idSemF=$_POST['SemFDropdown'];
+
+				//INSERTANDO EN LABORATORIO_GRUPO				
+				for ($j=$idSemI; $j <=$idSemF; $j++) { //Semanas 
+					for ($i=$idHoraI; $i <=$idHoraF; $i++) {  //horas
+						foreach ($_POST['checkboxes'] as $value) { //días
 							$datos_laboratorios_grupoT= Array(
 								'idgrupo'=>$idGrupo,
 							);
-							echo"Actualizando la tabla";
-							echo "<br>";print_r($datos_laboratorios_grupoT);
 							$this->db->where('idlaboratorios',$id_lab);
 							$this->db->where('semanas_idsemanas', $idSemI);
 							$this->db->where('dias_iddias', $value);
@@ -251,7 +318,13 @@
 					}
 					$idSemI++;
 				}
-		}
+				
+				echo "<script languaje='javascript' type='text/javascript'>
+					    window.opener.location.reload();
+					    alert('Horario agregado');
+						window.opener.location.reload();
+		                window.close();</script>";
+			}
 			else{
 				$this->load->view('agregar_horario_v', $datos);
 			}

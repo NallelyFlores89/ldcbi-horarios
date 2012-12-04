@@ -8,98 +8,107 @@
 		
 		}
 			
-		function obtenRecursos105(){
+		function obtenRecursos($idlab){
+			$this->db->select('idrecursos');
 			$this->db->select('recurso');
 			$this->db->from('recursos');
 			$this->db->join('laboratorios_has_recursos', 'recursos_idrecursos=idrecursos','left');
-			$this->db->where('laboratorios_idlaboratorios',105);
+			$this->db->where('laboratorios_idlaboratorios',$idlab);
 
-			$listaRecursos105=$this->db->get(); //Vacía el contenido de la consulta en la variable
+			$listaRecursos=$this->db->get(); //Vacía el contenido de la consulta en la variable
 			
-			if(($listaRecursos105->num_rows())>0){ //Verificando si tengo datos a cargar
+			if(($listaRecursos->num_rows())>0){ //Verificando si tengo datos a cargar
 				$indice=1;
 
-				foreach ($listaRecursos105->result_array() as $value) {
-					$arregloRecursos105[$indice] = $value['recurso']; //Guardando mis datos en un arreglo
+				foreach ($listaRecursos->result_array() as $value) {
+					$arregloRecursos[$indice] = $value; //Guardando mis datos en un arreglo
 					$indice=$indice+1;
 				 }
 			
-				return($arregloRecursos105);
+				return($arregloRecursos);
 			}else{
-				$mensaje_error="No hay datos que cargar";
-				return($mensaje_error);
+				return (-1);
 			}//fin del else
 			
-		} //Fin de obtenRecursos105
+		} //Fin de obtenRecursos
 		
-		function obtenRecursos106(){
-			$this->db->select('recurso');
-			$this->db->from('recursos');
-			$this->db->join('laboratorios_has_recursos', 'recursos_idrecursos=idrecursos','left');
-			$this->db->where('laboratorios_idlaboratorios',106);
+		function insertaRecurso($recurso){
+			$datos=Array(
+				'recurso' => $recurso,
+			);
+			$this->db->insert('recursos', $datos); //Insertando en base de datos
+		}
 
-			$listaRecursos106=$this->db->get(); //Vacía el contenido de la consulta en la variable
+		function obtenIdRecurso($recurso){
+			$this->db->select('idrecursos');
+			$this->db->from('recursos');
+			$this->db->where('recurso', $recurso);
 			
-			if(($listaRecursos106->num_rows())>0){ //Verificando si tengo datos a cargar
+			$idRecurso=$this->db->get();
+			if(($idRecurso->num_rows())>0){ //Verificando si tengo datos a cargar
 				$indice=1;
 
-				foreach ($listaRecursos106->result_array() as $value) {
-					$arregloRecursos106[$indice] = $value['recurso']; //Guardando mis datos en un arreglo
+				foreach ($idRecurso->result_array() as $value) {
+					$idRecursos[$indice] = $value['idrecursos']; //Guardando mis datos en un arreglo
 					$indice=$indice+1;
 				 }
 			
-				return($arregloRecursos106);
+				return($idRecursos);
 			}else{
-				$mensaje_error="No hay datos que cargar";
-				return($mensaje_error);
-			}//fin del else
-		} //Fin de ObtenRecursos106
+				return -1;
+			}//fin del else	
+		}
 		
-		function obtenRecursos219(){
-			$this->db->select('recurso');
-			$this->db->from('recursos');
-			$this->db->join('laboratorios_has_recursos', 'recursos_idrecursos=idrecursos','left');
-			$this->db->where('laboratorios_idlaboratorios',219);
-
-			$listaRecursos219=$this->db->get(); //Vacía el contenido de la consulta en la variable
+		function obtenLaboratorios_recursos($idlabo, $idrecurso){
+			$this->db->select('recursos_idrecursos', $idrecurso);
+			$this->db->from('laboratorios_has_recursos');
+			$this->db->where('laboratorios_idlaboratorios', $idlabo);
+			$this->db->where('recursos_idrecursos', $idrecurso);
 			
-			if(($listaRecursos219->num_rows())>0){ //Verificando si tengo datos a cargar
-				$indice=1;
-
-				foreach ($listaRecursos219->result_array() as $value) {
-					$arregloRecursos219[$indice] = $value['recurso']; //Guardando mis datos en un arreglo
-					$indice=$indice+1;
-				 }
-			
-				return($arregloRecursos219);
+			$idRecurso=$this->db->get();
+			if(($idRecurso->num_rows())>0){ //Verificando si tengo datos a cargar
+				return 1;
 			}else{
-				$mensaje_error="No hay datos que cargar";
-				return($mensaje_error);
-			}//fin del else
-		}//Fin de ObtenRecursos219		
-
-		function obtenRecursos220(){
-			$this->db->select('recurso');
-			$this->db->from('recursos');
-			$this->db->join('laboratorios_has_recursos', 'recursos_idrecursos=idrecursos','left');
-			$this->db->where('laboratorios_idlaboratorios',220);
-
-			$listaRecursos220=$this->db->get(); //Vacía el contenido de la consulta en la variable
+				return -1;
+			}//fin del else		
 			
-			if(($listaRecursos220->num_rows())>0){ //Verificando si tengo datos a cargar
-				$indice=1;
-
-				foreach ($listaRecursos220->result_array() as $value) {
-					$arregloRecursos220[$indice] = $value['recurso']; //Guardando mis datos en un arreglo
-					$indice=$indice+1;
-				 }
+		}
+		
+		function insertaLaboratorios_recursos($idlabo, $idrecurso){
+			$datos=Array(
+				'laboratorios_idlaboratorios' => $idlabo,
+				'recursos_idrecursos' => $idrecurso,
+			);
+			$this->db->insert('laboratorios_has_recursos', $datos); //Insertando en base de datos
+		
+		}
+		
+		function elimina_laboratorios_has_recursos($idrecurso, $idlab){
 			
-				return($arregloRecursos220);
-			}else{
-				$mensaje_error="No hay datos que cargar";
-				return($mensaje_error);
-			}//fin del else
-		}//Fin de ObtenRecursos219				
+			$datos=Array(
+				'laboratorios_idlaboratorios' => $idlab,
+				'recursos_idrecursos' =>$idrecurso
+			);
+			
+			$this->db->delete('laboratorios_has_recursos', $datos); 
+		}
+		
+		function edita_recurso($idrecurso, $recurso){
+			$datos= Array(
+				'recurso'=>$recurso,
+			);
+			$this->db->where('idrecursos',$idrecurso);
+			$this->db->update('recursos', $datos); 
+			
+		}
+		function vacia_recursos($idlab){
+			$datos= Array(
+				'laboratorios_idlaboratorios'=>$idlab,
+			);
+			$this->db->delete('laboratorios_has_recursos', $datos); 
+		}		
+		
+					
 	} //Fin de la clase
 ?>
 

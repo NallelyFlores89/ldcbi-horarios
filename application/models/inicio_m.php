@@ -114,27 +114,28 @@
 				$indice2=1;
 				
 				foreach ($ueaL->result_array() as $value) {
-					$uL[$indice]=$value['idgrupo'];
+					//$uL[$indice]=$value['idgrupo'];
 					
 					$this->db->select('siglas');
 					$this->db->from('grupo');
 					$this->db->where('idgrupo', $value['idgrupo']);
 					
-					$ueasLunes=$this->db->get();
+					$ueas=$this->db->get();
 					
-					if($ueasLunes->num_rows()>0){
-						foreach ($ueasLunes->result_array() as $value2) {
-							$nombreUeasL[$indice2]=$value2['siglas'];
+					if($ueas->num_rows()>0){
+						foreach ($ueas->result_array() as $value2) {
+							$nombreUeas[$indice2]=$value2['siglas'];
 						}
 					}
-					else
-						$nombreUeasL[$indice2]='';
+					else{
+						$nombreUeas[$indice2]='';
+					}
 					
-					$indice=$indice+1;
-					$indice2=$indice2+1;
+					$indice++;
+					$indice2++;
 				}
 
-				return ($nombreUeasL);
+				return ($nombreUeas);
 			 }else{
 			 	return 'No hay datos';
 			}//fin del else
@@ -153,7 +154,7 @@
 				$indice=1;
 				foreach ($lHorarios->result_array() as $value) {
 					$arregloHorarios[$indice] = $value['hora'];
-					$indice=$indice+1;
+					$indice++;
 				}
 				return ($arregloHorarios);
 			}else{

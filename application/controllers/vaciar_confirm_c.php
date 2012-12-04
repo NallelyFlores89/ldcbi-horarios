@@ -7,18 +7,31 @@
 			
 			$this->load->helper(array('html', 'url'));
 			$this->load->model('Solicitar_laboratorio_m'); //Cargando mi modelo
+			$this->load->model('Vaciar_confirm_m'); //Cargando mi modelo
+			
+			
 			
 		}
 		
 		function index(){           //Cargamos vista
 			
+			$indice=1;
 			if($_POST!=NULL){
-				for ($j=1; $j <=13; $j++) { 
-					for ($i=1; $i <=27; $i++) { 
-						for($k=1; $k<=5; $k++) {
+				$indice=1;
+				for ($j=1; $j <=13; $j++) { //semanas
+					for ($i=1; $i <=27; $i++) { //horas
+						for($k=1; $k<=5; $k++) { //dias
+							
 							$datos_laboratorios_grupoT= Array(
 								'idgrupo'=>NULL,
 							);
+							
+							$grupoB=$this->Vaciar_confirm_m->obtenerIdGrupo(105, $j, $k, $i);
+							if($grupoB!=-1 AND $grupoB[1]!=NULL){
+								$gruposB[$indice]=$grupoB[1];
+								$indice++;
+							}
+							
 							$this->db->where('idlaboratorios',105);
 							$this->db->where('semanas_idsemanas', $j);
 							$this->db->where('dias_iddias', $k);
@@ -27,9 +40,18 @@
 						}
 					}
 				}
+				echo"<br>Vaciando la tabla de horarios</br>";
+				echo "<br>Vaciando grupos </br>";
+				$gruposB2=array_unique($gruposB,SORT_REGULAR);
 				
+				foreach ($gruposB2 as $value) {
+					$this->db->delete('grupo', array('idgrupo' => $value)); 
+				}
 				
-				echo"Vaciando la tabla de horarios";
+				//Se recargará la página de horarios y se cerrará la confirmación de vaciar horarios
+				echo "<script languaje='javascript' type='text/javascript'>
+                        window.opener.location.reload();
+                    window.close();</script>";
 			}			
 			$this->load->view('vaciar_confirm_v');
 		}

@@ -8,7 +8,6 @@
 			
 			$this->load->helper(array('html', 'url'));
 			$this->load->model('Inicio_m'); //Cargando mi modelo
-			//$this->load->model('Admin_mantenimiento');
 			$this->check_isvalidated();
 			
 		

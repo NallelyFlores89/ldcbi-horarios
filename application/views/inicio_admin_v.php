@@ -29,7 +29,7 @@
 			<ul class="breadcrumbs">
 			  <li><a id="InicioAdminBtn" href="http://localhost/horarios/index.php/inicio_admin_c/inicio_admin">Inicio</a></li>
 			  <li><a id="AgregarHorarioBtn" class="AgregarHorarioBtn">Agregar Horario</a></li>
-			  <li><a id="IrRecursosAdminBtn" href="http://localhost/horarios/index.php/recursos_admin_c/recursos">Recursos</a></li>
+			  <li><a id="IrRecursosAdminBtn" href="http://localhost/horarios/index.php/recursos_admin_c">Recursos</a></li>
 			  <li><a href="#">Administración</a></li>
 			  <li><a href="#">Salir</a></li>
 			</ul>
