@@ -100,10 +100,11 @@
 		} //fin obtenListaUeaProfesorGrupo
 
 		
-		function ueas($labo,$dia){
+		function ueas($labo,$sem, $dia){
 			$this->db->select('idgrupo');
 			$this->db->from('laboratorios_grupo');
-			$this->db->where('idlaboratorios',$labo);			
+			$this->db->where('idlaboratorios',$labo);
+			$this->db->where('semanas_idsemanas', $sem);			
 			$this->db->where('dias_iddias',$dia);			
 			$this->db->order_by('horarios_idhorarios', "asc"); 
 			

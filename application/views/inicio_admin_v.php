@@ -16,6 +16,7 @@
 	<script src="<?=base_url(); ?>statics/responsiveTable/responsive-tables.js"></script>
    	<script src="<?=base_url(); ?>statics/foundation/javascripts/marketing_docs.js"></script>
 	<script src="<?=base_url(); ?>statics/js/jquery.popupWindow.js"></script>
+    <script type="text/javascript">var base='<?= base_url(); ?>' </script> 
 	<script src="<?=base_url(); ?>statics/js/inicio_admin.js"></script>
 
 </head>
@@ -27,17 +28,16 @@
 		<div class="row">
 			<div class="twelve columns">
 			<ul class="breadcrumbs">
-			  <li><a id="InicioAdminBtn" href="http://localhost/horarios/index.php/inicio_admin_c/inicio_admin">Inicio</a></li>
+			  <li><a id="InicioAdminBtn" href="<?=base_url()?>index.php/inicio_admin_c/">Inicio</a></li>
 			  <li><a id="AgregarHorarioBtn" class="AgregarHorarioBtn">Agregar Horario</a></li>
-			  <li><a id="IrRecursosAdminBtn" href="http://localhost/horarios/index.php/recursos_admin_c">Recursos</a></li>
+			  <li><a id="vaciarHorariosBtn" class="vaciarHorariosBtn">Vaciar Horarios</a></li>
+			  <li><a id="IrRecursosAdminBtn" href="<?=base_url()?>index.php/recursos_admin_c">Recursos</a></li>
 			  <li><a href="#">Administración</a></li>
 			  <li><a href="#">Salir</a></li>
 			</ul>
 
 			<h1>Laboratorios de docencia CBI</h1>
 			<h2>Horarios</h2><br><br>
-			
-<!-- 			<input type="button" class="button AgregarHorarioBtn" value="Agregar Horario"> -->
 			<br><br>
 			
 			<dl class="tabs four-up">
@@ -48,228 +48,428 @@
 			</dl>
 			
 			<ul class="tabs-content">
-            	<li class="active" id="simple1Tab">
-            		<div class="row">
-						<input type="button" class="button vaciarHorario105Btn tiny alert offset-by-ten" value="Vaciar Horario 105"><br><br>
-					</div>
-					<h3>AT-105</h3>
-            	   	<table class="responsive contentHorario">
-						<tr>
-							<th>Hora</th>
-							<th>Lunes</th>
-							<th>Martes</th>
-							<th>Miércoles</th>
-							<th>Jueves</th>
-							<th>Viernes</th>
-						</tr>
-		
-						<?php
-							$indice=1;
-							foreach ($DataHorarios as $value) {
-								echo "<tr id='$value'>";
-									echo"<td class='hora'>$value</td>";
-									echo"<td id='l$indice'>$DataUL105_1[$indice]</td>";
-									echo"<td id='ma$indice'>$DataUMa105_1[$indice]</td>";
-									echo"<td id='mi$indice'>$DataUMi105_1[$indice]</td>";
-									echo"<td id='j$indice'>$DataUJ105_1[$indice]</td>";
-									echo"<td id='v$indice'>$DataUV105_1[$indice]</td>";
-								echo "</tr>";
-								$indice++;
-							}
-						?>
-		
-					</table> <!--TERMINA LA TABLA DE HORARIOS -->
-	
-            	</li>
             	
-            	<li id="simple2Tab">
+            	<li class="active" id="simple1Tab"> <!--TAB1-->
+					<h3>AT-105</h3>
+
+					<div class="row">
+						<dl class="tabs pill">
+							<?php
+								for ($i=1; $i <=13 ; $i++) {?> 
+									  <?php if($i==1){ ?>
+									  	<dd class="active"><a href="#pill<?= $i ?>"><?= $i ?></a></dd>
+									  <?php }else{ ?>
+									  	<dd><a href="#pill<?= $i ?>"><?= $i ?></a></dd>
+							<?php }} ?>
+						</dl>
+					</div>
+					
+					<ul class="tabs-content">
+						
+						<?php 
+							for($i=1; $i<=13; $i++){ 
+							if($i==1){	
+						?>								
+									<li class="active" id="pill<?= $i ?>Tab">
+					            	   	<table class="responsive contentHorario">
+											<tr>
+												<th>Hora<?=$i?></th>
+												<th>Lunes</th>
+												<th>Martes</th>
+												<th>Miércoles</th>
+												<th>Jueves</th>
+												<th>Viernes</th>
+											</tr>
+							
+											<?php
+												foreach ($DataHorarios as $indice=>$value) {
+													echo "<tr id='$value'>";
+														echo"<td class='hora'>$value</td>";
+														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_1'][$indice]);echo "</td>";
+														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_2'][$indice]);echo "</td>";
+														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_3'][$indice]);echo "</td>";
+														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_4'][$indice]);echo "</td>";																						
+														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_5'][$indice]);echo "</td>";
+													echo "</tr>";
+												}
+											?>
+							
+										</table> <!--TERMINA LA TABLA DE HORARIOS -->
+									</li> <!--pill1-->	
+							<?php }else{?>
+									
+								<li class="" id="pill<?= $i ?>Tab">
+				            	   	<table class="responsive contentHorario">
+										<tr>
+											<th>Hora<?=$i?></th>
+											<th>Lunes</th>
+											<th>Martes</th>
+											<th>Miércoles</th>
+											<th>Jueves</th>
+											<th>Viernes</th>
+										</tr>
+						
+										<?php
+											foreach ($DataHorarios as $indice=>$value) {
+												echo "<tr id='$value'>";
+													echo"<td class='hora'>$value</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_1'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_2'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_3'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_4'][$indice]);echo "</td>";																						
+													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_5'][$indice]);echo "</td>";
+												echo "</tr>";
+											}
+										?>
+						
+									</table> <!--TERMINA LA TABLA DE HORARIOS -->
+								</li> <!--pill1-->	
+							<?php }} ?>
+					</ul>
+     			</li> <!--simple1Tab-->
+            	
+            	<li id="simple2Tab"> <!--TAB2-->
 					<h3>AT-106</h3>
 	            	
-            	   	<table class="responsive contentHorario">
-						<tr>
-							<th>Hora</th>
-							<th>Lunes</th>
-							<th>Martes</th>
-							<th>Miércoles</th>
-							<th>Jueves</th>
-							<th>Viernes</th>
-						</tr>
-		
-						<?php
-							$indice=1;
-							foreach ($DataHorarios as $value) {
-								echo "<tr id='$value'>";
-									echo"<td class='hora'>$value</td>";
-									echo"<td id='l$indice'>$DataUL106_1[$indice]</td>";
-									echo"<td id='ma$indice'>$DataUMa106_1[$indice]</td>";
-									echo"<td id='mi$indice'>$DataUMi106_1[$indice]</td>";
-									echo"<td id='j$indice'>$DataUJ106_1[$indice]</td>";
-									echo"<td id='v$indice'>$DataUV106_1[$indice]</td>";
-								echo "</tr>";
-								$indice++;
-							}
+					<div class="row">
+						<dl class="tabs pill">
+							<?php
+								for ($i=1; $i <=13 ; $i++) {?> 
+									  <?php if($i==1){ ?>
+									  	<dd class="active"><a href="#pill106<?= $i ?>"><?= $i ?></a></dd>
+									  <?php }else{ ?>
+									  	<dd><a href="#pill106<?= $i ?>"><?= $i ?></a></dd>
+							<?php }} ?>
+						</dl>
+					</div>
+					
+					<ul class="tabs-content">
+						
+						<?php 
+							for($i=1; $i<=13; $i++){
+								
+								if($i==1){
 						?>
-		
-					</table> <!--TERMINA LA TABLA DE HORARIOS -->	
-            	</li>
+								<li class="active" id="pill106<?= $i ?>Tab">
+				            	   	<table class="responsive contentHorario">
+										<tr>
+											<th>Hora<?= $i ?></th>
+											<th>Lunes</th>
+											<th>Martes</th>
+											<th>Miércoles</th>
+											<th>Jueves</th>
+											<th>Viernes</th>
+										</tr>
+						
+										<?php
+											foreach ($DataHorarios as $indice=>$value) {
+												echo "<tr id='$value'>";
+													echo"<td class='hora'>$value</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_1'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_2'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_3'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_4'][$indice]);echo "</td>";																						
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_5'][$indice]);echo "</td>";
+												echo "</tr>";
+											}
+										?>
+						
+									</table> <!--TERMINA LA TABLA DE HORARIOS -->
+								</li> <!--pill1-->	
+							<?php }else{ ?>
+								<li class="" id="pill106<?= $i ?>Tab">
+				            	   	<table class="responsive contentHorario">
+										<tr>
+											<th>Hora<?= $i ?></th>
+											<th>Lunes</th>
+											<th>Martes</th>
+											<th>Miércoles</th>
+											<th>Jueves</th>
+											<th>Viernes</th>
+										</tr>
+						
+										<?php
+											foreach ($DataHorarios as $indice=>$value) {
+												echo "<tr id='$value'>";
+													echo"<td class='hora'>$value</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_1'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_2'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_3'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_4'][$indice]);echo "</td>";																						
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_5'][$indice]);echo "</td>";
+												echo "</tr>";
+											}
+										?>
+						
+									</table> <!--TERMINA LA TABLA DE HORARIOS -->
+								</li> <!--pill1-->								
+								
+							<?php }} 
+						?>
+					</ul> <!--pill-->
+ 		       	</li> <!--simple2Tab-->
             	
-            	<li id="simple3Tab">
+            	<li id="simple3Tab"> <!--TAB3-->
 	            	
 					<h3>AT-219</h3>
+					<div class="row">
+						<dl class="tabs pill">
+							<?php
+								for ($i=1; $i <=13 ; $i++) {?> 
+									  <?php if($i==1){ ?>
+									  	<dd class="active"><a href="#pill219<?= $i ?>"><?= $i ?></a></dd>
+									  <?php }else{ ?>
+									  	<dd><a href="#pill219<?= $i ?>"><?= $i ?></a></dd>
+							<?php }} ?>
+						</dl>
+					</div>
 					
-					<table class="responsive contentHorario">
-						<tr>
-							<th>Hora</th>
-							<th>Lunes</th>
-							<th>Martes</th>
-							<th>Miércoles</th>
-							<th>Jueves</th>
-							<th>Viernes</th>
-						</tr>
-		
-						<?php
-							$indice=1;
-							foreach ($DataHorarios as $value) {
-								echo "<tr id='$value'>";
-									echo"<td class='hora'>$value</td>";
-									echo"<td id='l$indice'>$DataUL219_1[$indice]</td>";
-									echo"<td id='ma$indice'>$DataUMa219_1[$indice]</td>";
-									echo"<td id='mi$indice'>$DataUMi219_1[$indice]</td>";
-									echo"<td id='j$indice'>$DataUJ219_1[$indice]</td>";
-									echo"<td id='v$indice'>$DataUV219_1[$indice]</td>";
-								echo "</tr>";
-								$indice++;
-							}
+					<ul class="tabs-content">
+						
+						<?php 
+							for($i=1; $i<=13; $i++){
+								
+								if($i==1){
+								
 						?>
-		
-					</table> <!--TERMINA LA TABLA DE HORARIOS -->
-	
-            	</li>
+									<li class="active" id="pill219<?= $i ?>Tab">
+				            	   	<table class="responsive contentHorario">
+										<tr>
+											<th>Hora</th>
+											<th>Lunes</th>
+											<th>Martes</th>
+											<th>Miércoles</th>
+											<th>Jueves</th>
+											<th>Viernes</th>
+										</tr>
+						
+										<?php
+											$indice=1;
+											foreach ($DataHorarios as $indice=>$value) {
+												echo "<tr id='$value'>";
+													echo"<td class='hora'>$value</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_1'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_2'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_3'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_4'][$indice]);echo "</td>";																						
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_5'][$indice]);echo "</td>";
+												echo "</tr>";
+											}
+										?>
+						
+									</table> <!--TERMINA LA TABLA DE HORARIOS -->
+								</li> <!--pill1-->
+						
+							<?php }else{ ?>	
+									<li class="" id="pill219<?= $i ?>Tab">
+				            	   	<table class="responsive contentHorario">
+										<tr>
+											<th>Hora</th>
+											<th>Lunes</th>
+											<th>Martes</th>
+											<th>Miércoles</th>
+											<th>Jueves</th>
+											<th>Viernes</th>
+										</tr>
+						
+										<?php
+											$indice=1;
+											foreach ($DataHorarios as $indice=>$value) {
+												echo "<tr id='$value'>";
+													echo"<td class='hora'>$value</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_1'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_2'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_3'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_4'][$indice]);echo "</td>";																						
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_5'][$indice]);echo "</td>";
+												echo "</tr>";
+											}
+										?>
+						
+									</table> <!--TERMINA LA TABLA DE HORARIOS -->
+								</li> <!--pill1-->								
+								
+							<?php }} ?>
+					</ul> <!--pill-->					
+	          	</li> <!--simple3Tab-->
 
-            	<li id="simple4Tab">
+            	<li id="simple4Tab"> <!--TAB4-->
 	            	
 					<h3>AT-220</h3>
+					<div class="row">
+						<dl class="tabs pill">
+							<?php
+								for ($i=1; $i <=13 ; $i++) {?> 
+									  <?php if($i==1){ ?>
+									  	<dd class="active"><a href="#pill220<?= $i ?>"><?= $i ?></a></dd>
+									  <?php }else{ ?>
+									  	<dd><a href="#pill220<?= $i ?>"><?= $i ?></a></dd>
+							<?php }} ?>
+						</dl>
+					</div>
 					
-					<table class="responsive contentHorario">
-						<tr>
-							<th>Hora</th>
-							<th>Lunes</th>
-							<th>Martes</th>
-							<th>Miércoles</th>
-							<th>Jueves</th>
-							<th>Viernes</th>
-						</tr>
-		
-						<?php
-							$indice=1;
-							foreach ($DataHorarios as $value) {
-								echo "<tr id='$value'>";
-									echo"<td class='hora'>$value</td>";
-									echo"<td id='l$indice'>$DataUL220_1[$indice]</td>";
-									echo"<td id='ma$indice'>$DataUMa220_1[$indice]</td>";
-									echo"<td id='mi$indice'>$DataUMi220_1[$indice]</td>";
-									echo"<td id='j$indice'>$DataUJ220_1[$indice]</td>";
-									echo"<td id='v$indice'>$DataUV220_1[$indice]</td>";
-								echo "</tr>";
-								$indice++;
-							}
+					<ul class="tabs-content">
+						
+						<?php 
+							for($i=1; $i<=13; $i++){ 
+								if($i==1){	
+								
 						?>
-		
-					</table> <!--TERMINA LA TABLA DE HORARIOS -->	
+								<li class="active" id="pill220<?= $i ?>Tab">
+				            	   	<table class="responsive contentHorario">
+										<tr>
+											<th>Hora</th>
+											<th>Lunes</th>
+											<th>Martes</th>
+											<th>Miércoles</th>
+											<th>Jueves</th>
+											<th>Viernes</th>
+										</tr>
+						
+										<?php
+											foreach ($DataHorarios as $indice=>$value) {
+												echo "<tr id='$value'>";
+													echo"<td class='hora'>$value</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_1'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_2'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_3'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_4'][$indice]);echo "</td>";																						
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_5'][$indice]);echo "</td>";
+												echo "</tr>";
+											}
+										?>
+						
+									</table> <!--TERMINA LA TABLA DE HORARIOS -->
+								</li> <!--pill1-->	
+						<?php }else {?>				
+								<li class="" id="pill220<?= $i ?>Tab">
+				            	   	<table class="responsive contentHorario">
+										<tr>
+											<th>Hora</th>
+											<th>Lunes</th>
+											<th>Martes</th>
+											<th>Miércoles</th>
+											<th>Jueves</th>
+											<th>Viernes</th>
+										</tr>
+						
+										<?php
+											foreach ($DataHorarios as $indice=>$value) {
+												echo "<tr id='$value'>";
+													echo"<td class='hora'>$value</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_1'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_2'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_3'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_4'][$indice]);echo "</td>";																						
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_5'][$indice]);echo "</td>";
+												echo "</tr>";
+											}
+										?>
+						
+									</table> <!--TERMINA LA TABLA DE HORARIOS -->
+								</li> <!--pill1-->						
+								
+								
+							<?php }}
+						?>
+					</ul> <!--pill-->					
+	
             	</li>	            		            	
-	         </ul>	
+	    	</ul>	<!--tabs content-->
 		
 			<hr>
-  				
-  				<div id="listaUEA" class="row"> <!--Aquí comienza lista de UEA's-->
-					
-					<div id="CBI-UEA" class="four columns">
-	  					<h5>CBI</h5>
-	  				    <ul class="disc">
-		  				    <?php  
-		  				    	if($listaueasCBI['datosCBI']==-1){
-		  				    		echo "<label class='noDatos'> No hay datos que cargar</label>";
-		  				    	}else{
-									foreach ($listaueasCBI['datosCBI'] as $valor) {
-										$cadena='('.$valor['siglas'].')';
-										echo "<li>";
-										print_r($valor['nombreuea']);
-										echo"<span class='siglasUEA'>";
-										print_r($cadena);
-										echo"</span>";
-										echo "</li>";									
-									}
+		
+		<!--Aquí comienza lista de UEA's--> 				
+
+			<div id="listaUEA" class="row"> 
+				
+				<div id="CBI-UEA" class="four columns">
+  					<h5>CBI</h5>
+  				    <ul class="disc">
+	  				    <?php  
+	  				    	if($listaueasCBI['datosCBI']==-1){
+	  				    		echo "<label class='noDatos'> No hay datos que cargar</label>";
+	  				    	}else{
+								foreach ($listaueasCBI['datosCBI'] as $valor) {
+									$cadena='('.$valor['siglas'].')';
+									echo "<li>";
+									print_r($valor['nombreuea']);
+									echo"<span class='siglasUEA'>";
+									print_r($cadena);
+									echo"</span>";
+									echo "</li>";									
 								}
-							?>
-	  				    </ul>
-	  				</div>
-	  				<div id="CBS-UEA" class="four columns">
-	  					<h5>CBS</h5>
-	  				    <ul class="disc">
-		  				    <?php 
-		  				    	if($listaueasCBS['datosCBS']==-1){
-		  				    		echo "<label class='noDatos'> No hay datos que cargar</label>";
-		  				    	}else{
-									foreach ($listaueasCBS['datosCBS'] as $valor) {
-										$cadena='('.$valor['siglas'].')';
-										echo "<li>";
-										print_r($valor['nombreuea']);
-										echo"<span class='siglasUEA'>";
-										print_r($cadena);
-										echo"</span>";
-										echo "</li>";									
-									}
-								}
-							?>
-	  				    </ul>
-	  				  </div>
-	  				  <div id="CSH-UEA" class="four columns">
-	  					<h5>CSH</h5>
-	  				    <ul class="disc">
-		  				    <?php  
-		  				    	if($listaueasCSH['datosCSH']==-1){
-		  				    		echo "<label class='noDatos'> No hay datos que cargar</label>";
-		  				    	}else{
-									foreach ($listaueasCSH['datosCSH'] as $valor) {
-										$cadena='('.$valor['siglas'].')';
-										echo "<li>";
-										print_r($valor['nombreuea']);
-										echo"<span class='siglasUEA'>";
-										print_r($cadena);
-										echo"</span>";
-										echo "</li>";									
-									}
-								}
-							?>
-	  				    </ul>
-	  				  </div>
- 				</div><!--Termina lista UEA's-->
- 				<hr>
- 				
- 				<h3 id="ueas-profesores-h3">UEA's-Profesores</h3>
-				<table class="responsive contentHorario">
-					<tr>
-						<th>UEA</th>
-						<th>Siglas</th>
-						<th>Grupo</th>
-						<th>Profesor</th>
-						
-					</tr>
-						<?php  
-							if($listaUPG['datosUPG']==-1){
-								echo "<label class='noDatos'> No hay datos que cargar</label>";
-							}else{
-								foreach ($listaUPG['datosUPG'] as $valor) {
-									echo "<tr>";
-									echo"<td>";print_r($valor['nombreuea']); echo"</td>";
-									echo"<td>";print_r($valor['siglas']); echo"</td>";
-									echo"<td>";print_r($valor['grupo']); echo"</td>";
-	 								echo"<td>";print_r($valor['nombre']); echo"</td>";
-									echo "</tr>";
-								 }
-							}								 
+							}
 						?>
-				</table> <!--TERMINA LA TABLA DE HORARIOS -->
+  				    </ul>
+  				</div>
+  				<div id="CBS-UEA" class="four columns">
+  					<h5>CBS</h5>
+  				    <ul class="disc">
+	  				    <?php 
+	  				    	if($listaueasCBS['datosCBS']==-1){
+	  				    		echo "<label class='noDatos'> No hay datos que cargar</label>";
+	  				    	}else{
+								foreach ($listaueasCBS['datosCBS'] as $valor) {
+									$cadena='('.$valor['siglas'].')';
+									echo "<li>";
+									print_r($valor['nombreuea']);
+									echo"<span class='siglasUEA'>";
+									print_r($cadena);
+									echo"</span>";
+									echo "</li>";									
+								}
+							}
+						?>
+  				    </ul>
+  				  </div>
+  				  <div id="CSH-UEA" class="four columns">
+  					<h5>CSH</h5>
+  				    <ul class="disc">
+	  				    <?php  
+	  				    	if($listaueasCSH['datosCSH']==-1){
+	  				    		echo "<label class='noDatos'> No hay datos que cargar</label>";
+	  				    	}else{
+								foreach ($listaueasCSH['datosCSH'] as $valor) {
+									$cadena='('.$valor['siglas'].')';
+									echo "<li>";
+									print_r($valor['nombreuea']);
+									echo"<span class='siglasUEA'>";
+									print_r($cadena);
+									echo"</span>";
+									echo "</li>";									
+								}
+							}
+						?>
+  				    </ul>
+  				  </div>
+			</div><!--Termina lista UEA's-->
+			<hr>
+			
+			<h3 id="ueas-profesores-h3">UEA's-Profesores</h3>
+			<table class="responsive contentHorario">
+				<tr>
+					<th>UEA</th>
+					<th>Siglas</th>
+					<th>Grupo</th>
+					<th>Profesor</th>
+					
+				</tr>
+					<?php  
+						if($listaUPG['datosUPG']==-1){
+							echo "<label class='noDatos'> No hay datos que cargar</label>";
+						}else{
+							foreach ($listaUPG['datosUPG'] as $valor) {
+								echo "<tr>";
+								echo"<td>";print_r($valor['nombreuea']); echo"</td>";
+								echo"<td>";print_r($valor['siglas']); echo"</td>";
+								echo"<td>";print_r($valor['grupo']); echo"</td>";
+ 								echo"<td>";print_r($valor['nombre']); echo"</td>";
+								echo "</tr>";
+							 }
+						}								 
+					?>
+			</table> <!--TERMINA LA TABLA DE HORARIOS -->
 			</div><!--twelve columns-->
 		</div> <!--row-->
  	</div> <!--container-->

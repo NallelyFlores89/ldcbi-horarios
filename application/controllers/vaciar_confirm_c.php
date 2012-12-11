@@ -8,54 +8,68 @@
 			$this->load->helper(array('html', 'url'));
 			$this->load->model('Solicitar_laboratorio_m'); //Cargando mi modelo
 			$this->load->model('Vaciar_confirm_m'); //Cargando mi modelo
-			
+			$this->load->library('form_validation');
+			$this->form_validation->set_error_delimiters('<div class="error">', '</div>'); 
 			
 			
 		}
 		
 		function index(){           //Cargamos vista
 			
-			$indice=1;
-			if($_POST!=NULL){
+			$this->form_validation->set_rules('checkboxes2[]', 'checkboxes2', 'required');
+			$this->form_validation->set_message('required','Escoja al menos un laboratorio');
+			
+			if($this->form_validation->run()){
 				$indice=1;
-				for ($j=1; $j <=13; $j++) { //semanas
-					for ($i=1; $i <=27; $i++) { //horas
-						for($k=1; $k<=5; $k++) { //dias
-							
-							$datos_laboratorios_grupoT= Array(
-								'idgrupo'=>NULL,
-							);
-							
-							$grupoB=$this->Vaciar_confirm_m->obtenerIdGrupo(105, $j, $k, $i);
-							if($grupoB!=-1 AND $grupoB[1]!=NULL){
-								$gruposB[$indice]=$grupoB[1];
-								$indice++;
-							}
-							
-							$this->db->where('idlaboratorios',105);
-							$this->db->where('semanas_idsemanas', $j);
-							$this->db->where('dias_iddias', $k);
-							$this->db->where('horarios_idhorarios', $i);
-							$this->db->update('laboratorios_grupo', $datos_laboratorios_grupoT); //Insertando en la tabla de laboratorios_grupo
+				foreach ($_POST['checkboxes2'] as $idlaboratorio) { //laboratorios
+					$idsgrupo[$indice]=$this->Vaciar_confirm_m->obtenerIdGrupo($idlaboratorio); //Obteniendo ids de los grupos a eliminar
+					$this->Vaciar_confirm_m->vaciarLaboratorio($idlaboratorio); //Vaciando tabla del laboratorio $idlaboratorio								
+					$indice++;
+				}					
+				
+				foreach ($idsgrupo as $value) {
+					if($value==-1){
+						echo "<br>horario vacío, nada por eliminar";
+					}else{
+						$gr = array_unique($value, SORT_REGULAR);
+						echo "<br> grupos a eliminar";print_r($gr);
+						foreach ($gr as $valor2) {
+							$this->db->delete('grupo', array('idgrupo' => $valor2));
 						}
 					}
 				}
-				echo"<br>Vaciando la tabla de horarios</br>";
-				echo "<br>Vaciando grupos </br>";
-				$gruposB2=array_unique($gruposB,SORT_REGULAR);
-				
-				foreach ($gruposB2 as $value) {
-					$this->db->delete('grupo', array('idgrupo' => $value)); 
-				}
-				
 				//Se recargará la página de horarios y se cerrará la confirmación de vaciar horarios
 				echo "<script languaje='javascript' type='text/javascript'>
                         window.opener.location.reload();
-                    window.close();</script>";
-			}			
-			$this->load->view('vaciar_confirm_v');
+                   		window.close();</script>";			
+			}else{
+					$this->load->view('vaciar_confirm_v');
+			}
+
 		}
 	
 	}//Fin de la clase
+	
+				// if($this->form_validation->run()){
+				// foreach ($_POST['checkboxes2'] as $idlaboratorio) { //laboratorios
+					// $indice=1;
+					// for ($sem=1; $sem <=13; $sem++) { //semanas
+						// for ($hrs=1; $hrs <=27; $hrs++) { //horas
+							// for($dias=1; $dias<=5; $dias++) { //dias
+// 															
+								// $idgrupo=$this->Vaciar_confirm_m->obtenerIdGrupo($idlaboratorio, $sem, $dias, $hrs);
+								// if($idgrupo!=-1 AND $idgrupo[1]!=NULL){ //obteniendo la lista de grupos a eliminar
+									// $idGrupos[$indice]=$idgrupo[1];
+									// $indice++;
+								// }else{
+									// $idGrupos[$indice]=-1;
+									// $indice++;	
+								// }
+// 								
+								// $this->Vaciar_confirm_m->vaciarLaboratorio($idlaboratorio, $sem, $dias, $hrs);								
+							// } //fin días
+						// }//fin horas
+					// }//fin semanas
+				// }	
 	
 ?>

@@ -4,42 +4,47 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-    <title>Vaciar horario</title>
+    <title>Vaciar recursos</title>
 
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
+  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
+  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/zurb.mega-drop.css">
+ 
   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/foundation.min.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/modernizr.foundation.js"></script>
-	<script src="<?=base_url(); ?>statics/js/solicitarLab.js"></script>
 
-	<style>
-		p{
-			font-size:18px;
-			text-align: center;
-		}
-		
-	</style>
-	
-	<script>
-		$(document).ready(function(){
-			$('#cancelarVaciarHorarioBtn').click(function(){
-		  		window.close();
-			});	
-		})
-	</script>
 </head>
 
 <body>
 		<div class="row">
 			<div class="twelve columns">
-				<br><br>	
-				<fieldset>
+				<br><br>
+
+				<label>Vaciar horarios de los laboratorios:</label>
+				<p>Los horarios y grupos de los laboratorios seleccionados se eliminarán de la tabla</p>
+				<fieldset >
 					<form class="custom" action="" method="post">
-						<p>¿Desea vaciar todo el contenio de la tabla 105?</p>
-						<input type="submit" id="VaciarHorarioBtn" name="105" class="button" value="Aceptar" />
-						<a ref="#" id="cancelarVaciarHorarioBtn" class="button">Cancelar</a>
+						<div class="row">
+							<div class="three columns">
+						      <label for="checkbox105"><input type="checkbox" id="checkbox105" name="checkboxes2[]" style='display: none;' value="105"><span class="custom checkbox"></span> 105</label>
+							</div>
+							<div class="three columns">
+						   	<label for="checkbox106"><input type="checkbox" id="checkbox106" name="checkboxes2[]" style='display: none;' value="106"><span class="custom checkbox"></span> 106</label>
+						   	</div>
+							<div class="three columns">
+								<label for="checkbox219"><input type="checkbox" id="checkbox219" name="checkboxes2[]" style='display: none;' value="219"><span class="custom checkbox"></span> 219</label>
+						    </div>  	
+						    <div class="three columns">
+						      	<label for="checkbox220"><input type="checkbox" id="checkbox220" name="checkboxes2[]" style='display: none;' value="220"><span class="custom checkbox"></span> 220</label>
+							</div>
+						</div><hr>
+				  			<?php echo form_error('checkboxes2[]'); ?>
+
+						<input type="submit" id="vaciarBtn" class="button offset-by-three" value="Vaciar" />
 					</form>
 				</fieldset>
+
 			</div> <!--twelve colums-->
 		</div> <!--row-->
 

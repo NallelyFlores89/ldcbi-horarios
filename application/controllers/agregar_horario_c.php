@@ -17,7 +17,7 @@
 			
 			$GrupoExiste=0;
 			
-			$DataDivision['datosDivision']=$this->Solicitar_laboratorio_m->ObtenListaDivisiones(); //Obteniendo mis datos
+			$DataDivision['datosDivision']=$this->Solicitar_laboratorio_m->ObtenListaDivisiones(); 
 	
 			if($DataDivision['datosDivision'] > 0){
 				foreach ($DataDivision['datosDivision'] as $indice => $division) {
@@ -28,20 +28,8 @@
 				$divisiones['divisiones'][1]=$mensaje;
 			}		
 			
-			$DataLabos['datosLabos']=$this->Solicitar_laboratorio_m->ObtenListaLaboratorios(); //Obteniendo mis datos
-
-			if($DataLabos['datosLabos'] > 0){
-				foreach ($DataLabos['datosLabos'] as $indice => $laboratorio) {
-					$laboratorios['laboratorios'][$indice]=$laboratorio;
-				}
-				
-			}else{
-				$mensaje='No hay datos';
-				$laboratorios['laboratorios'][1]=$mensaje;
-			}
-			
+			$DataLabos=$this->Agregar_horario_m->obtenLaboratorios();
 			$DataHorarios['hora']=$this->Solicitar_laboratorio_m->Obtenhorarios();
-			
 			$DataSem=$this->Agregar_horario_m->obtenerSemana();
 			
 			/**Validación del formulario**/		
@@ -49,6 +37,7 @@
 			$this->form_validation->set_rules('nombreInput', 'nombreInput', 'callback_nombreInput_check');
 			$this->form_validation->set_rules('numInput', 'numInput', 'callback_numInput_check');
 			$this->form_validation->set_rules('ueaInput', 'ueaInput', 'callback_ueaInput_check');
+			$this->form_validation->set_rules('correoInput', 'correoInput', 'email_valid');
 			$this->form_validation->set_rules('claveInput', 'claveInput', 'callback_claveInput_check');
 			$this->form_validation->set_rules('grupoInput', 'grupoInput', 'callback_grupoInput_check');
 			$this->form_validation->set_rules('siglasInput', 'siglasInput', 'callback_siglasInput_check');
@@ -57,7 +46,7 @@
 			
 			$datos=Array(  //Enviando datos a la vista
 					'listaDivisiones' => $divisiones,
-					'listaLaboratorios' => $laboratorios,
+					'DataLabos' => $DataLabos,
 					'DataSem' => $DataSem,
 					'DataHorarios' => $DataHorarios['hora'],
 					'GrupoExiste' => $GrupoExiste,
@@ -67,58 +56,41 @@
 
 				//INSERTANDO DATOS EN BD
 				
-				$numEmp=$this->Agregar_horario_m->obtenerIdProfesor($_POST['numInput']); //Profesor
+				$idProf=$this->Agregar_horario_m->obtenerIdProfesor($_POST['numInput']); //Profesor
+				echo "<br> id del profesor";print_r($idProf); echo "<br>";
 				
-				if($numEmp==0){ //Si no existe el profesor en la base de datos, lo inserta
-					$datos_profesoresT=Array(
-						'nombre' => $_POST['nombreInput'],
-						'numempleado' => $_POST['numInput'],
-						'correo' => 'correo@correo.com',
-					);					
-					
-					$this->db->insert('profesores', $datos_profesoresT); //Insertan en la tabla profesores
+				if($idProf==-1){ //Si no existe el profesor en la base de datos, lo inserta
+					$this->Agregar_horario_m->inserta_profesores($_POST['nombreInput'], $_POST['numInput'], $_POST['correoInput']);
 				}
 
 				$idProf=$this->Agregar_horario_m->obtenerIdProfesor($_POST['numInput']); //Obteniendo id del profesor
+				echo "<br> id del profesor";print_r($idProf); echo "<br>";
 				
-				if($_POST['laboratoriosDropdown']=='AT-105')
-					$id_lab=105;
-				if($_POST['laboratoriosDropdown']=='AT-106')
-					$id_lab=106;				
-				if($_POST['laboratoriosDropdown']=='AT-219')
-					$id_lab=219;
-				if($_POST['laboratoriosDropdown']=='AT-220')
-					$id_lab=220;
+				$id_lab = $_POST['laboratoriosDropdown'];
+				echo "<br> id del lab";print_r($id_lab); echo "<br>";
 				
-				if($this->Agregar_horario_m->obtenerClaveUea($_POST['claveInput'])==0){ //Si la UEA no existe, la insertará
-					$datos_ueaT=Array(
-						'nombreuea' => $_POST['ueaInput'],
-						'clave' => $_POST['claveInput'],
-						'divisiones_iddivisiones' => $_POST['divisionesDropdown'],
-					);
-										
-					$this->db->insert('uea', $datos_ueaT); 
-					
+				$iduea=$this->Agregar_horario_m->obtenerIdUea($_POST['claveInput']);
+				echo "<br> id uea";print_r($iduea); echo "<br>";
+				
+				if($iduea==-1){ //Si la UEA no existe, la insertará
+					$this->Agregar_horario_m->inserta_uea($_POST['ueaInput'], $_POST['claveInput'], $_POST['divisionesDropdown']);
 				};
 				
 				$iduea=$this->Agregar_horario_m->obtenerIdUea($_POST['claveInput']); //id definitivo de UEA a manejar
-				
+				echo "<br> id uea";print_r($iduea); echo "<br>";
+								
 				$idGrupo=$this->Agregar_horario_m->obtenerIdGrupo($_POST['grupoInput']);
-				if($idGrupo==0){
-					$datos_grupoT=Array(         //Insertando el grupo
-							'grupo' => $_POST['grupoInput'],
-							'siglas' => $_POST['siglasInput'],
-							'uea_iduea' => $iduea,
-							'profesores_idprofesores' => $idProf,
-					);	
-						
-					$this->db->insert('grupo', $datos_grupoT); //Inserta en la tabla grupo
+				echo "<br> id grupo";print_r($idGrupo); echo "<br>";
+				
+				if($idGrupo==-1){
+					$this->Agregar_horario_m->inserta_grupo($_POST['grupoInput'], $_POST['siglasInput'], $iduea, $idProf);
 				}else{
 					$GrupoExiste=1;		
 				}
 																	
 				$idGrupo=$this->Agregar_horario_m->obtenerIdGrupo($_POST['grupoInput']); //Id definitivo del grupo a manejar
-				
+				echo "<br> id grupo";print_r($idGrupo); echo "<br>";
+								
 				//OBTENIENDO ID DE HORARIO INICIAL
 				
 				switch ($_POST['HoraIDropdown']) {
@@ -304,19 +276,17 @@
 				//INSERTANDO EN LABORATORIO_GRUPO				
 				for ($j=$idSemI; $j <=$idSemF; $j++) { //Semanas 
 					for ($i=$idHoraI; $i <=$idHoraF; $i++) {  //horas
-						foreach ($_POST['checkboxes'] as $value) { //días
+						foreach ($_POST['checkboxes'] as $dias) { //días
 							$datos_laboratorios_grupoT= Array(
 								'idgrupo'=>$idGrupo,
 							);
 							$this->db->where('idlaboratorios',$id_lab);
-							$this->db->where('semanas_idsemanas', $idSemI);
-							$this->db->where('dias_iddias', $value);
-							$this->db->where('horarios_idhorarios', $idHoraI);
+							$this->db->where('semanas_idsemanas', $j);
+							$this->db->where('dias_iddias', $dias);
+							$this->db->where('horarios_idhorarios', $i);
 							$this->db->update('laboratorios_grupo', $datos_laboratorios_grupoT); //Insertando en la tabla de laboratorios_grupo
 						}
-						$idHoraI++;
 					}
-					$idSemI++;
 				}
 				
 				echo "<script languaje='javascript' type='text/javascript'>

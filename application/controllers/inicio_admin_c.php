@@ -21,30 +21,31 @@
 
 			$DataUPG['datosUPG']=$this->Inicio_m->obtenListaUeaProfesorGrupo();
 			
-			$DataUL105_1=$this->Inicio_m->ueas(105,1);
-			$DataUMa105_1=$this->Inicio_m->ueas(105,2);
-			$DataUMi105_1=$this->Inicio_m->ueas(105,3);
-			$DataUJ105_1=$this->Inicio_m->ueas(105,4);
-			$DataUV105_1=$this->Inicio_m->ueas(105,5);
+			for ($sem=1; $sem <= 13 ; $sem++) { 
+				for ($dia=1; $dia <=5 ; $dia++) { 
+					$Data['$DataU105_'.$sem.'_'.$dia]=$this->Inicio_m->ueas(105,$sem,$dia);
+				}
+			}
+
+			for ($sem=1; $sem <= 13 ; $sem++) { 
+				for ($dia=1; $dia <=5 ; $dia++) { 
+					$Data['$DataU106_'.$sem.'_'.$dia]=$this->Inicio_m->ueas(106,$sem,$dia);
+				}
+
+			}
+				
+			for ($sem=1; $sem <= 13 ; $sem++) { 
+				for ($dia=1; $dia <=5 ; $dia++) { 
+					$Data['$DataU219_'.$sem.'_'.$dia]=$this->Inicio_m->ueas(219,$sem,$dia);
+				}
+			}
 			
-			$DataUL106_1=$this->Inicio_m->ueas(106,1);
-			$DataUMa106_1=$this->Inicio_m->ueas(106,2);
-			$DataUMi106_1=$this->Inicio_m->ueas(106,3);
-			$DataUJ106_1=$this->Inicio_m->ueas(106,4);
-			$DataUV106_1=$this->Inicio_m->ueas(106,5);
+			for ($sem=1; $sem <= 13 ; $sem++) { 
+				for ($dia=1; $dia <=5 ; $dia++) { 
+					$Data['$DataU220_'.$sem.'_'.$dia]=$this->Inicio_m->ueas(220,$sem,$dia);
+				}
+			}
 
-			$DataUL219_1=$this->Inicio_m->ueas(219,1);
-			$DataUMa219_1=$this->Inicio_m->ueas(219,2);
-			$DataUMi219_1=$this->Inicio_m->ueas(219,3);
-			$DataUJ219_1=$this->Inicio_m->ueas(219,4);
-			$DataUV219_1=$this->Inicio_m->ueas(219,5);
-
-			$DataUL220_1=$this->Inicio_m->ueas(220,1);
-			$DataUMa220_1=$this->Inicio_m->ueas(220,2);
-			$DataUMi220_1=$this->Inicio_m->ueas(220,3);
-			$DataUJ220_1=$this->Inicio_m->ueas(220,4);
-			$DataUV220_1=$this->Inicio_m->ueas(220,5);
-									
 			$DataHorarios['hora']=$this->Inicio_m->Obtenhorarios();
 
 			$datos=Array(
@@ -52,27 +53,8 @@
 					'listaueasCBS' => $DataCBS,	
 					'listaueasCSH' => $DataCSH,
 					'listaUPG' => $DataUPG,
-					'DataUL105_1' => $DataUL105_1,
-					'DataUMa105_1' => $DataUMa105_1,
-					'DataUMi105_1' => $DataUMi105_1,
-					'DataUJ105_1' => $DataUJ105_1,
-					'DataUV105_1' => $DataUV105_1,
-					'DataUL106_1' => $DataUL106_1,
-					'DataUMa106_1' => $DataUMa106_1,
-					'DataUMi106_1' => $DataUMi106_1,
-					'DataUJ106_1' => $DataUJ106_1,
-					'DataUV106_1' => $DataUV106_1,
-					'DataUL219_1' => $DataUL219_1,
-					'DataUMa219_1' => $DataUMa219_1,
-					'DataUMi219_1' => $DataUMi219_1,
-					'DataUJ219_1'	=> $DataUJ219_1,
-					'DataUV219_1' => $DataUV219_1,
-					'DataUL220_1' => $DataUL220_1,
-					'DataUMa220_1' => $DataUMa220_1,
-					'DataUMi220_1' => $DataUMi220_1,
-					'DataUJ220_1'	=> $DataUJ220_1,
-					'DataUV220_1' => $DataUV220_1,
-					'DataHorarios' => $DataHorarios['hora']
+					'DataHorarios' => $DataHorarios['hora'],
+					'Data' => $Data
 			);
 
 			$this->load->view('inicio_admin_v', $datos);
@@ -88,6 +70,8 @@
 			$this->session->sess_destroy();
 			redirect('loguin_c');
 		}
+
+		
 		
 	
 	}//Fin de la clase

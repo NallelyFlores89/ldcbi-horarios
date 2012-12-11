@@ -36,7 +36,7 @@
 					<a href="http://localhost/horarios/index.php/solicitar_labo_c" class="normal button solicitarLabosBtn offset-by-one">Solicitar Laboratorio</a>
 					<a href="http://localhost/horarios/index.php/recursos_c/recursos" class="normal button recursosLabosBtn offset-by-six" title="Software y hardware instalado en los laboratorios">Recursos >></a><br/><br />
 				</div>
-				
+				<br>
 				<dl class="tabs four-up">
 					<dd class="active"><a href="#simple1">AT-105</a></dd>
 				  	<dd><a href="#simple2">AT-106</a></dd>
@@ -44,55 +44,335 @@
 				  	<dd><a href="#simple4">AT-220</a></dd>
 				</dl>
 				
-				<ul class="tabs-content">
-	            	<li class="active" id="simple1Tab">
-		            	<table class="responsive contentHorario">
-							<tr>
-								<th>Hora</th>
-								<th>Lunes</th>
-								<th>Martes</th>
-								<th>Miércoles</th>
-								<th>Jueves</th>
-								<th>Viernes</th>
-							</tr>
-			
+			<ul class="tabs-content">
+            	
+            	<li class="active" id="simple1Tab"> <!--TAB1-->
+					<h3>AT-105</h3>
+
+					<div class="row">
+						<dl class="tabs pill">
 							<?php
-								$indice=1;
-								foreach ($DataHorarios as $value) {
-									echo "<tr id='$value'>";
-										echo"<td class='hora'>$value</td>";
-										echo"<td id='l$indice'>$DataUL[$indice]</td>";
-										echo"<td id='ma$indice'>$DataUMa[$indice]</td>";
-										echo"<td id='mi$indice'>$DataUMi[$indice]</td>";
-										echo"<td id='j$indice'>$DataUJ[$indice]</td>";
-										echo"<td id='v$indice'>$DataUV[$indice]</td>";
-									echo "</tr>";
-									$indice++;
-								}
-							?>
-			
-						</table> <!--TERMINA LA TABLA DE HORARIOS -->
-		
-	            	</li>
+								for ($i=1; $i <=13 ; $i++) {?> 
+									  <?php if($i==1){ ?>
+									  	<dd class="active"><a href="#pill<?= $i ?>"><?= $i ?></a></dd>
+									  <?php }else{ ?>
+									  	<dd><a href="#pill<?= $i ?>"><?= $i ?></a></dd>
+							<?php }} ?>
+						</dl>
+					</div>
+					
+					<ul class="tabs-content">
+						
+						<?php 
+							for($i=1; $i<=13; $i++){ 
+							if($i==1){	
+						?>								
+									<li class="active" id="pill<?= $i ?>Tab">
+					            	   	<table class="responsive contentHorario">
+											<tr>
+												<th>Hora<?=$i?></th>
+												<th>Lunes</th>
+												<th>Martes</th>
+												<th>Miércoles</th>
+												<th>Jueves</th>
+												<th>Viernes</th>
+											</tr>
+							
+											<?php
+												foreach ($DataHorarios as $indice=>$value) {
+													echo "<tr id='$value'>";
+														echo"<td class='hora'>$value</td>";
+														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_1'][$indice]);echo "</td>";
+														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_2'][$indice]);echo "</td>";
+														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_3'][$indice]);echo "</td>";
+														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_4'][$indice]);echo "</td>";																						
+														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_5'][$indice]);echo "</td>";
+													echo "</tr>";
+												}
+											?>
+							
+										</table> <!--TERMINA LA TABLA DE HORARIOS -->
+									</li> <!--pill1-->	
+							<?php }else{?>
+									
+								<li class="" id="pill<?= $i ?>Tab">
+				            	   	<table class="responsive contentHorario">
+										<tr>
+											<th>Hora<?=$i?></th>
+											<th>Lunes</th>
+											<th>Martes</th>
+											<th>Miércoles</th>
+											<th>Jueves</th>
+											<th>Viernes</th>
+										</tr>
+						
+										<?php
+											foreach ($DataHorarios as $indice=>$value) {
+												echo "<tr id='$value'>";
+													echo"<td class='hora'>$value</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_1'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_2'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_3'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_4'][$indice]);echo "</td>";																						
+													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_5'][$indice]);echo "</td>";
+												echo "</tr>";
+											}
+										?>
+						
+									</table> <!--TERMINA LA TABLA DE HORARIOS -->
+								</li> <!--pill1-->	
+							<?php }} ?>
+					</ul>
+     			</li> <!--simple1Tab-->
+            	
+            	<li id="simple2Tab"> <!--TAB2-->
+					<h3>AT-106</h3>
 	            	
-	            	<li id="simple2Tab">
-		            	
-						<h1>Tabla 106</h1>
-		
-	            	</li>
+					<div class="row">
+						<dl class="tabs pill">
+							<?php
+								for ($i=1; $i <=13 ; $i++) {?> 
+									  <?php if($i==1){ ?>
+									  	<dd class="active"><a href="#pill106<?= $i ?>"><?= $i ?></a></dd>
+									  <?php }else{ ?>
+									  	<dd><a href="#pill106<?= $i ?>"><?= $i ?></a></dd>
+							<?php }} ?>
+						</dl>
+					</div>
+					
+					<ul class="tabs-content">
+						
+						<?php 
+							for($i=1; $i<=13; $i++){
+								
+								if($i==1){
+						?>
+								<li class="active" id="pill106<?= $i ?>Tab">
+				            	   	<table class="responsive contentHorario">
+										<tr>
+											<th>Hora<?= $i ?></th>
+											<th>Lunes</th>
+											<th>Martes</th>
+											<th>Miércoles</th>
+											<th>Jueves</th>
+											<th>Viernes</th>
+										</tr>
+						
+										<?php
+											foreach ($DataHorarios as $indice=>$value) {
+												echo "<tr id='$value'>";
+													echo"<td class='hora'>$value</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_1'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_2'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_3'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_4'][$indice]);echo "</td>";																						
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_5'][$indice]);echo "</td>";
+												echo "</tr>";
+											}
+										?>
+						
+									</table> <!--TERMINA LA TABLA DE HORARIOS -->
+								</li> <!--pill1-->	
+							<?php }else{ ?>
+								<li class="" id="pill106<?= $i ?>Tab">
+				            	   	<table class="responsive contentHorario">
+										<tr>
+											<th>Hora<?= $i ?></th>
+											<th>Lunes</th>
+											<th>Martes</th>
+											<th>Miércoles</th>
+											<th>Jueves</th>
+											<th>Viernes</th>
+										</tr>
+						
+										<?php
+											foreach ($DataHorarios as $indice=>$value) {
+												echo "<tr id='$value'>";
+													echo"<td class='hora'>$value</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_1'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_2'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_3'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_4'][$indice]);echo "</td>";																						
+													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_5'][$indice]);echo "</td>";
+												echo "</tr>";
+											}
+										?>
+						
+									</table> <!--TERMINA LA TABLA DE HORARIOS -->
+								</li> <!--pill1-->								
+								
+							<?php }} 
+						?>
+					</ul> <!--pill-->
+ 		       	</li> <!--simple2Tab-->
+            	
+            	<li id="simple3Tab"> <!--TAB3-->
 	            	
-	            	<li id="simple3Tab">
-		            	
-						<h1>Tabla 219</h1>
-		
-	            	</li>
+					<h3>AT-219</h3>
+					<div class="row">
+						<dl class="tabs pill">
+							<?php
+								for ($i=1; $i <=13 ; $i++) {?> 
+									  <?php if($i==1){ ?>
+									  	<dd class="active"><a href="#pill219<?= $i ?>"><?= $i ?></a></dd>
+									  <?php }else{ ?>
+									  	<dd><a href="#pill219<?= $i ?>"><?= $i ?></a></dd>
+							<?php }} ?>
+						</dl>
+					</div>
+					
+					<ul class="tabs-content">
+						
+						<?php 
+							for($i=1; $i<=13; $i++){
+								
+								if($i==1){
+								
+						?>
+									<li class="active" id="pill219<?= $i ?>Tab">
+				            	   	<table class="responsive contentHorario">
+										<tr>
+											<th>Hora</th>
+											<th>Lunes</th>
+											<th>Martes</th>
+											<th>Miércoles</th>
+											<th>Jueves</th>
+											<th>Viernes</th>
+										</tr>
+						
+										<?php
+											$indice=1;
+											foreach ($DataHorarios as $indice=>$value) {
+												echo "<tr id='$value'>";
+													echo"<td class='hora'>$value</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_1'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_2'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_3'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_4'][$indice]);echo "</td>";																						
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_5'][$indice]);echo "</td>";
+												echo "</tr>";
+											}
+										?>
+						
+									</table> <!--TERMINA LA TABLA DE HORARIOS -->
+								</li> <!--pill1-->
+						
+							<?php }else{ ?>	
+									<li class="" id="pill219<?= $i ?>Tab">
+				            	   	<table class="responsive contentHorario">
+										<tr>
+											<th>Hora</th>
+											<th>Lunes</th>
+											<th>Martes</th>
+											<th>Miércoles</th>
+											<th>Jueves</th>
+											<th>Viernes</th>
+										</tr>
+						
+										<?php
+											$indice=1;
+											foreach ($DataHorarios as $indice=>$value) {
+												echo "<tr id='$value'>";
+													echo"<td class='hora'>$value</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_1'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_2'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_3'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_4'][$indice]);echo "</td>";																						
+													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_5'][$indice]);echo "</td>";
+												echo "</tr>";
+											}
+										?>
+						
+									</table> <!--TERMINA LA TABLA DE HORARIOS -->
+								</li> <!--pill1-->								
+								
+							<?php }} ?>
+					</ul> <!--pill-->					
+	          	</li> <!--simple3Tab-->
+
+            	<li id="simple4Tab"> <!--TAB4-->
+	            	
+					<h3>AT-220</h3>
+					<div class="row">
+						<dl class="tabs pill">
+							<?php
+								for ($i=1; $i <=13 ; $i++) {?> 
+									  <?php if($i==1){ ?>
+									  	<dd class="active"><a href="#pill220<?= $i ?>"><?= $i ?></a></dd>
+									  <?php }else{ ?>
+									  	<dd><a href="#pill220<?= $i ?>"><?= $i ?></a></dd>
+							<?php }} ?>
+						</dl>
+					</div>
+					
+					<ul class="tabs-content">
+						
+						<?php 
+							for($i=1; $i<=13; $i++){ 
+								if($i==1){	
+								
+						?>
+								<li class="active" id="pill220<?= $i ?>Tab">
+				            	   	<table class="responsive contentHorario">
+										<tr>
+											<th>Hora</th>
+											<th>Lunes</th>
+											<th>Martes</th>
+											<th>Miércoles</th>
+											<th>Jueves</th>
+											<th>Viernes</th>
+										</tr>
+						
+										<?php
+											foreach ($DataHorarios as $indice=>$value) {
+												echo "<tr id='$value'>";
+													echo"<td class='hora'>$value</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_1'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_2'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_3'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_4'][$indice]);echo "</td>";																						
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_5'][$indice]);echo "</td>";
+												echo "</tr>";
+											}
+										?>
+						
+									</table> <!--TERMINA LA TABLA DE HORARIOS -->
+								</li> <!--pill1-->	
+						<?php }else {?>				
+								<li class="" id="pill220<?= $i ?>Tab">
+				            	   	<table class="responsive contentHorario">
+										<tr>
+											<th>Hora</th>
+											<th>Lunes</th>
+											<th>Martes</th>
+											<th>Miércoles</th>
+											<th>Jueves</th>
+											<th>Viernes</th>
+										</tr>
+						
+										<?php
+											foreach ($DataHorarios as $indice=>$value) {
+												echo "<tr id='$value'>";
+													echo"<td class='hora'>$value</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_1'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_2'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_3'][$indice]);echo "</td>";
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_4'][$indice]);echo "</td>";																						
+													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_5'][$indice]);echo "</td>";
+												echo "</tr>";
+											}
+										?>
+						
+									</table> <!--TERMINA LA TABLA DE HORARIOS -->
+								</li> <!--pill1-->						
+								
+								
+							<?php }}
+						?>
+					</ul> <!--pill-->					
 	
-	            	<li id="simple4Tab">
-		            	
-						<h1>Tabla 220</h1>
-		
-	            	</li>	            		            	
-		         </ul>						
+            	</li>	            		            	
+	    	</ul>	<!--tabs content-->						
 				
 				<div class="row">
 					<a href="http://localhost/horarios/index.php/solicitar_labo_c" class="normal button solicitarLabosBtn offset-by-one">Solicitar Laboratorio</a>

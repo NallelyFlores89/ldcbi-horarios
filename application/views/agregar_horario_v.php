@@ -40,6 +40,12 @@
 						  		<?php echo form_error('numInput'); ?>
 						 	</div>
 						</div><hr>
+						<div class="row">
+							<label for="correoInput">Correo</label>
+				  			<input type="text" id="correoInput" name="correoInput" value="<?php echo set_value('correoInput'); ?>"/>
+					  		<?php echo form_error('correoInput'); ?>							
+							
+						</div><hr>
 							
 						<div class="row">
 							<div class="six columns">
@@ -86,9 +92,10 @@
 								  	<select id="laboratoriosDropdown" name="laboratoriosDropdown">
 										<?php 
 											$add='laboratorio';
-											foreach ($listaLaboratorios['laboratorios'] as $indice => $valor) {
-												$divisionlab=$add.strtolower($valor);
-												echo "<option id=$divisionlab name=$divisionlab>"; print_r($valor); echo "</option>";	
+											foreach ($DataLabos as $valor) {
+												$id=$add.strtolower($valor['nombrelaboratorios']);
+												$value=$valor['idlaboratorios'];
+												echo "<option id=$id name=$id value=$value>"; print_r($valor['nombrelaboratorios']); echo "</option>";	
 											}
 									    ?>
 							  		</select>

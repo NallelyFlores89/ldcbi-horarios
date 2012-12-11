@@ -84,7 +84,7 @@
 	            			<?php
 		            			if($recursos220 != -1){
 		            			
-									foreach ($recursos220['recursos'] as $indice => $valor) {
+									foreach ($recursos220 as $valor) {
 										echo "<li>"; print_r($valor['recurso']); echo "</li>";
 									}
 								}else{

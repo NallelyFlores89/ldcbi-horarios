@@ -14,10 +14,9 @@
    Shared Styles
 ----------------------------------------- */
 
-table th { font-weight: bold; color:#000; font-size:22px;}
+table th { font-weight: bold; color:#000; font-size:15px;}
 table td, table th { padding:19px 10px; text-align: center;}
 
-/* Mobile */
 @media only screen and (max-width: 767px) {
 	table.responsive { margin-bottom: 0; }
 	
@@ -34,16 +33,4 @@ table td, table th { padding:19px 10px; text-align: center;}
 	table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td {display:none;}
 	
 }
-
-/* -----------------------------------------
-   Page Name 1
------------------------------------------ */
-
-
-
-
-/* -----------------------------------------
-   Page Name 2
------------------------------------------ */
-
 

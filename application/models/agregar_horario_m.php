@@ -22,7 +22,7 @@
 			
 				return($idProfr[1]);
 			}else{
-				return(0);
+				return(-1);
 			}//fin del else
 			
 		} //Fin de obtenRecursos105
@@ -42,7 +42,7 @@
 			
 				return($idU[1]);
 			}else{
-				return(0);
+				return(-1);
 			}//fin del else
 			
 		} //Fin obtenerIdUea
@@ -63,7 +63,7 @@
 			
 				return($c[1]);
 			}else{
-				return(0);
+				return(-1);
 			}//fin del else
 			
 		} //Fin obtenerIdUea
@@ -103,7 +103,7 @@
 			
 				return($idG[1]);
 			}else{
-				return(0);
+				return(-1);
 			}			
 			
 		}
@@ -126,8 +126,60 @@
 			}			
 			
 		}
-
 		
+		function inserta_profesores($nombre, $num_emp, $correo){
+				
+			$datos=Array(
+				'nombre' => $nombre,
+				'numempleado' => $num_emp,
+				'correo' => $correo,
+			);		
+
+			$this->db->insert('profesores', $datos); //Insertan en la tabla profesores
+			
+		} //Fin insertaProfesor
+		
+		function obtenLaboratorios(){
+				
+			$this->db->select('idlaboratorios, nombrelaboratorios');
+			$this->db->from('laboratorios');
+
+			$labos=$this->db->get(); //Vacía el contenido de la consulta en la variable
+			$indice=1;
+			if(($labos->num_rows())>0){ //Verificando si tengo datos a cargar
+				foreach ($labos->result_array() as $value) {
+					$laboratorios[$indice] = $value; //Guardando mis datos en un arreglo
+					$indice++;
+				 }
+			
+				return($laboratorios);
+			}else{
+				return(0);
+			}			
+		} //Fin insertaProfesor		
+		
+		function inserta_uea($nombre, $clave, $iddivision){
+			$datos=Array(
+				'nombreuea' => $nombre,
+				'clave' => $clave,
+				'divisiones_iddivisiones' => $iddivision,
+			);
+								
+			$this->db->insert('uea', $datos); 
+			
+		}
+		
+		function inserta_grupo($grupo, $siglas, $iduea, $idprof){
+			$datos=Array(         //Insertando el grupo
+				'grupo' => $grupo,
+				'siglas' => $siglas,
+				'uea_iduea' => $iduea,
+				'profesores_idprofesores' => $idprof,
+			);	
+			$this->db->insert('grupo', $datos); //Inserta en la tabla grupo
+ 
+			
+		}
 		
 	} //Fin de la clase
 ?>
