@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en"> <!--<![endif]-->
+<html lang="en"> 
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
@@ -16,28 +16,19 @@
 	<script src="<?=base_url(); ?>statics/js/jquery.popupWindow.js"></script>
     <script type="text/javascript">var base='<?= base_url(); ?>' </script> 
 	<script src="<?=base_url(); ?>statics/js/administracion.js"></script>
-
 </head>
 
 <body>
-	
-	<div class="container">
-		<br>
+	<div class="container"><br>
 		<h3>Profesores-UEA</h3><hr>
 		<div class="row">
 			<div class="twelve columns">
 				<table class="responsive contentHorario">
 					<tr>
-						<th>Profesor</th>
-						<th>N°. Empleado</th>
-						<th>Correo</th>
-						<th>UEA</th>
-						<th>Clave UEA</th>
-						<th>Grupo</th>
-						<th>Lab</th>
-						<th colspan="4">Acciones</th>
+						<th>Profesor</th><th>N°. Empleado</th><th>Correo</th><th>UEA</th><th>Clave UEA</th><th>Siglas</th>
+						<th>Grupo</th><th>Lab</th><th colspan="5">Acciones</th>
 					</tr>
-						<?php  
+						<?php  //Cargando datos 
 							if($datosUPG==-1){
 								echo "<label class='noDatos'> No hay datos que cargar</label>";
 							}else{
@@ -48,19 +39,21 @@
 									echo"<td>";print_r($valor['correo']); echo"</td>";
 	 								echo"<td>";print_r($valor['nombreuea']); echo"</td>";
 									echo"<td>";print_r($valor['clave']); echo"</td>";
+									echo"<td>";print_r($valor['siglas']); echo"</td>";
 									echo"<td>";print_r($valor['grupo']); echo"</td>";
 									echo"<td>";print_r($valor['idlaboratorios']); echo"</td>";
 								?>
-									<td><a href="#" onclick="ventanaEdita(<?= $valor['numempleado'] ?>)">Editar</a></td>
+									<td><a href="#" onclick="ventanaEdita(<?= $valor['numempleado'] ?>,'<?= $valor['grupo']?>', <?= $valor['clave']?>, '<?=$valor['siglas'] ?>',<?= $valor['idlaboratorios'] ?>)">Editar profr/uea/grupo</a></td>
+									<td><a href="#" onclick="ventanaCambiaLabo('<?= $valor['grupo']?>',<?= $valor['idlaboratorios'] ?>)">Cambiar laboratorio</a></td>
 									<td><a href="#" onclick="ventanaEliminaProfr(<?= $valor['numempleado'] ?>)">Eliminar profesor</a></td>
 									<td><a href="#" onclick="ventanaEliminaGrupo('<?= $valor['grupo'] ?>')">Eliminar grupo</a></td>
-									<td><a href="#" onclick="ventanaElimina(<?= $valor['clave'] ?>)">Eliminar uea</a></td>
+									<td><a href="#" onclick="ventanaEliminaUea(<?= $valor['clave'] ?>)">Eliminar uea</a></td>
 
 									<?php echo "</tr>";
 								 }
 							}								 
 						?>
-				</table> <!--TERMINA LA TABLA DE HORARIOS -->
+				</table> <!--TERMINA LA TABLA -->
 			</div><!--twelve columns-->
 		</div> <!--row-->
  	</div> <!--container-->

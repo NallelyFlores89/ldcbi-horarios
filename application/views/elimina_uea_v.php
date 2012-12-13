@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-    <title>Eliminar profesor</title>
+    <title>Eliminar UEA</title>
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
@@ -18,8 +18,8 @@
 				<br><br>
 				<fieldset >
 					<form class="custom" action="" method="post">
-						<p class="pregunta">¿Seguro que desea eliminar al profesor?</p>
-						<p> Todos los grupos impartidos por este profesor también serán eliminados</p>
+						<p class="pregunta">¿Seguro que desea eliminar la UEA?</p>
+						<p>Todos los grupos que pertenecen a esta UEA serán eliminados</p>
 						<input type="submit" id="EliminarBtn" class="button offset-by-two" name="eliminar" value="Sí" />
 					</form>
 				</fieldset>

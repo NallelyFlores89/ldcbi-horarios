@@ -90,11 +90,9 @@
 
 		function obtenerIdGrupo($grupo){
 			$this->db->select('idgrupo');
-			$this->db->from('grupo');
 			$this->db->where('grupo',$grupo);
-			
-
-			$idGrupo=$this->db->get(); //Vacía el contenido de la consulta en la variable
+		
+			$idGrupo=$this->db->get('grupo'); //Vacía el contenido de la consulta en la variable
 			
 			if(($idGrupo->num_rows())>0){ //Verificando si tengo datos a cargar
 				foreach ($idGrupo->result_array() as $value) {
@@ -156,7 +154,7 @@
 			}else{
 				return(0);
 			}			
-		} //Fin insertaProfesor		
+		} //Fin obtenLaboratorios		
 		
 		function inserta_uea($nombre, $clave, $iddivision){
 			$datos=Array(
@@ -177,8 +175,6 @@
 				'profesores_idprofesores' => $idprof,
 			);	
 			$this->db->insert('grupo', $datos); //Inserta en la tabla grupo
- 
-			
 		}
 		
 	} //Fin de la clase

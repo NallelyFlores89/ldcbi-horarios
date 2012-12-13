@@ -19,7 +19,7 @@
 				<fieldset >
 					<form class="custom" action="" method="post">
 						<p class="pregunta">¿Seguro que desea eliminar el grupo?</p>
-						<input type="submit" id="EliminarBtn" class="button offset-by-two" name="eliminar" value="Continuar" />
+						<input type="submit" id="EliminarBtn" class="button offset-by-two" name="eliminar" value="Sí" />
 					</form>
 				</fieldset>
 			</div> <!--twelve colums-->
