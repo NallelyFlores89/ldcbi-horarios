@@ -5,6 +5,8 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
     <title>Laboratorios de Docencia - Administración</title>
+	<link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/responsiveTable/responsive-tables.css">
 	<link rel="stylesheet" href="<?=base_url(); ?>statics/responsiveTable/stylesheets/app.css">
@@ -19,43 +21,46 @@
 </head>
 
 <body>
-	<div class="container"><br>
-		<h3>Profesores-UEA</h3><hr>
-		<div class="row">
-			<div class="twelve columns">
-				<table class="responsive contentHorario">
-					<tr>
-						<th>Profesor</th><th>N°. Empleado</th><th>Correo</th><th>UEA</th><th>Clave UEA</th><th>Siglas</th>
-						<th>Grupo</th><th>Lab</th><th colspan="5">Acciones</th>
-					</tr>
-						<?php  //Cargando datos 
-							if($datosUPG==-1){
-								echo "<label class='noDatos'> No hay datos que cargar</label>";
-							}else{
-								foreach ($datosUPG as $valor) {
-									echo "<tr>";
-									echo"<td>";print_r($valor['nombre']); echo"</td>";
-									echo"<td>";print_r($valor['numempleado']); echo"</td>";
-									echo"<td>";print_r($valor['correo']); echo"</td>";
-	 								echo"<td>";print_r($valor['nombreuea']); echo"</td>";
-									echo"<td>";print_r($valor['clave']); echo"</td>";
-									echo"<td>";print_r($valor['siglas']); echo"</td>";
-									echo"<td>";print_r($valor['grupo']); echo"</td>";
-									echo"<td>";print_r($valor['idlaboratorios']); echo"</td>";
-								?>
-									<td><a href="#" onclick="ventanaEdita(<?= $valor['numempleado'] ?>,'<?= $valor['grupo']?>', <?= $valor['clave']?>, '<?=$valor['siglas'] ?>',<?= $valor['idlaboratorios'] ?>)">Editar profr/uea/grupo</a></td>
-									<td><a href="#" onclick="ventanaCambiaLabo('<?= $valor['grupo']?>',<?= $valor['idlaboratorios'] ?>)">Cambiar laboratorio</a></td>
-									<td><a href="#" onclick="ventanaEliminaProfr(<?= $valor['numempleado'] ?>)">Eliminar profesor</a></td>
-									<td><a href="#" onclick="ventanaEliminaGrupo('<?= $valor['grupo'] ?>')">Eliminar grupo</a></td>
-									<td><a href="#" onclick="ventanaEliminaUea(<?= $valor['clave'] ?>)">Eliminar uea</a></td>
-
-									<?php echo "</tr>";
-								 }
-							}								 
+	<div class="container">
+	<h3>Profesores-UEA</h3><br><br>
+		<table class="responsive contentHorario">
+			<tr>
+				<th>Profesor</th><th>N°. Empleado</th><th>Correo</th><th>UEA</th><th>Clave UEA</th><th>Siglas</th>
+				<th>Grupo</th><th>Lab</th><th colspan="5">Acciones</th>
+			</tr>
+				<?php  //Cargando datos 
+					if($datosUPG==-1){
+						echo "<label class='noDatos'> No hay datos que cargar</label>";
+					}else{
+						foreach ($datosUPG as $valor) {
+							echo "<tr>";
+							echo"<td>";print_r(strtoupper($valor['nombre'])); echo"</td>";
+							echo"<td>";print_r($valor['numempleado']); echo"</td>";
+							echo"<td>";print_r($valor['correo']); echo"</td>";
+							echo"<td>";print_r(strtoupper($valor['nombreuea'])); echo"</td>";
+							echo"<td>";print_r($valor['clave']); echo"</td>";
+							echo"<td>";print_r(strtoupper($valor['siglas'])); echo"</td>";
+							echo"<td>";print_r(strtoupper($valor['grupo'])); echo"</td>";
+							echo"<td>";print_r($valor['idlaboratorios']); echo"</td>";
 						?>
-				</table> <!--TERMINA LA TABLA -->
-			</div><!--twelve columns-->
-		</div> <!--row-->
+							<td><a href="#" onclick="ventanaEdita(<?= $valor['numempleado'] ?>,'<?= $valor['grupo']?>', <?= $valor['clave']?>, '<?=$valor['siglas'] ?>',<?= $valor['idlaboratorios'] ?>)">Editar profr/uea/grupo</a></td>
+							<td><a href="#" onclick="ventanaCambiaLabo('<?= $valor['grupo']?>',<?= $valor['idlaboratorios'] ?>)">Cambiar laboratorio</a></td>
+							<td><a href="#" onclick="ventanaEliminaProfr(<?= $valor['numempleado'] ?>)">Eliminar profesor</a></td>
+							<td><a href="#" onclick="ventanaEliminaGrupo('<?= $valor['grupo'] ?>')">Eliminar grupo</a></td>
+							<td><a href="#" onclick="ventanaEliminaUea(<?= $valor['clave'] ?>)">Eliminar uea</a></td>
+	
+							<?php echo "</tr>";
+						 }
+					}								 
+				?>
+		</table> <!--TERMINA LA TABLA -->
+
  	</div> <!--container-->
 </body>
+
+    <footer>
+		<hr>
+		<label class="footer">Creado y administrado por <a href="#">@NallelyFlores5</a></label>
+    	
+    </footer>
 </html>

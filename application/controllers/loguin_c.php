@@ -21,9 +21,8 @@
       
         $result = $this->loguin_model->validate();// Validate the user can login         
 		
-		if(! $result){ // Now we verify the result
-            // If user did not validate, then show them login page again
-           	$msg = '<font color=red>Nombre de usuario y/o contraseña incorrectos</font><br />';
+		if(! $result){ 
+           	$msg = '<font class="error">Nombre de usuario y/o contraseña incorrectos</font><br />';
 			$this->index($msg);
 			
         }else{

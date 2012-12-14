@@ -5,13 +5,11 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
     <title>Laboratorios de Docencia - Horarios</title>
-
-  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
-	<link rel="stylesheet" href="<?=base_url(); ?>statics/responsiveTable/stylesheets/app.css">
+	<link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/responsiveTable/responsive-tables.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/responsiveTable/collapsed.css/">
-  	<link rel="stylesheet" href="<?=base_url(); ?>statics/tiptip/tipTip.css">
-
+	<link rel="stylesheet" href="<?=base_url(); ?>statics/responsiveTable/stylesheets/app.css">
   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/foundation.min.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/modernizr.foundation.js"></script>
@@ -21,22 +19,21 @@
 	<script src="<?=base_url(); ?>statics/collapsed/src/jquery.collapse.js"></script>
 	<script src="<?=base_url(); ?>statics/tiptip/jquery.tipTip.minified.js"></script>
 	<script src="<?=base_url(); ?>statics/js/horarios.js"></script>
-
-
 </head>
 
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="twelve columns">
-				<a  id="adminBtn" class="alert regular button offset-by-ten" href="http://localhost/horarios/index.php/loguin_c/">Administrador</a>
-				<h1>Laboratorios de docencia CBI</h1>
-				<h2>Horarios</h2><br><br>
-				<div class="row">
-					<a href="http://localhost/horarios/index.php/solicitar_labo_c" class="normal button solicitarLabosBtn offset-by-one">Solicitar Laboratorio</a>
-					<a href="http://localhost/horarios/index.php/recursos_c/recursos" class="normal button recursosLabosBtn offset-by-six" title="Software y hardware instalado en los laboratorios">Recursos >></a><br/><br />
+				<div class="row cabecera">
+					<h1 class="nine columns">Laboratorios de Docencia CBI</h1>
+					<a class="three columns" id="adminBtn" href="<?=base_url();?>index.php/loguin_c/">Entrar como administrador</a>
 				</div>
-				<br>
+				<div class="row opciones"><br>
+					<a href="<?=base_url(); ?>index.php/solicitar_labo_c" class="solicitarLabosBtn six columns solicitarLabo">Solicitar Laboratorio</a>
+					<a href="<?=base_url(); ?>index.php/recursos_c/recursos" class="recursosLabosBtn six columns recursos" title="Software y hardware instalado en los laboratorios">Recursos >></a><br/><br />
+				</div><br><br>
+				<label class="indica">Laboratorios</label><br>
 				<dl class="tabs four-up">
 					<dd class="active"><a href="#simple1">AT-105</a></dd>
 				  	<dd><a href="#simple2">AT-106</a></dd>
@@ -47,8 +44,7 @@
 			<ul class="tabs-content">
             	
             	<li class="active" id="simple1Tab"> <!--TAB1-->
-					<h3>AT-105</h3>
-
+            		<label class="indica">Semanas</label>
 					<div class="row">
 						<dl class="tabs pill">
 							<?php
@@ -68,6 +64,7 @@
 							if($i==1){	
 						?>								
 									<li class="active" id="pill<?= $i ?>Tab">
+										<label class="indica">Horarios</label>
 					            	   	<table class="responsive contentHorario">
 											<tr>
 												<th>Hora<?=$i?></th>
@@ -96,9 +93,10 @@
 							<?php }else{?>
 									
 								<li class="" id="pill<?= $i ?>Tab">
+									<label class="indica">Horarios</label>
 				            	   	<table class="responsive contentHorario">
 										<tr>
-											<th>Hora<?=$i?></th>
+											<th>Hora</th>
 											<th>Lunes</th>
 											<th>Martes</th>
 											<th>Miércoles</th>
@@ -126,8 +124,7 @@
      			</li> <!--simple1Tab-->
             	
             	<li id="simple2Tab"> <!--TAB2-->
-					<h3>AT-106</h3>
-	            	
+            		<label class="indica">Semanas</label>
 					<div class="row">
 						<dl class="tabs pill">
 							<?php
@@ -148,6 +145,7 @@
 								if($i==1){
 						?>
 								<li class="active" id="pill106<?= $i ?>Tab">
+									<label class="indica">Horarios</label>
 				            	   	<table class="responsive contentHorario">
 										<tr>
 											<th>Hora<?= $i ?></th>
@@ -175,6 +173,8 @@
 								</li> <!--pill1-->	
 							<?php }else{ ?>
 								<li class="" id="pill106<?= $i ?>Tab">
+									<label class="indica">Horarios</label>
+
 				            	   	<table class="responsive contentHorario">
 										<tr>
 											<th>Hora<?= $i ?></th>
@@ -207,8 +207,7 @@
  		       	</li> <!--simple2Tab-->
             	
             	<li id="simple3Tab"> <!--TAB3-->
-	            	
-					<h3>AT-219</h3>
+            		<label class="indica">Semanas</label>
 					<div class="row">
 						<dl class="tabs pill">
 							<?php
@@ -230,6 +229,7 @@
 								
 						?>
 									<li class="active" id="pill219<?= $i ?>Tab">
+									<label class="indica">Horarios</label>
 				            	   	<table class="responsive contentHorario">
 										<tr>
 											<th>Hora</th>
@@ -259,6 +259,8 @@
 						
 							<?php }else{ ?>	
 									<li class="" id="pill219<?= $i ?>Tab">
+									<label class="indica">Horarios</label>
+		
 				            	   	<table class="responsive contentHorario">
 										<tr>
 											<th>Hora</th>
@@ -291,8 +293,7 @@
 	          	</li> <!--simple3Tab-->
 
             	<li id="simple4Tab"> <!--TAB4-->
-	            	
-					<h3>AT-220</h3>
+            		<label class="indica">Semanas</label>
 					<div class="row">
 						<dl class="tabs pill">
 							<?php
@@ -313,6 +314,7 @@
 								
 						?>
 								<li class="active" id="pill220<?= $i ?>Tab">
+									<label class="indica">Horarios</label>
 				            	   	<table class="responsive contentHorario">
 										<tr>
 											<th>Hora</th>
@@ -340,6 +342,7 @@
 								</li> <!--pill1-->	
 						<?php }else {?>				
 								<li class="" id="pill220<?= $i ?>Tab">
+									<label class="indica">Horarios</label>
 				            	   	<table class="responsive contentHorario">
 										<tr>
 											<th>Hora</th>
@@ -374,9 +377,9 @@
             	</li>	            		            	
 	    	</ul>	<!--tabs content-->						
 				
-				<div class="row">
-					<a href="http://localhost/horarios/index.php/solicitar_labo_c" class="normal button solicitarLabosBtn offset-by-one">Solicitar Laboratorio</a>
-					<a href="http://localhost/horarios/index.php/recursos_c/recursos" class="normal button recursosLabosBtn offset-by-six">Recursos >></a><br/><br />
+				<div class="row opciones"><br>
+					<a href="<?=base_url(); ?>index.php/solicitar_labo_c" class="solicitarLabosBtn six columns solicitarLabo">Solicitar Laboratorio</a>
+					<a href="<?=base_url(); ?>index.php/recursos_c/recursos" class="recursosLabosBtn six columns recursos" title="Software y hardware instalado en los laboratorios">Recursos >></a><br/><br />
 				</div>
 				<hr>
   				
@@ -384,7 +387,7 @@
 					
 					<div id="CBI-UEA" class="four columns">
 	  					<h5>CBI</h5>
-	  				    <ul class="disc">
+	  				    <ul class="disc listacbi">
 		  				    <?php  
 		  				    	if($listaueasCBI['datosCBI']==-1){
 		  				    		echo "<label class='noDatos'> No hay datos que cargar</label>";
@@ -404,7 +407,7 @@
 	  				</div>
 	  				<div id="CBS-UEA" class="four columns">
 	  					<h5>CBS</h5>
-	  				    <ul class="disc">
+	  				    <ul class="disc listacbs">
 		  				    <?php  
 		  				    	if($listaueasCBS['datosCBS']==-1){
 		  				    		echo "<label class='noDatos'> No hay datos que cargar</label>";
@@ -425,7 +428,7 @@
 	  				  </div>
 	  				  <div id="CSH-UEA" class="four columns">
 	  					<h5>CSH</h5>
-	  				    <ul class="disc">
+	  				    <ul class="disc listacsh">
 		  				    <?php  
 		  				    	if($listaueasCSH['datosCSH']==-1){
 		  				    		echo "<label class='noDatos'> No hay datos que cargar</label>";
@@ -461,7 +464,7 @@
 							}else{
 								foreach ($listaUPG['datosUPG'] as $valor) {
 									echo "<tr>";
-									echo"<td>";print_r($valor['nombreuea']); echo"</td>";
+									echo"<td class='derecha'>";print_r($valor['nombreuea']); echo"</td>";
 									echo"<td>";print_r($valor['siglas']); echo"</td>";
 									echo"<td>";print_r($valor['grupo']); echo"</td>";
 	 								echo"<td>";print_r($valor['nombre']); echo"</td>";
@@ -473,12 +476,13 @@
 		
 			</div><!--twelve columns-->
 		</div> <!--row-->
+		
  	</div> <!--container-->
     </body>
     
     <footer>
-
-    	
+		<hr>
+		<label class="footer">Creado y administrado por <a href="#">@NallelyFlores5</a></label>
     </footer>
 </html>
 

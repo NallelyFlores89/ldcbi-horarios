@@ -4,11 +4,11 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-    <title>Vaciar recursos</title>
-
+    <title>Vaciar horarios</title>
+	<link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
-  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/zurb.mega-drop.css">
+  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
  
   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/foundation.min.js"></script>
@@ -40,8 +40,10 @@
 							</div>
 						</div><hr>
 				  			<?php echo form_error('checkboxes2[]'); ?>
-
-						<input type="submit" id="vaciarBtn" class="button offset-by-three" value="Vaciar" />
+						
+						<div class="four columns"></div>
+						<input type="submit" id="vaciarBtn" class="button four columns" value="Vaciar" />
+						<div class="four columns"></div>
 					</form>
 				</fieldset>
 

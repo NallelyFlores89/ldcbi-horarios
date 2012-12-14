@@ -5,7 +5,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
     <title>Administrador - Logueo </title>
-
+	<link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
@@ -28,13 +28,12 @@
 					  
 						<label for="passInput">Contraseña</label>
 				  		<input type="password" id="passInput" name="passInput"/>
-				  		
-  						<input type="submit" id="LogueoAdminBtn" class="button large offset-by-two" value="Ingresar" />
-						<a href="http://localhost/horarios/index.php/inicio" class="button large offset-by-two">Cancelar</a>
-					</form>
+				  		<div class="four columns"></div>
+  						<input type="submit" id="LogueoAdminBtn" class="button four columns" value="Ingresar" />
+  						<div class="four columns"></div>
 				</fieldset>
 
-				<p><a class="offset-by-nine OlvidoPassBtn" href="http://localhost/horarios/index.php/recupera_pass_c" id="OlvidoPassBtn">¿Olvidó su contraseña?</a></p>
+				<p><a class="offset-by-seven OlvidoPassBtn" href="<?= base_url(); ?>index.php/recupera_pass_c" id="OlvidoPassBtn">¿Olvidó su contraseña?</a></p>
 			</div><!--twelve columns-->
 		</div> <!--row-->
 

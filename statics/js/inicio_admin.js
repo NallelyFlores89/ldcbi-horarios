@@ -1,5 +1,5 @@
 $(document).ready(function(){
- 	$('#IrRecursosAdminBtn').click(function() {
+ 	$('#AdministracionBtn').click(function() {
 		 $(this).target = "_blank";
 			 window.open($(this).prop('href'));
 		     return false;
@@ -19,5 +19,10 @@ $(document).ready(function(){
 		resizable:'0',
 		height:400,
 		width:770,
+	});
+ 	$('#IrRecursosAdminBtn').click(function() {
+		 $(this).target = "_blank";
+			 window.open($(this).prop('href'));
+		     return false;
 	}); 	 
 })

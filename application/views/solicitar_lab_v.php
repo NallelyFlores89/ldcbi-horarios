@@ -5,12 +5,11 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
     <title>Solicitar Laboratorio</title>
-
+	<link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
-  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/zurb.mega-drop.css">
- 
-  	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
+  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
+   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/foundation.min.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/modernizr.foundation.js"></script>
 	<script src="<?=base_url(); ?>statics/js/solicitarLab.js"></script>
@@ -21,9 +20,7 @@
 <body>
 		<div class="row">
 			<div class="twelve columns">
-				<br><br>
-				<h1>Laboratorios de Docencia CBI</h1>
-				<h3>Solicitar laboratorios</h3><br>
+				<h2>Solicitar laboratorios</h2><br>
 				<p class="instrucciones">Por favor, llene el formulario</p>
 
 				<fieldset >
@@ -193,7 +190,7 @@
 						</div>	<!--row-->
 						
 						<label style="margin-top:20px;">Recursos </label>
-						<p>(Sólo en caso de ser necesario) <a class="recursosLabosBtn" href="http://localhost/horarios/index.php/recursos_c/recursos">Ver recursos</a></p> 
+						<p>(Sólo en caso de ser necesario) <a class="recursosLabosBtn" href="<?= base_url(); ?>index.php/recursos_c/recursos">Ver recursos</a></p> 
 						<textarea id="recursos" name="recursos"></textarea>
 	
 						<div class="row">
@@ -217,13 +214,20 @@
 							<textarea id="comentarios" name="comentarios" placeholder="Si desea, puede dejar un comentario adicional"></textarea>
 							
 						</div>
-						
-						<input type="submit" id="EnviarSolicitudBtn" class="button large offset-by-two" value="Enviar Solicitud" />
-<!-- 					<input id="cancelarSolicitudBtn" type="submit" class="button large offset-by-three" value="Cancelar"/><br><br><br>					 -->					</form>
+						<div class="four columns"></div>
+						<input type="submit" id="EnviarSolicitudBtn" class="button large four columns" value="Enviar Solicitud" />
+						<div class="four columns"></div>
+
 				</fieldset>
 
 			</div> <!--twelve colums-->
 		</div> <!--row-->
 
 </body>
+
+<footer>
+		<hr>
+		<label class="footer">Creado y administrado por <a href="#">@NallelyFlores5</a></label>
+    	
+</footer>
 </html>

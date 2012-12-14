@@ -22,7 +22,8 @@
 				$grupos=$this->administracion_m->obtenGruposxProf($idprof);
 				
 				foreach ($grupos as $value) {
-					$this->administracion_m->eliminaGrupo($value);
+					print_r($value);
+					$this->administracion_m->eliminaGrupo($value['idgrupo']);
 				}
 			}else{
 				$this->load->view('elimina_profr');
@@ -30,7 +31,13 @@
 		}
 
 		function elimina_grupo($grupo){
-			$this->load->view('elimina_grupo_v');	
+			if($_POST != NULL){
+				$idgrupo=$this->administracion_m->obtenIdGrupo($grupo);
+				$this->administracion_m->eliminaGrupo($idgrupo);
+			}else{
+				$this->load->view('elimina_grupo_v');	
+			}			
+			
 		}	
 			
 		function elimina_uea($clave){

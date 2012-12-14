@@ -5,10 +5,10 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
     <title>Agregar recursos</title>
-
+	<link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
-  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/zurb.mega-drop.css">
+  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
  
   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/foundation.min.js"></script>
@@ -21,8 +21,7 @@
 <body>
 		<div class="row">
 			<div class="twelve columns">
-				<br><br>
-				<h1>Laboratorios de Docencia CBI</h1>
+				<br>
 				<h3>Agregar recursos</h3><br>
 
 				<fieldset >

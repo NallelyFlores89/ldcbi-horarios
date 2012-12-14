@@ -94,10 +94,10 @@
 			$this->db->from('grupo');
 			$this->db->where('grupo', $grupo);
 			
-			$grupo=$this->db->get(); //Vacía el contenido de la consulta en la variable
-			if(($grupo->num_rows())>0){ //Verificando si tengo datos a cargar
+			$grupo=$this->db->get(); 
+			if(($grupo->num_rows())>0){ 
 				foreach ($grupo->result_array() as $value) {
-					$idgrupo[1] = $value['idgrupo']; //Guardando mis datos en un arreglo
+					$idgrupo[1] = $value['idgrupo']; 
 				 }
 			
 				return($idgrupo[1]);
@@ -113,10 +113,10 @@
 			$this->db->from('uea');
 			$this->db->where('clave', $clave);
 
-			$uea=$this->db->get(); //Vacía el contenido de la consulta en la variable
-			if(($uea->num_rows())>0){ //Verificando si tengo datos a cargar
+			$uea=$this->db->get(); 
+			if(($uea->num_rows())>0){ 
 				foreach ($uea->result_array() as $value) {
-					$uea_a[1] = $value; //Guardando mis datos en un arreglo
+					$uea_a[1] = $value;
 				 }
 			
 				return($uea_a[1]);
@@ -147,11 +147,11 @@
 			$this->db->from('laboratorios_grupo');
 			$this->db->where('idgrupo', $idgrupo);
 
-			$res=$this->db->get(); //Vacía el contenido de la consulta en la variable
-			if(($res->num_rows())>0){ //Verificando si tengo datos a cargar
+			$res=$this->db->get(); 
+			if(($res->num_rows())>0){ 
 				$indice=1;
 				foreach ($res->result_array() as $value) {
-					$resultado[$indice] = $value; //Guardando mis datos en un arreglo
+					$resultado[$indice] = $value; 
 					$indice++;
 				 }
 			
@@ -178,7 +178,7 @@
 			$this->db->update('grupo', $datos); 			
 		}
 
-		function borraGrupo($idgrupo, $idlab){
+		function borraGrupo($idgrupo, $idlab){ //Esta función se utiliza para cambiar de horario
 				
 			$datos=Array(
 				'idgrupo' => NULL
@@ -189,8 +189,20 @@
 			$this->db->update('laboratorios_grupo', $datos); 				
 		}
 		
-		function eliminaGrupo($idgrupo){
-			echo "grupos eliminado";				
+		function eliminaGrupo($idgrupo){ //Esta función elimina el grupo definitivamente 
+			//Primero, eliminamos el grupo de la tabla laboratorios_grupo
+			$datos=Array(
+				'idgrupo' => NULL
+			);
+			$this->db->where('idgrupo', $idgrupo);
+			$this->db->update('laboratorios_grupo', $datos); 	
+			
+			//Después eliminamos el grupo
+			$datos=Array(
+				'idgrupo' => $idgrupo
+			
+			);
+			$this->db->delete('grupo', $datos); 				
 		}
 				
 		function obtenGruposxProf($idprofesor){
@@ -198,11 +210,11 @@
 			$this->db->from('grupo');
 			$this->db->where('profesores_idprofesores', $idprofesor);
 
-			$res=$this->db->get(); //Vacía el contenido de la consulta en la variable
-			if(($res->num_rows())>0){ //Verificando si tengo datos a cargar
+			$res=$this->db->get(); 
+			if(($res->num_rows())>0){ 
 				$indice=1;
 				foreach ($res->result_array() as $value) {
-					$resultado[$indice] = $value; //Guardando mis datos en un arreglo
+					$resultado[$indice] = $value; 
 					$indice++;
 				 }
 				return($resultado);

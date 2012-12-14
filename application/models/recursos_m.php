@@ -14,6 +14,7 @@
 			$this->db->from('recursos');
 			$this->db->join('laboratorios_has_recursos', 'recursos_idrecursos=idrecursos','left');
 			$this->db->where('laboratorios_idlaboratorios',$idlab);
+			$this->db->order_by('recurso');
 
 			$listaRecursos=$this->db->get(); //Vacía el contenido de la consulta en la variable
 			

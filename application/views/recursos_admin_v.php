@@ -5,7 +5,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
     <title>Recursos </title>
-
+	<link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/foundation.min.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/modernizr.foundation.js"></script>
@@ -15,7 +15,7 @@
 
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/zurb.mega-drop.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
-  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
+	<link rel="stylesheet" href="<?=base_url(); ?>statics/responsiveTable/stylesheets/app.css">
 	 	 	
 </head>
 
@@ -23,8 +23,7 @@
 		<div class="row">
 			<br><br>
 			<div class="twelve columns">
-			<h1>Laboratorios de Docencia CBI</h1>
-			<h3>Recursos</h3><br><br>			
+			<h2>Recursos</h2><br><br>			
 			<dl class="tabs four-up">
 					<dd class="active"><a href="#simple1">AT-105</a></dd>
 				  	<dd><a href="#simple2">AT-106</a></dd>
@@ -92,7 +91,7 @@
 													echo"</div>";
 												
 													echo"<div class='two columns'>";
-														echo "<a class='EditarRecurso' href='#'>Modificar</a>";
+														echo "<a class='EditarRecurso' href='#' onclick='ventanaEdita($id_recurso)'>Modificar</a>";
 													echo "</div>";
 												echo"</li>";
 										echo "</div>";
@@ -128,7 +127,7 @@
 													echo"</div>";
 												
 													echo"<div class='two columns'>";
-														echo "<a class='EditarRecurso' href='#'>Modificar</a>";
+														echo "<a class='EditarRecurso' href='#' onclick='ventanaEdita($id_recurso)'>Modificar</a>";
 													echo "</div>";
 												echo"</li>";
 										echo "</div>";
@@ -164,7 +163,7 @@
 													echo"</div>";
 												
 													echo"<div class='two columns'>";
-														echo "<a class='EditarRecurso' href='#'>Modificar</a>";
+														echo "<a class='EditarRecurso' href='#' onclick='ventanaEdita($id_recurso)'>Modificar</a>";
 													echo "</div>";
 												echo"</li>";
 										echo "</div>";
@@ -179,9 +178,17 @@
 				</ul>
 				
 				<br><br>
-				<a href="http://localhost/horarios/index.php/recursos_admin_c/agregar_recursos" class="normal button AgregarRecursosBtn offset-by-one">Agregar recursos</a>
-				<a href="http://localhost/horarios/index.php/recursos_admin_c/vaciar_recursos" class="normal button VaciarRecursosBtn offset-by-one">Vaciar recursos</a><br/><br/>
+				<div class="two columns"></div>
+				<a href="<?= base_url(); ?>index.php/recursos_admin_c/agregar_recursos" class="button AgregarRecursosBtn four columns">Agregar recursos</a>
+				<a href="<?= base_url(); ?>index.php/recursos_admin_c/vaciar_recursos" class="button VaciarRecursosBtn four columns">Vaciar recursos</a><br/><br/>
+				<div class="two columns"></div>
 			</div><!--twelve columns-->
 		</div> <!--row-->
 </body>
+
+    <footer>
+		<hr style="margin-top:100px">
+		<label class="footer">Creado y administrado por <a href="#">@NallelyFlores5</a></label>
+    	
+    </footer>
 </html>

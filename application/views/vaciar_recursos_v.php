@@ -5,14 +5,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
     <title>Vaciar recursos</title>
-
+	<link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
-  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/zurb.mega-drop.css">
- 
   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/foundation.min.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/modernizr.foundation.js"></script>
+
+  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
 
 </head>
 
@@ -20,7 +20,6 @@
 		<div class="row">
 			<div class="twelve columns">
 				<br><br>
-
 				<fieldset >
 					<form class="custom" action="" method="post">
 						<div class="row">
@@ -36,8 +35,10 @@
 					  		<?php echo form_error('checkboxes2[]'); ?>
 						</div><hr>
 
-						<input type="submit" id="vaciarBtn" class="button offset-by-two" value="Vaciar" />
-<!-- 					<input id="cancelarSolicitudBtn" type="submit" class="button large offset-by-three" value="Cancelar"/><br><br><br>					 -->					
+						<div class="four columns"></div>
+						<input type="submit" id="vaciarBtn" class="button four columns" value="Vaciar" />
+						<div class="four columns"></div>
+
 					</form>
 				</fieldset>
 

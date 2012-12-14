@@ -5,23 +5,25 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
     <title>Recursos </title>
-
+	<link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/foundation.min.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/modernizr.foundation.js"></script>
   	
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
-  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
+	<link rel="stylesheet" href="<?=base_url(); ?>statics/responsiveTable/stylesheets/app.css">
    	<script src="<?=base_url(); ?>statics/foundation/javascripts/marketing_docs.js"></script>
 	 	 	
 </head>
 
 <body>
 		<div class="row">
-			<br><br>
-			<div class="twelve columns">
-			<h1>Laboratorios de Docencia CBI</h1>
-			<h3>Recursos</h3><br><br>			
+			<br><div class="twelve columns">
+			<div class="row cabecera">
+				<h1>Laboratorios de Docencia CBI</h1><br>
+			</div>
+			<h2>Recursos</h2><br><br>	
+			<label>Lista de software y hardware que ofrece cada laboratorio</label><br><br>	
 			<dl class="tabs four-up">
 					<dd class="active"><a href="#simple1">AT-105</a></dd>
 				  	<dd><a href="#simple2">AT-106</a></dd>

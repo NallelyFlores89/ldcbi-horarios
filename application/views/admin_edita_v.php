@@ -5,10 +5,10 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
     <title>Editar</title>
-
+	<link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
-  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/zurb.mega-drop.css">
+  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
  
   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/foundation.min.js"></script>
@@ -21,8 +21,6 @@
 		<div class="row">
 			<div class="twelve columns">
 				<br><br>
-				<h1>Laboratorios de Docencia CBI</h1>
-				<h3>Solicitar laboratorios</h3><br>
 				<p class="instrucciones">Rellene los campos que desee editar</p>
 				<fieldset >
 					<form class="custom" action="" method="post">
@@ -70,8 +68,9 @@
 						  		<?php echo form_error('grupoInput'); ?>
 						  	</div>
 						</div>
-		
-					<input type="submit" id="editar" class="button large offset-by-two" value="Guardar cambios" />
+						<div class="four columns"></div>
+						<input type="submit" id="editar" class="button large four columns" value="Guardar cambios" />
+						<div class="four columns"></div>
 					</fieldset>
 
 			</div> <!--twelve colums-->

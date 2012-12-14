@@ -57,30 +57,24 @@
 				//INSERTANDO DATOS EN BD
 				
 				$idProf=$this->Agregar_horario_m->obtenerIdProfesor($_POST['numInput']); //Profesor
-				echo "<br> id del profesor";print_r($idProf); echo "<br>";
 				
 				if($idProf==-1){ //Si no existe el profesor en la base de datos, lo inserta
 					$this->Agregar_horario_m->inserta_profesores($_POST['nombreInput'], $_POST['numInput'], $_POST['correoInput']);
 				}
 
 				$idProf=$this->Agregar_horario_m->obtenerIdProfesor($_POST['numInput']); //Obteniendo id del profesor
-				echo "<br> id del profesor";print_r($idProf); echo "<br>";
-				
+			
 				$id_lab = $_POST['laboratoriosDropdown'];
-				echo "<br> id del lab";print_r($id_lab); echo "<br>";
 				
 				$iduea=$this->Agregar_horario_m->obtenerIdUea($_POST['claveInput']);
-				echo "<br> id uea";print_r($iduea); echo "<br>";
 				
 				if($iduea==-1){ //Si la UEA no existe, la insertará
 					$this->Agregar_horario_m->inserta_uea($_POST['ueaInput'], $_POST['claveInput'], $_POST['divisionesDropdown']);
 				};
 				
 				$iduea=$this->Agregar_horario_m->obtenerIdUea($_POST['claveInput']); //id definitivo de UEA a manejar
-				echo "<br> id uea";print_r($iduea); echo "<br>";
 								
 				$idGrupo=$this->Agregar_horario_m->obtenerIdGrupo($_POST['grupoInput']);
-				echo "<br> id grupo";print_r($idGrupo); echo "<br>";
 				
 				if($idGrupo==-1){
 					$this->Agregar_horario_m->inserta_grupo($_POST['grupoInput'], $_POST['siglasInput'], $iduea, $idProf);
@@ -89,10 +83,8 @@
 				}
 																	
 				$idGrupo=$this->Agregar_horario_m->obtenerIdGrupo($_POST['grupoInput']); //Id definitivo del grupo a manejar
-				echo "<br> id grupo";print_r($idGrupo); echo "<br>";
 								
 				//OBTENIENDO ID DE HORARIO INICIAL
-				
 				switch ($_POST['HoraIDropdown']) {
 					case '8':
 						$horaI='08:00';
