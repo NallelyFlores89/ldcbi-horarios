@@ -25,6 +25,10 @@
 					print_r($value);
 					$this->administracion_m->eliminaGrupo($value['idgrupo']);
 				}
+				echo "<script languaje='javascript' type='text/javascript'>
+						window.opener.location.reload();
+						window.close();</script>";				
+				
 			}else{
 				$this->load->view('elimina_profr');
 			}
@@ -34,6 +38,9 @@
 			if($_POST != NULL){
 				$idgrupo=$this->administracion_m->obtenIdGrupo($grupo);
 				$this->administracion_m->eliminaGrupo($idgrupo);
+				echo "<script languaje='javascript' type='text/javascript'>
+						window.opener.location.reload();
+						window.close();</script>";	
 			}else{
 				$this->load->view('elimina_grupo_v');	
 			}			
@@ -41,7 +48,12 @@
 		}	
 			
 		function elimina_uea($clave){
-			$this->load->view('elimina_uea_v');	
+			if($_POST != NULL){
+				$iduea=$this->administracion_m->obtenIdUea($clave);
+				$this->administracion_m->eliminaUEA($iduea);			
+			}else{
+				$this->load->view('elimina_uea_v');
+			}	
 		}	
 
 		function edita($numEmp, $grupo, $claveUEA, $siglas, $idlab){

@@ -88,7 +88,25 @@
 				return(-1);
 			}			
 		} //Fin obtenLaboratorios
-		
+
+		function obtenIdUea($clave){
+				
+			$this->db->select('iduea');
+			$this->db->from('uea');
+			$this->db->where('clave', $clave);
+
+			$ids=$this->db->get(); 
+			if(($ids->num_rows())>0){
+				foreach ($ids->result_array() as $value) {
+					$id[1] = $value['iduea']; 
+				 }
+			
+				return($id[1]);
+			}else{
+				return(-1);
+			}			
+		} //Fin obtenIdUea
+				
 		function obtenIdGrupo($grupo){
 			$this->db->select('idgrupo');
 			$this->db->from('grupo');
@@ -202,9 +220,38 @@
 				'idgrupo' => $idgrupo
 			
 			);
-			$this->db->delete('grupo', $datos); 				
+			//$this->db->delete('grupo', $datos); 				
 		}
+
+		function eliminaUEA($iduea){ //Esta función elimina la UEA 
+			$this->db->select('idgrupo');
+			$this->db->from('grupo');
+			$this->db->where('uea_iduea', $iduea);
+
+			$grupos=$this->db->get(); //Obteniendo ids de los grupos a eliminar
+			 
+			$indice=1;
+			foreach ($grupos->result_array() as $value) {//Primero, eliminamos el grupo de la tabla laboratorios_grupo
+				echo "<br>";print_r($value['idgrupo']);
+				$datos=Array(
+					'idgrupo' => NULL
+				);
+				$this->db->where('idgrupo', $value['idgrupo']);
+				$this->db->update('laboratorios_grupo', $datos); 	
 				
+				//Después eliminamos el grupo
+				$datos=Array(
+					'idgrupo' => $value['idgrupo']			
+				);
+				$this->db->delete('grupo', $datos); 	
+			
+			}
+			$datos=Array(  //Finalmente, eliminamos la UEA
+				'iduea' => $iduea
+			);
+			$this->db->delete('uea', $datos); 				
+		}
+						
 		function obtenGruposxProf($idprofesor){
 			$this->db->select('idgrupo');
 			$this->db->from('grupo');

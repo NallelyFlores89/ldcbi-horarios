@@ -111,13 +111,9 @@
 			$ueaL=$this->db->get();
 			
 			if(($ueaL->num_rows())>0){
-				$indice=1;
 				$indice2=1;
-				
 				foreach ($ueaL->result_array() as $value) {
-					//$uL[$indice]=$value['idgrupo'];
-					
-					$this->db->select('siglas');
+					$this->db->select('siglas,uea_iduea');
 					$this->db->from('grupo');
 					$this->db->where('idgrupo', $value['idgrupo']);
 					
@@ -125,18 +121,47 @@
 					
 					if($ueas->num_rows()>0){
 						foreach ($ueas->result_array() as $value2) {
-							$nombreUeas[$indice2]=$value2['siglas'];
+							$siglasGrupos[$indice2]=$value2['siglas'];
+							$idsueas[$indice2]=$value2['uea_iduea'];
 						}
 					}
 					else{
-						$nombreUeas[$indice2]='';
+						$siglasGrupos[$indice2]='';
+						$idsueas[$indice2]='-1';
+						
 					}
-					
-					$indice++;
 					$indice2++;
 				}
-
-				return ($nombreUeas);
+				
+				$indice=1;
+				foreach ($idsueas as $iduea) { //Obteniendo a qué división pertenece cada grupo
+					$this->db->select('divisiones_iddivisiones');
+					$this->db->where('iduea', $iduea);
+					
+					$div = $this->db->get('uea');
+					
+					if($div->num_rows()>0){
+						foreach ($div->result_array() as $valor) {
+							if($valor['divisiones_iddivisiones']==1){
+								$divisiones[$indice]='CBI';
+							}
+							if($valor['divisiones_iddivisiones']==2){
+								$divisiones[$indice]='CBS';
+							}
+							if($valor['divisiones_iddivisiones']==3){
+								$divisiones[$indice]='CSH';
+							}														
+						}
+					}
+					else{
+						$divisiones[$indice]='';
+						
+					}
+					$indice++;					
+				}
+				$datos['divisionesGrupo'] = $divisiones;
+				$datos['siglasGrupos'] = $siglasGrupos;
+				return ($datos);
 			 }else{
 			 	return 'No hay datos';
 			}//fin del else
