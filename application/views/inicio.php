@@ -76,17 +76,16 @@
 											</tr>
 							
 											<?php
-												foreach ($DataHorarios as $indice=>$value) {
-													echo "<tr id='$value'>";
-														echo"<td class='hora'>$value</td>";
-														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_1'][$indice]);echo "</td>";
-														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_2'][$indice]);echo "</td>";
-														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_3'][$indice]);echo "</td>";
-														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_4'][$indice]);echo "</td>";																						
-														echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_5'][$indice]);echo "</td>";
-													echo "</tr>";
-												}
-											?>
+												foreach ($DataHorarios as $indice=>$value) { ?>
+													<tr id='<?= $value ?>'>
+														<td class='hora'><?=$value ?></td>
+														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
+														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
+														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
+														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
+														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+													</tr>
+											<? }?>
 							
 										</table> <!--TERMINA LA TABLA DE HORARIOS -->
 									</li> <!--pill1-->	
@@ -105,17 +104,16 @@
 										</tr>
 						
 										<?php
-											foreach ($DataHorarios as $indice=>$value) {
-												echo "<tr id='$value'>";
-													echo"<td class='hora'>$value</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_1'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_2'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_3'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_4'][$indice]);echo "</td>";																						
-													echo"<td id='l$indice'>";print_r($Data['$DataU105_'.$i.'_5'][$indice]);echo "</td>";
-												echo "</tr>";
-											}
-										?>
+											foreach ($DataHorarios as $indice=>$value) { ?>
+												<tr id='<?= $value ?>'>
+													<td class='hora'><?=$value ?></td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+												</tr>
+										<? }?>
 						
 									</table> <!--TERMINA LA TABLA DE HORARIOS -->
 								</li> <!--pill1-->	
@@ -157,17 +155,16 @@
 										</tr>
 						
 										<?php
-											foreach ($DataHorarios as $indice=>$value) {
-												echo "<tr id='$value'>";
-													echo"<td class='hora'>$value</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_1'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_2'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_3'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_4'][$indice]);echo "</td>";																						
-													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_5'][$indice]);echo "</td>";
-												echo "</tr>";
-											}
-										?>
+											foreach ($DataHorarios as $indice=>$value) { ?>
+												<tr id='<?= $value ?>'>
+													<td class='hora'><?=$value ?></td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+												</tr>
+										<? }?>
 						
 									</table> <!--TERMINA LA TABLA DE HORARIOS -->
 								</li> <!--pill1-->	
@@ -186,17 +183,16 @@
 										</tr>
 						
 										<?php
-											foreach ($DataHorarios as $indice=>$value) {
-												echo "<tr id='$value'>";
-													echo"<td class='hora'>$value</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_1'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_2'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_3'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_4'][$indice]);echo "</td>";																						
-													echo"<td id='l$indice'>";print_r($Data['$DataU106_'.$i.'_5'][$indice]);echo "</td>";
-												echo "</tr>";
-											}
-										?>
+											foreach ($DataHorarios as $indice=>$value) { ?>
+												<tr id='<?= $value ?>'>
+													<td class='hora'><?=$value ?></td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+												</tr>
+										<? }?>
 						
 									</table> <!--TERMINA LA TABLA DE HORARIOS -->
 								</li> <!--pill1-->								
@@ -241,18 +237,16 @@
 										</tr>
 						
 										<?php
-											$indice=1;
-											foreach ($DataHorarios as $indice=>$value) {
-												echo "<tr id='$value'>";
-													echo"<td class='hora'>$value</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_1'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_2'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_3'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_4'][$indice]);echo "</td>";																						
-													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_5'][$indice]);echo "</td>";
-												echo "</tr>";
-											}
-										?>
+											foreach ($DataHorarios as $indice=>$value) { ?>
+												<tr id='<?= $value ?>'>
+													<td class='hora'><?=$value ?></td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+												</tr>
+										<? }?>
 						
 									</table> <!--TERMINA LA TABLA DE HORARIOS -->
 								</li> <!--pill1-->
@@ -272,18 +266,16 @@
 										</tr>
 						
 										<?php
-											$indice=1;
-											foreach ($DataHorarios as $indice=>$value) {
-												echo "<tr id='$value'>";
-													echo"<td class='hora'>$value</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_1'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_2'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_3'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_4'][$indice]);echo "</td>";																						
-													echo"<td id='l$indice'>";print_r($Data['$DataU219_'.$i.'_5'][$indice]);echo "</td>";
-												echo "</tr>";
-											}
-										?>
+											foreach ($DataHorarios as $indice=>$value) { ?>
+												<tr id='<?= $value ?>'>
+													<td class='hora'><?=$value ?></td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+												</tr>
+										<? }?>
 						
 									</table> <!--TERMINA LA TABLA DE HORARIOS -->
 								</li> <!--pill1-->								
@@ -326,17 +318,16 @@
 										</tr>
 						
 										<?php
-											foreach ($DataHorarios as $indice=>$value) {
-												echo "<tr id='$value'>";
-													echo"<td class='hora'>$value</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_1'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_2'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_3'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_4'][$indice]);echo "</td>";																						
-													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_5'][$indice]);echo "</td>";
-												echo "</tr>";
-											}
-										?>
+											foreach ($DataHorarios as $indice=>$value) { ?>
+												<tr id='<?= $value ?>'>
+													<td class='hora'><?=$value ?></td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+												</tr>
+										<? }?>
 						
 									</table> <!--TERMINA LA TABLA DE HORARIOS -->
 								</li> <!--pill1-->	
@@ -354,17 +345,16 @@
 										</tr>
 						
 										<?php
-											foreach ($DataHorarios as $indice=>$value) {
-												echo "<tr id='$value'>";
-													echo"<td class='hora'>$value</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_1'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_2'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_3'][$indice]);echo "</td>";
-													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_4'][$indice]);echo "</td>";																						
-													echo"<td id='l$indice'>";print_r($Data['$DataU220_'.$i.'_5'][$indice]);echo "</td>";
-												echo "</tr>";
-											}
-										?>
+											foreach ($DataHorarios as $indice=>$value) { ?>
+												<tr id='<?= $value ?>'>
+													<td class='hora'><?=$value ?></td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+												</tr>
+										<? }?>
 						
 									</table> <!--TERMINA LA TABLA DE HORARIOS -->
 								</li> <!--pill1-->						

@@ -19,12 +19,15 @@
 		function elimina_profesor($numEmp){
 			if($_POST != NULL){
 				$idprof=$this->administracion_m->obtenIdProf($numEmp);
-				$grupos=$this->administracion_m->obtenGruposxProf($idprof);
+				$grupos=$this->administracion_m->obtenGruposxProf($idprof); 
 				
-				foreach ($grupos as $value) {
-					print_r($value);
+				foreach ($grupos as $value) { //Elimina los grupos dados por el profesor
 					$this->administracion_m->eliminaGrupo($value['idgrupo']);
 				}
+				
+				//Eliminando al profesor
+				$this->administracion_m->eliminaProfesor($numEmp);
+									
 				echo "<script languaje='javascript' type='text/javascript'>
 						window.opener.location.reload();
 						window.close();</script>";				

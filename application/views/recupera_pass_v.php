@@ -5,7 +5,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
     <title>Administrador - Recuperar Contraseña </title>
-
+	<link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
@@ -26,8 +26,7 @@
 						<label for="correoInput">Correo</label>
 				  		<input type="text" id="correoInput" name="correoInput"/>
 				  		
-  						<input type="submit" id="recuperarPassBtn" class="button large offset-by-one" value="Recuperar Contraseña" />
-						<a href="#" id="cancelarRecuperarPassBtn"class="button large offset-by-two">Cancelar</a>
+  						<input type="submit" id="recuperarPassBtn" class="button offset-by-one" value="Recuperar Contraseña" />
 					</form>
 				</fieldset>
 			</div><!--twelve columns-->

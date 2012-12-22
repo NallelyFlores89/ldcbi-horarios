@@ -251,6 +251,17 @@
 			);
 			$this->db->delete('uea', $datos); 				
 		}
+
+		function eliminaProfesor($numEmp){
+				
+			$datos = Array(
+				'numempleado' => $numEmp
+			);
+			
+			$this->db->delete('profesores', $datos); 	
+			
+			
+		}
 						
 		function obtenGruposxProf($idprofesor){
 			$this->db->select('idgrupo');

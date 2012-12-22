@@ -4,7 +4,13 @@ $(document).ready(function(){
 			 window.open($(this).prop('href'));
 		     return false;
 	});
-	
+
+ 	$('#Administracion2Btn').click(function() {
+		 $(this).target = "_blank";
+			 window.open($(this).prop('href'));
+		     return false;
+	});
+		
 	$('.AgregarHorarioBtn').popupWindow({ 
 		windowURL:base+'index.php/agregar_horario_c', 
 		scrollbars:'1',
