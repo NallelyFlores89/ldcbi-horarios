@@ -31,7 +31,7 @@
 				</div>
 				<div class="row opciones"><br>
 					<a href="<?=base_url(); ?>index.php/solicitar_labo_c" class="solicitarLabosBtn six columns solicitarLabo">Solicitar Laboratorio</a>
-					<a href="<?=base_url(); ?>index.php/recursos_c/recursos" class="recursosLabosBtn six columns recursos" title="Software y hardware instalado en los laboratorios">Recursos >></a><br/><br />
+					<a href="<?=base_url(); ?>index.php/recursos_c" class="recursosLabosBtn six columns recursos" title="Software y hardware instalado en los laboratorios">Recursos >></a><br/><br />
 				</div><br><br>
 				<label class="indica">Laboratorios</label><br>
 				<dl class="tabs four-up">

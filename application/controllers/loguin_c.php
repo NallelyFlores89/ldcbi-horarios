@@ -8,16 +8,16 @@
 			
 			$this->load->helper(array('html', 'url'));
 	        $this->load->model('loguin_model'); // Load the model
-			
+			$this->load->library('session');
 	   	}
 
     function index( $msg = NULL ){
  		$data['msg'] = $msg;
-        $this->load->view('admin_logueo_v', $data);
+        $this->load->view('loguin_v', $data);
     }
 	
 	
-	 public function process(){
+	 function process(){
       
         $result = $this->loguin_model->validate();// Validate the user can login         
 		
@@ -29,6 +29,7 @@
             // If user did validate, send them to members area
             redirect('inicio_admin_c');
         }        
-    } 
+    }
+
 }
 ?>

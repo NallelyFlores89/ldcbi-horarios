@@ -33,7 +33,6 @@
 			        $this->load->view('recupera_pass_v');
 				}
 			}else{
-				echo "el correo no existe en la base de datos";
 		        $this->load->view('recupera_pass_v');
 			}
 	    }

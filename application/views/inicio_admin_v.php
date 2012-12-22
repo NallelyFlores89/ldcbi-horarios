@@ -34,7 +34,7 @@
 			  <li><a id="IrRecursosAdminBtn" href="<?=base_url()?>index.php/recursos_admin_c">Recursos</a></li>
 			  <li><a id="AdministracionBtn" href="<?=base_url()?>index.php/administracion_c">UEA's-PROFESOR</a></li>
 			  <li><a id="Administracion2Btn" href="<?=base_url()?>index.php/administracion2_c">Administración</a></li>
-			  <li><a href="<?=base_url()?>index.php/inicio">Salir</a></li>
+			  <li><a href="<?=base_url()?>index.php/inicio_admin_c/do_logout">Salir</a></li>
 			</ul><br>
 			<br>		
 			<label class="indica">Laboratorios</label><br>

@@ -94,6 +94,7 @@
 				$msj=$this->load->view('correo_v',$datos_correo,TRUE);			
 				$this->email->message($msj);				
 				$this->email->send();	
+				//echo $this->email->print_debugger();
 				echo "<script languaje='javascript' type='text/javascript'>
 					    alert('Solicitud enviada. Por favor, espere aprovación');
 		                window.close();</script>";

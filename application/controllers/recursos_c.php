@@ -11,8 +11,8 @@
 		
 		}
 	
-		function Recursos()	{           //Cargamos vista
-
+		function index()	{           //Cargamos vista
+			
 			$DataRecursos105=$this->Recursos_m->obtenRecursos(105); //Obteniendo mis datos
 			$DataRecursos106=$this->Recursos_m->obtenRecursos(106); //Obteniendo mis datos
 			$DataRecursos219=$this->Recursos_m->obtenRecursos(219); //Obteniendo mis datos
@@ -28,6 +28,7 @@
 			$this->load->view('recursos_v',$RecursosLabos);
 		
 		} //Fin de SolicitarLaboratorio
+
 		
 		
 	}//Fin de la clase

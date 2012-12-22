@@ -68,7 +68,7 @@
 	
 		public function do_logout(){
 			$this->session->sess_destroy();
-			redirect('loguin_c');
+			redirect('inicio');
 		}
 
 		

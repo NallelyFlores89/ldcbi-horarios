@@ -6,33 +6,43 @@ class Loguin_model extends CI_Model{
 	}
 	
 	public function validate(){
-		// grab user input
 		$username = $this->security->xss_clean($this->input->post('usuarioInput'));
 		$password = $this->security->xss_clean($this->input->post('passInput'));
 		
-		// Prep the query
 		$this->db->where('usuario', $username);
 		$this->db->where('pass', $password);
 		
 		
-		// Run the query
 		$query = $this->db->get('usuarioadmin');
-		// Let's check if there are any results
-		if($query->num_rows == 1)
-		{
-			// If there is a user, then create session data
+
+		if($query->num_rows == 1){
 			$row = $query->row();
 			$data = array(
-					'idusuarioadmin' => $row->idusuarioadmin,
-					'usuario' => $row->usuario,
-					'validated' => true
-					);
+				'idusuarioadmin' => $row->idusuarioadmin,
+				'usuario' => $row->usuario,
+				'validated' => true
+				);
 			$this->session->set_userdata($data);
 			return true;
 		}
-		// If the previous process did not validate
-		// then return false.
+
 		return false;
 	}
+	
+	function login($username, $password){
+	   $this->db->select('idusuarioadmin, usuario, pass');
+	   $this->db->from('usuarioadmin');
+	   $this->db->where('usuario',$username);
+	   $this->db->where('pass',$password);
+	   $this->db->limit(1);
+	
+	   $query = $this->db->get();
+	
+	   if($query->num_rows()==1){
+	   		return $query->result();
+	   }else {
+	     return false;
+	   }
+	 }
 }
 ?>
