@@ -28,6 +28,7 @@
 					$idprof=$this->administracion_m->obtenIdProf($numEmp);
 					$grupos=$this->administracion_m->obtenGruposxProf($idprof); 
 					
+					
 					foreach ($grupos as $value) { //Elimina los grupos dados por el profesor
 						$this->administracion_m->eliminaGrupo($value['idgrupo']);
 					}
@@ -67,7 +68,10 @@
 			}else{
 				if($_POST != NULL){
 					$iduea=$this->administracion_m->obtenIdUea($clave);
-					$this->administracion_m->eliminaUEA($iduea);			
+					$this->administracion_m->eliminaUEA($iduea);
+					echo "<script languaje='javascript' type='text/javascript'>
+							window.opener.location.reload();
+							window.close();</script>";				
 				}else{
 					$this->load->view('elimina_uea_v');
 				}
@@ -86,7 +90,6 @@
 				
 				$this->form_validation->set_rules('nombreInput', 'nombreInput', 'required');
 				$this->form_validation->set_rules('ueaInput', 'ueaInput', 'required');
-				$this->form_validation->set_rules('correoInput', 'correoInput', 'email_valid|required');
 				$this->form_validation->set_rules('grupoInput', 'grupoInput', 'required');
 				$this->form_validation->set_rules('siglasInput', 'siglasInput', 'required');
 				$this->form_validation->set_message('required','Este campo no puede ser nulo');

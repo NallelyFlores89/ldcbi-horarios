@@ -220,7 +220,7 @@
 				'idgrupo' => $idgrupo
 			
 			);
-			//$this->db->delete('grupo', $datos); 				
+			$this->db->delete('grupo', $datos); 				
 		}
 
 		function eliminaUEA($iduea){ //Esta función elimina la UEA 
@@ -232,7 +232,6 @@
 			 
 			$indice=1;
 			foreach ($grupos->result_array() as $value) {//Primero, eliminamos el grupo de la tabla laboratorios_grupo
-				echo "<br>";print_r($value['idgrupo']);
 				$datos=Array(
 					'idgrupo' => NULL
 				);
