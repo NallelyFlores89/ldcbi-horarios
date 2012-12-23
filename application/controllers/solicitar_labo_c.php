@@ -9,8 +9,8 @@
 			$this->load->model('Solicitar_laboratorio_m'); //Cargando mi modelo
 			
 			$this->load->library('form_validation');
-			$this->load->library('email');
 			$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+			$this->load->library('email');
 		}
 		
 		function index()	{           //Cargamos vista
@@ -83,18 +83,17 @@
 				
 				);
 				
- 				$config['protocol'] = 'mail';
-				$config['wordwrap'] = FALSE;				
+				//$config['wordwrap'] = FALSE;				
+				// $config_email['send_multipart'] = FALSE;
 				$config['mailtype']='html';
- 				$config_email['send_multipart'] = FALSE;  
-				$this->email->initialize($config);
-				$this->email->from('naye_flo89@hotmail.com', 'Nallely Flores');
-				$this->email->to('anjudark89@gmail.com');
+ 				$this->email->initialize($config);
+				$this->email->from('anjudark89@gmail.com', 'Nallely Flores'); //Cambiar aquí por la dirección de correo electrónico de administración
+				$this->email->to('naye_flo89@hotmail.com'); //Cambiar aquí por la dirección del correo del administrador
 				$this->email->subject('Solicitud de laboratorio');
 				$msj=$this->load->view('correo_v',$datos_correo,TRUE);			
 				$this->email->message($msj);				
 				$this->email->send();	
-				//echo $this->email->print_debugger();
+				// echo $this->email->print_debugger();
 				echo "<script languaje='javascript' type='text/javascript'>
 					    alert('Solicitud enviada. Por favor, espere aprovación');
 		                window.close();</script>";

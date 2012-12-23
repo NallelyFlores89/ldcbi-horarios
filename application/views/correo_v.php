@@ -4,115 +4,63 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-    <title>Solicitar Laboratorio</title>
-<!-- 
-  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/foundation.min.css">
-  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/app.css">
-  	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/zurb.mega-drop.css">
- 
-  	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
-  	<script src="<?=base_url(); ?>statics/foundation/javascripts/foundation.min.js"></script>
-  	<script src="<?=base_url(); ?>statics/foundation/javascripts/modernizr.foundation.js"></script> -->
-  	
-
-
+	<title>Solicitar Laboratorio</title>
 </head>
 
-<body>
-		<div class="row">
-			<div class="twelve columns">
-				<div style="padding:2px; border:dashed 3px #575257; -webkit-border-radius: 16px; border-radius: 16px; margin-bottom:5px">
-				<center><h1>Solicitud de laboratorio</h1></center>
-				</div>
-				<div style="padding:15px; border:double 3px #000000; -moz-border-radius-topleft: 4px;
-				-moz-border-radius-topright:5px; -moz-border-radius-bottomleft:5px; -moz-border-radius-bottomright:5px; -webkit-border-top-left-radius:4px; -webkit-border-top-right-radius:5px; -webkit-border-bottom-left-radius:5px;
-				 -webkit-border-bottom-right-radius:5px; border-top-left-radius:4px; border-top-right-radius:5px; border-bottom-left-radius:5px; border-bottom-right-radius:5px;">
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Nombre del solicitante:</label>
-						<label style="color:#000; font-size: 20px;" class="infCorreo seven columns"><?php print_r($nombre); ?></label>
-					</div>
+<body style="font-family: Tahoma">
+	<p style="color: #000; font-weight: bold; font-size: 20px;">Solicitud de laboratorio</p>
 
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Num. Empleado:</label>
-						<label style="color:#000; font-size: 20px;" class="infCorreo seven columns"><?php print_r($numero); ?></label>
-					</div>
-										
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Correo:</label>
-						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($correo); ?></label>
-					</div>
+	<label style="color: #4DB788; font-weight: bold; font-size: 16px;">Nombre del solicitante:</label>
+	<label style="color:#000; font-size: 16px;" class="infCorreo seven columns"><?php print_r($nombre); ?></label><br>
+
+	<label style="color: #4DB788; font-weight: bold; font-size: 16px;">Num. Empleado:</label>
+	<label style="color:#000; font-size: 16px;" class="infCorreo seven columns"><?php print_r($numero); ?></label><br>
+
+	<label style="color: #4DB788; font-weight: bold; font-size: 16px;">Correo:</label>
+	<label style="color:#000; font-size: 16px;"><?php print_r($correo); ?></label><br>
+
+	<label style="color: #4DB788; font-weight: bold; font-size: 16px;">Clave de la UEA:</label>
+	<label style="color:#000; font-size: 16px;"><?php print_r($clave); ?></label><br>
+
+	<label class="correoLabel five columns" style="color: #4DB788; font-weight: bold; font-size: 16px;">Nombre de la UEA:</label>
+	<label class="infCorreo seven columns" style="color:#000; font-size: 16px;"><?php print_r($uea); ?></label><br>
+
+	<label class="correoLabel five columns" style="color: #4DB788; font-weight: bold; font-size: 16px;">Grupo:</label>
+	<label class="infCorreo seven columns" style="color:#000; font-size: 16px;"><?php print_r($grupo); ?></label><br>
+
+	<label class="correoLabel five columns" style="color: #4DB788; font-weight: bold; font-size: 16px;">División:</label>
+	<label class="infCorreo seven columns" style="color:#000; font-size: 16px;"><?php print_r($division); ?></label><br>
+
+	<label class="correoLabel five columns" style="color: #4DB788; font-weight: bold; font-size: 16px;">Laboratorio:</label>
+	<label class="infCorreo seven columns" style="color:#000; font-size: 16px;"><?php print_r($laboratorio); ?></label><br>
 	
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Clave de la UEA:</label>
-						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($clave); ?></label>
-					</div>	
-					
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Nombre de la UEA:</label>
-						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($uea); ?></label>
-					</div>	
-					
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Grupo:</label>
-						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($grupo); ?></label>
-					</div>				
-							
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">División:</label>
-						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($division); ?></label>
-					</div>				
-					
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Laboratorio:</label>
-						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($laboratorio); ?></label>
-					</div>	
-			
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Laboratorio Alterno:</label>
-						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($laboratorioAlt); ?></label>
-					</div>	
-	
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Hora Inicio:</label>
-						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($hora_i); ?></label>
-					</div>
-					
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Hora Term:</label>
-						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($hora_f); ?></label>
-					</div>
-					
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Semana de inicio:</label>
-						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($semI); ?></label>
-					</div>
+	<label class="correoLabel five columns" style="color: #4DB788; font-weight: bold; font-size: 16px;">Laboratorio Alterno:</label>
+	<label class="infCorreo seven columns" style="color:#000; font-size: 16px;"><?php print_r($laboratorioAlt); ?></label><br>
 
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Semana Final:</label>
-						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($semF); ?></label>
-					</div>
+	<label class="correoLabel five columns" style="color: #4DB788; font-weight: bold; font-size: 16px;">Hora Inicio:</label>
+	<label class="infCorreo seven columns" style="color:#000; font-size: 16px;"><?php print_r($hora_i); ?></label><br>
 
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Días:</label>
-						<label class="infCorreo seven columns" style="color:#000; font-size: 20px";><?php
-							foreach ($dias as $value) {
-								echo " ";print_r($value); echo ",";
-							}
-						 ?></label>
-					</div>
+	<label class="correoLabel five columns" style="color: #4DB788; font-weight: bold; font-size: 16px;">Hora Term:</label>
+	<label class="infCorreo seven columns" style="color:#000; font-size: 16px;"><?php print_r($hora_f); ?></label><br>
 
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Recursos:</label>
-						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($recursos); ?></label>
-					</div>
+	<label class="correoLabel five columns" style="color: #4DB788; font-weight: bold; font-size: 16px;">Semana de inicio:</label>
+	<label class="infCorreo seven columns" style="color:#000; font-size: 16px;"><?php print_r($semI); ?></label><br>
 
-					<div class="row">
-						<label class="correoLabel five columns" style="color: red; font-weight: bold; font-size: 20px;">Comentarios:</label>
-						<label class="infCorreo seven columns" style="color:#000; font-size: 20px;"><?php print_r($comentarios); ?></label>
-					</div>
-				</div>
-			</div> <!--twelve colums-->
-		</div> <!--row-->
+	<label class="correoLabel five columns" style="color: #4DB788; font-weight: bold; font-size: 16px;">Semana Final:</label>
+	<label class="infCorreo seven columns" style="color:#000; font-size: 16px;"><?php print_r($semF); ?></label><br>
+
+	<label class="correoLabel five columns" style="color: #4DB788; font-weight: bold; font-size: 16px;">Días:</label>
+	<label class="infCorreo seven columns" style="color:#000; font-size: 16px";><?php
+		foreach ($dias as $value) {
+			echo " ";print_r($value); echo ",";
+		}
+	 ?></label><br>
+
+	<label class="correoLabel five columns" style="color: #4DB788; font-weight: bold; font-size: 16px;">Recursos:</label>
+	<label class="infCorreo seven columns" style="color:#000; font-size: 16px;"><?php print_r($recursos); ?></label><br>
+
+	<label class="correoLabel five columns" style="color: #4DB788; font-weight: bold; font-size: 16px;">Comentarios:</label>
+	<label class="infCorreo seven columns" style="color:#000; font-size: 16px;"><?php print_r($comentarios); ?></label><br>
 
 </body>
 </html>
