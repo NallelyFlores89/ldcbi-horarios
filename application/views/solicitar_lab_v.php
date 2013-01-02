@@ -13,8 +13,6 @@
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/foundation.min.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/modernizr.foundation.js"></script>
 	<script src="<?=base_url(); ?>statics/js/solicitarLab.js"></script>
-
-
 </head>
 
 <body>
@@ -89,12 +87,13 @@
 			                <div class="four columns">
 				                <label for="laboratoriosDropdown">Laboratorio</label>
 							  	<select id="laboratoriosDropdown" name="laboratoriosDropdown">
-								    <option id="laboratorioNON">Ninguno en especial</option>
+								    <option id="laboratorioNON" value=0 selected="true">Ninguno en especial</option>
 									<?php 
 										$add='laboratorio';
-										foreach ($listaLaboratorios['laboratorios'] as $indice => $valor) {
-											$divisionlab=$add.strtolower($valor);
-											echo "<option id=$divisionlab name=$divisionlab>"; print_r($valor); echo "</option>";	
+										foreach ($DataLabos as $valor) {
+											$id=$add.strtolower($valor['nombrelaboratorios']);
+											$value=$valor['idlaboratorios'];
+											echo "<option id=$id name=$id value=$value>"; print_r($valor['nombrelaboratorios']); echo "</option>";	
 										}
 								    ?>
 						  		</select>
@@ -103,12 +102,13 @@
 			                <div class="four columns">
 				                <label for="laboratoriosAltDropdown">Laboratorio Alterno</label>
 							  	<select id="laboratoriosAltDropdown" name="laboratoriosAltDropdown">
-								    <option id="laboratorioAltNON">Ninguno en especial</option>
+								    <option id="laboratorioAltNON" value=0>Ninguno en especial</option>
 									<?php 
-										$add='laboratorioAlt';
-									    foreach ($listaLaboratorios['laboratorios'] as $indice => $valor) {
-											$laboratorioid=$add.strtolower($valor);
-											echo "<option id=$laboratorioid name=$laboratorioid>"; print_r($valor); echo "</option>";	
+										$add='laboratorio';
+										foreach ($DataLabos as $valor) {
+											$id=$add.strtolower($valor['nombrelaboratorios']);
+											$value=$valor['idlaboratorios'];
+											echo "<option id=$id name=$id value=$value>"; print_r($valor['nombrelaboratorios']); echo "</option>";	
 										}
 								    ?>
 						  		</select>
@@ -196,13 +196,13 @@
 						<div class="row">
 							<label>Días</label>
 							<div class="six columns">
-						      <label for="checkboxLunes"><input type="checkbox" id="checkboxLunes" name="checkboxes[]" style='display: none;' value="lunes"><span class="custom checkbox"></span> Lunes</label>
-						      <label for="checkboxMartes"><input type="checkbox" id="checkboxMartes" name="checkboxes[]" style='display: none;' value="martes"><span class="custom checkbox"></span> Martes</label>
-						      <label for="checkboxMiercoles"><input type="checkbox" id="checkboxMiercoles" name="checkboxes[]" style='display: none;' value="miercoles"><span class="custom checkbox"></span> Miércoles</label>
+						      <label for="checkboxLunes"><input type="checkbox" id="checkboxLunes" name="checkboxes[]" style='display: none;' value=1><span class="custom checkbox"></span> Lunes</label>
+						      <label for="checkboxMartes"><input type="checkbox" id="checkboxMartes" name="checkboxes[]" style='display: none;' value=2><span class="custom checkbox"></span> Martes</label>
+						      <label for="checkboxMiercoles"><input type="checkbox" id="checkboxMiercoles" name="checkboxes[]" style='display: none;' value=3><span class="custom checkbox"></span> Miércoles</label>
 							</div>
 							<div class="six columns">
-								<label for="checkboxJueves"><input type="checkbox" id="checkboxJueves" name="checkboxes[]" style='display: none;' value="jueves"><span class="custom checkbox"></span> Jueves</label>
-						      	<label for="checkboxViernes"><input type="checkbox" id="checkboxViernes" name="checkboxes[]" style='display: none;' value="viernes"><span class="custom checkbox"></span> Viernes</label>
+								<label for="checkboxJueves"><input type="checkbox" id="checkboxJueves" name="checkboxes[]" style='display: none;' value=4><span class="custom checkbox"></span> Jueves</label>
+						      	<label for="checkboxViernes"><input type="checkbox" id="checkboxViernes" name="checkboxes[]" style='display: none;' value=5><span class="custom checkbox"></span> Viernes</label>
 								
 							</div>
 					  		<?php echo form_error('checkboxes[]'); ?>

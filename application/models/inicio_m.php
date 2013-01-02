@@ -188,9 +188,7 @@
 			}//fin del else
 			
 		} //fin Obtenhorarios
-		
-
-				
+						
 	} //Fin de la clase
 
 ?>

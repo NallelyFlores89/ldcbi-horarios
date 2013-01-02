@@ -56,7 +56,7 @@
 				);
 			
 				if($this->form_validation->run()){
-	
+
 					//INSERTANDO DATOS EN BD
 					
 					$idProf=$this->Agregar_horario_m->obtenerIdProfesor($_POST['numInput']); //Profesor

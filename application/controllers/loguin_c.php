@@ -7,7 +7,7 @@
 	        parent::__construct();
 			
 			$this->load->helper(array('html', 'url'));
-	        $this->load->model('loguin_model'); // Load the model
+	        $this->load->model('loguin_model'); 
 			$this->load->library('session');
 	   	}
 
@@ -19,15 +19,14 @@
 	
 	 function process(){
       
-        $result = $this->loguin_model->validate();// Validate the user can login         
+        $result = $this->loguin_model->validate();// Validando al usuario         
 		
 		if(! $result){ 
            	$msg = '<font class="error">Nombre de usuario y/o contraseña incorrectos</font><br />';
 			$this->index($msg);
 			
         }else{
-            // If user did validate, send them to members area
-            redirect('inicio_admin_c');
+            redirect('inicio_admin_c'); //Cargando página de administrador
         }        
     }
 

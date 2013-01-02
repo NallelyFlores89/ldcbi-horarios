@@ -15,11 +15,11 @@ $(document).ready(function(){
 })
 
 function ventanaElimina(idrecurso, idlab){
-	liga='http://localhost/horarios/index.php/recursos_admin_c/eliminar_recurso/'+idrecurso+'/'+idlab
+	liga= base + 'index.php/recursos_admin_c/eliminar_recurso/'+idrecurso+'/'+idlab
 	window.open(liga, 'Confirmación', 'status=1,width=310,height=320, resizable=0') 
 }
 
 function ventanaEdita(idrecurso){
-	liga='http://localhost/horarios/index.php/recursos_admin_c/editar_recurso/'+idrecurso
+	liga= base + 'index.php/recursos_admin_c/editar_recurso/'+idrecurso
 	window.open(liga, 'Confirmación', 'status=1,width=310,height=320, resizable=0') 
 }

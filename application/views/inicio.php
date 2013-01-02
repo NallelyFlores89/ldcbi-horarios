@@ -79,11 +79,11 @@
 												foreach ($DataHorarios as $indice=>$value) { ?>
 													<tr id='<?= $value ?>'>
 														<td class='hora'><?=$value ?></td>
-														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
-														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
-														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
-														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
-														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU105_'.$i.'_1']['siglasGrupos'][$indice]); ?> </td>
+														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU105_'.$i.'_2']['siglasGrupos'][$indice]); ?> </td>
+														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU105_'.$i.'_3']['siglasGrupos'][$indice]); ?> </td>
+														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU105_'.$i.'_4']['siglasGrupos'][$indice]); ?> </td>
+														<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU105_'.$i.'_5']['siglasGrupos'][$indice]); ?> </td>
 													</tr>
 											<? }?>
 							
@@ -107,11 +107,11 @@
 											foreach ($DataHorarios as $indice=>$value) { ?>
 												<tr id='<?= $value ?>'>
 													<td class='hora'><?=$value ?></td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU105_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU105_'.$i.'_1']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU105_'.$i.'_2']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU105_'.$i.'_3']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU105_'.$i.'_4']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU105_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU105_'.$i.'_5']['siglasGrupos'][$indice]); ?> </td>
 												</tr>
 										<? }?>
 						
@@ -158,11 +158,11 @@
 											foreach ($DataHorarios as $indice=>$value) { ?>
 												<tr id='<?= $value ?>'>
 													<td class='hora'><?=$value ?></td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU106_'.$i.'_1']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU106_'.$i.'_2']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU106_'.$i.'_3']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU106_'.$i.'_4']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU106_'.$i.'_5']['siglasGrupos'][$indice]); ?> </td>
 												</tr>
 										<? }?>
 						
@@ -186,11 +186,11 @@
 											foreach ($DataHorarios as $indice=>$value) { ?>
 												<tr id='<?= $value ?>'>
 													<td class='hora'><?=$value ?></td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU106_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU106_'.$i.'_1']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU106_'.$i.'_2']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU106_'.$i.'_3']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU106_'.$i.'_4']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU106_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU106_'.$i.'_5']['siglasGrupos'][$indice]); ?> </td>
 												</tr>
 										<? }?>
 						
@@ -240,11 +240,11 @@
 											foreach ($DataHorarios as $indice=>$value) { ?>
 												<tr id='<?= $value ?>'>
 													<td class='hora'><?=$value ?></td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU219_'.$i.'_1']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU219_'.$i.'_2']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU219_'.$i.'_3']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU219_'.$i.'_4']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU219_'.$i.'_5']['siglasGrupos'][$indice]); ?> </td>
 												</tr>
 										<? }?>
 						
@@ -269,11 +269,11 @@
 											foreach ($DataHorarios as $indice=>$value) { ?>
 												<tr id='<?= $value ?>'>
 													<td class='hora'><?=$value ?></td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU219_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU219_'.$i.'_1']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU219_'.$i.'_2']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU219_'.$i.'_3']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU219_'.$i.'_4']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU219_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU219_'.$i.'_5']['siglasGrupos'][$indice]); ?> </td>
 												</tr>
 										<? }?>
 						
@@ -321,11 +321,11 @@
 											foreach ($DataHorarios as $indice=>$value) { ?>
 												<tr id='<?= $value ?>'>
 													<td class='hora'><?=$value ?></td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU220_'.$i.'_1']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU220_'.$i.'_2']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU220_'.$i.'_3']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU220_'.$i.'_4']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU220_'.$i.'_5']['siglasGrupos'][$indice]); ?> </td>
 												</tr>
 										<? }?>
 						
@@ -348,11 +348,11 @@
 											foreach ($DataHorarios as $indice=>$value) { ?>
 												<tr id='<?= $value ?>'>
 													<td class='hora'><?=$value ?></td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_1']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_2']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_3']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_4']['siglasGrupos'][$indice]; ?> </td>
-													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= $Data['$DataU220_'.$i.'_5']['siglasGrupos'][$indice]; ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_1']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU220_'.$i.'_1']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_2']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU220_'.$i.'_2']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_3']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU220_'.$i.'_3']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_4']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU220_'.$i.'_4']['siglasGrupos'][$indice]); ?> </td>
+													<td id='<?= $indice; ?>' class='<?=$Data['$DataU220_'.$i.'_5']['divisionesGrupo'][$indice]; ?>'> <?= strtoupper($Data['$DataU220_'.$i.'_5']['siglasGrupos'][$indice]); ?> </td>
 												</tr>
 										<? }?>
 						
@@ -369,7 +369,7 @@
 				
 				<div class="row opciones"><br>
 					<a href="<?=base_url(); ?>index.php/solicitar_labo_c" class="solicitarLabosBtn six columns solicitarLabo">Solicitar Laboratorio</a>
-					<a href="<?=base_url(); ?>index.php/recursos_c/recursos" class="recursosLabosBtn six columns recursos" title="Software y hardware instalado en los laboratorios">Recursos >></a><br/><br />
+					<a href="<?=base_url(); ?>index.php/recursos_c" class="recursosLabosBtn six columns recursos" title="Software y hardware instalado en los laboratorios">Recursos >></a><br/><br />
 				</div>
 				<hr>
   				
@@ -385,9 +385,9 @@
 									foreach ($listaueasCBI['datosCBI'] as $valor) {
 										$cadena='('.$valor['siglas'].')';
 										echo "<li>";
-										print_r($valor['nombreuea']);
+										print_r(strtoupper($valor['nombreuea']));
 										echo"<span class='siglasUEA'>";
-										print_r($cadena);
+										print_r(strtoupper($cadena));
 										echo"</span>";
 										echo "</li>";									
 									}
@@ -406,9 +406,9 @@
 									foreach ($listaueasCBS['datosCBS'] as $valor) {
 										$cadena='('.$valor['siglas'].')';
 										echo "<li>";
-										print_r($valor['nombreuea']);
+										print_r(strtoupper($valor['nombreuea']));
 										echo"<span class='siglasUEA'>";
-										print_r($cadena);
+										print_r(strtoupper($cadena));
 										echo"</span>";
 										echo "</li>";									
 									}
@@ -426,9 +426,9 @@
 									foreach ($listaueasCSH['datosCSH'] as $valor) {
 										$cadena='('.$valor['siglas'].')';
 										echo "<li>";
-										print_r($valor['nombreuea']);
+										print_r(strtoupper($valor['nombreuea']));
 										echo"<span class='siglasUEA'>";
-										print_r($cadena);
+										print_r(strtoupper($cadena));
 										echo"</span>";
 										echo "</li>";									
 									}
@@ -454,10 +454,10 @@
 							}else{
 								foreach ($listaUPG['datosUPG'] as $valor) {
 									echo "<tr>";
-									echo"<td class='derecha'>";print_r($valor['nombreuea']); echo"</td>";
-									echo"<td>";print_r($valor['siglas']); echo"</td>";
-									echo"<td>";print_r($valor['grupo']); echo"</td>";
-	 								echo"<td>";print_r($valor['nombre']); echo"</td>";
+									echo"<td class='derecha'>";print_r(strtoupper($valor['nombreuea'])); echo"</td>";
+									echo"<td>";print_r(strtoupper($valor['siglas'])); echo"</td>";
+									echo"<td>";print_r(strtoupper($valor['grupo'])); echo"</td>";
+	 								echo"<td>";print_r(strtoupper($valor['nombre'])); echo"</td>";
 									echo "</tr>";
 								 }
 							}								 

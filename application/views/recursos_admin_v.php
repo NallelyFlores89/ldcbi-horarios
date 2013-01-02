@@ -11,6 +11,7 @@
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/modernizr.foundation.js"></script>
    	<script src="<?=base_url(); ?>statics/foundation/javascripts/marketing_docs.js"></script>
 	<script src="<?=base_url(); ?>statics/js/jquery.popupWindow.js"></script>
+	<script> var base = '<?= base_url(); ?>'</script>
   	<script src="<?=base_url(); ?>statics/js/recursos_admin.js"></script>
 
   	<link rel="stylesheet" href="<?=base_url(); ?>statics/foundation/stylesheets/zurb.mega-drop.css">

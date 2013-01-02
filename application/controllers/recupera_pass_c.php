@@ -15,17 +15,15 @@
 			if($_POST != NULL){
 				$existe=$this->recupera_pass_m->verificaCorreo($_POST['correoInput']);
 				if($existe!=-1){
-					// $config['protocol'] = 'mail';
-					// $config['wordwrap'] = FALSE;				
-					// $config['mailtype']='html';
-	 				// $config_email['send_multipart'] = FALSE;  
-					// $this->email->initialize($config);
-					// $this->email->from('naye_flo89@hotmail.com', 'Nallely Flores');
-					// $this->email->to('anjudark89@gmail.com');
-					// $this->email->subject('Recupera tu contraseña');
-					// $msj='su password es '.$existe;			
-					// $this->email->message($msj);				
-					// $this->email->send();					
+						
+					$config['mailtype']='html';
+	 				$this->email->initialize($config);
+					$this->email->from('anjudark89@gmail.com', 'Nallely Flores');
+					$this->email->to($_POST['correoInput']);
+					$this->email->subject('Recupere su contraseña');
+					$msj='Su contraseña es: '.$existe;			
+					$this->email->message($msj);				
+					$this->email->send();					
 					echo "<label>La clave de la contraseña ha sido enviada a su dirección de correo electrónico</label>";
 					$this->load->view('recupera_pass_v');
 				}else{

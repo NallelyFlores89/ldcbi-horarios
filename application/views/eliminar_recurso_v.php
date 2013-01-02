@@ -27,7 +27,6 @@
 						<p class="confirm">¿Seguro que desea eliminar este recurso?</p>
 						
 						<input type="submit" id="EliminarBtn" class="button offset-by-two" name="eliminar" value="Eliminar" />
-<!-- 					<input id="cancelarSolicitudBtn" type="submit" class="button offset-by-three" value="Cancelar"/><br><br><br>					 -->					
 					</form>
 				</fieldset>
 

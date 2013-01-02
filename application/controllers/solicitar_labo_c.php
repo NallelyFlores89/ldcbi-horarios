@@ -6,14 +6,14 @@
 			parent::__construct();
 			
 			$this->load->helper(array('html', 'url'));
-			$this->load->model('Solicitar_laboratorio_m'); //Cargando mi modelo
+			$this->load->model('Solicitar_laboratorio_m'); 
 			
 			$this->load->library('form_validation');
 			$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 			$this->load->library('email');
 		}
 		
-		function index()	{           //Cargamos vista
+		function index()	{           
 			$DataDivision['datosDivision']=$this->Solicitar_laboratorio_m->ObtenListaDivisiones(); //Obteniendo mis datos
 	
 			if($DataDivision['datosDivision'] > 0){
@@ -24,27 +24,14 @@
 				$mensaje='No hay datos';
 				$divisiones['divisiones'][1]=$mensaje;
 			}		
-			
-			$DataLabos['datosLabos']=$this->Solicitar_laboratorio_m->ObtenListaLaboratorios(); //Obteniendo mis datos
-
-			if($DataLabos['datosLabos'] > 0){
-				foreach ($DataLabos['datosLabos'] as $indice => $laboratorio) {
-					$laboratorios['laboratorios'][$indice]=$laboratorio;
-				}
-				
-			}else{
-				$mensaje='No hay datos';
-				$laboratorios['laboratorios'][1]=$mensaje;
-			}
-			
 			 
 			$DataHorarios['hora']=$this->Solicitar_laboratorio_m->Obtenhorarios();
 			$DataSem=$this->Solicitar_laboratorio_m->obtenerSemana();
-
+			$DataLabos=$this->Solicitar_laboratorio_m->obtenLaboratorios();
 			
 			$datos=Array(
 					'listaDivisiones' => $divisiones,
-					'listaLaboratorios' => $laboratorios,
+					'DataLabos' => $DataLabos,
 					'DataHorarios' => $DataHorarios['hora'],
 					'DataSem' => $DataSem
 					
@@ -71,7 +58,6 @@
 					'grupo' =>$_POST['grupoInput'],
 					'division' => $_POST['divisionesDropdown'],
 					'laboratorio' => $_POST['laboratoriosDropdown'],
-					'laboratorio' => $_POST['laboratoriosDropdown'],
 					'laboratorioAlt' => $_POST['laboratoriosAltDropdown'],
 					'hora_i' => $_POST['HoraIDropdown'],
 					'hora_f' => $_POST['HoraFDropdown'],
@@ -82,21 +68,50 @@
  					'comentarios' => $_POST['comentarios']
 				
 				);
+						
+				//Comprobando si el horario no está ocupado
+
+				$idHoraI=$this->Solicitar_laboratorio_m->obtenerIdHora($_POST['HoraIDropdown']);
+				$idHoraF=$this->Solicitar_laboratorio_m->obtenerIdHora($_POST['HoraFDropdown']);
 				
-				//$config['wordwrap'] = FALSE;				
-				// $config_email['send_multipart'] = FALSE;
-				$config['mailtype']='html';
- 				$this->email->initialize($config);
-				$this->email->from('anjudark89@gmail.com', 'Nallely Flores'); //Cambiar aquí por la dirección de correo electrónico de administración
-				$this->email->to('naye_flo89@hotmail.com'); //Cambiar aquí por la dirección del correo del administrador
-				$this->email->subject('Solicitud de laboratorio');
-				$msj=$this->load->view('correo_v',$datos_correo,TRUE);			
-				$this->email->message($msj);				
-				$this->email->send();	
-				// echo $this->email->print_debugger();
-				echo "<script languaje='javascript' type='text/javascript'>
-					    alert('Solicitud enviada. Por favor, espere aprovación');
-		                window.close();</script>";
+				$indice=1;
+				
+				for ($j=$_POST['SemIDropdown']; $j <=$_POST['SemFDropdown']; $j++) { //Semanas 
+					for ($i=$idHoraI; $i <=$idHoraF; $i++) {  //horas
+						foreach ($_POST['checkboxes'] as $dias) { //días
+							$ocupado[$indice] = $this->Solicitar_laboratorio_m->horarioOcupado($_POST['laboratoriosDropdown'], $j, $dias, $i);
+							$indice++;
+						}
+					}
+				}
+				$no_disponible = array_unique($ocupado);
+				if(sizeof($no_disponible)==1 AND ($no_disponible[1] == NULL || $no_disponible[1]==-1)){ //En caso de que los horarios estén disponibles, envía la solicitud
+					//$config['wordwrap'] = FALSE;				
+					// $config_email['send_multipart'] = FALSE;
+					$config['mailtype']='html';
+	 				$this->email->initialize($config);
+					$this->email->from('nallely.ag.sama@gmail.com', 'Nallely Flores'); //Cambiar aquí por la dirección de correo electrónico de administración
+					$this->email->to('naye_flo89@hotmail.com'); //Cambiar aquí por la dirección del correo del administrador
+					$this->email->subject('Solicitud de laboratorio');
+					$msj=$this->load->view('correo_v',$datos_correo,TRUE);			
+					$this->email->message($msj);				
+					$this->email->send();	
+					// echo $this->email->print_debugger();
+					echo "<script languaje='javascript' type='text/javascript'>
+				    alert('Solicitud enviada. Por favor, espere aprovación');
+	                window.close();</script>";
+				
+				}else{ //En otro caso, le indica al usuario que el horario no está disponible
+					
+					$this->load->view('solicitar_lab_v', $datos);
+					echo "<label class='error'>Lo sentimos. El laboratorio que usted está solicitando, no está disponible
+				    en este horario</label>";	
+				}
+					
+							
+				
+				
+				
 			}
 			else{
 				$this->load->view('solicitar_lab_v', $datos);

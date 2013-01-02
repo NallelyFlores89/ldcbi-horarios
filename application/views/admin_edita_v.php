@@ -13,8 +13,6 @@
   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/foundation.min.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/modernizr.foundation.js"></script>
-<!-- 	<script src="<?=base_url(); ?>statics/js/edita.js"></script> -->
-
 </head>
 
 <body>

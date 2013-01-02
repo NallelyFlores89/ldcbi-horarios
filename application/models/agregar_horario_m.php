@@ -17,7 +17,7 @@
 			
 			if(($idProfesor->num_rows())>0){ //Verificando si tengo datos a cargar
 				foreach ($idProfesor->result_array() as $value) {
-					$idProfr[1] = $value['idprofesores']; //Guardando mis datos en un arreglo
+					$idProfr[1] = $value['idprofesores']; 
 				 }
 			
 				return($idProfr[1]);
@@ -33,11 +33,11 @@
 			$this->db->where('clave',$clave);
 			
 
-			$idUea=$this->db->get(); //Vacía el contenido de la consulta en la variable
+			$idUea=$this->db->get(); 
 			
-			if(($idUea->num_rows())>0){ //Verificando si tengo datos a cargar
+			if(($idUea->num_rows())>0){ 
 				foreach ($idUea->result_array() as $value) {
-					$idU[1] = $value['iduea']; //Guardando mis datos en un arreglo
+					$idU[1] = $value['iduea']; 
 				 }
 			
 				return($idU[1]);
@@ -53,12 +53,11 @@
 			$this->db->from('uea');
 			$this->db->where('clave',$clave);
 			
-
-			$clave=$this->db->get(); //Vacía el contenido de la consulta en la variable
+			$clave=$this->db->get(); 
 			
-			if(($clave->num_rows())>0){ //Verificando si tengo datos a cargar
+			if(($clave->num_rows())>0){ 
 				foreach ($clave->result_array() as $value) {
-					$c[1] = $value['clave']; //Guardando mis datos en un arreglo
+					$c[1] = $value['clave']; 
 				 }
 			
 				return($c[1]);
@@ -74,11 +73,11 @@
 			$this->db->where('hora',$HoraI);
 			
 
-			$idHora=$this->db->get(); //Vacía el contenido de la consulta en la variable
+			$idHora=$this->db->get(); 
 			
-			if(($idHora->num_rows())>0){ //Verificando si tengo datos a cargar
+			if(($idHora->num_rows())>0){
 				foreach ($idHora->result_array() as $value) {
-					$idH[1] = $value['idhorarios']; //Guardando mis datos en un arreglo
+					$idH[1] = $value['idhorarios']; 
 				 }
 			
 				return($idH[1]);
@@ -92,11 +91,11 @@
 			$this->db->select('idgrupo');
 			$this->db->where('grupo',$grupo);
 		
-			$idGrupo=$this->db->get('grupo'); //Vacía el contenido de la consulta en la variable
+			$idGrupo=$this->db->get('grupo'); 
 			
-			if(($idGrupo->num_rows())>0){ //Verificando si tengo datos a cargar
+			if(($idGrupo->num_rows())>0){ 
 				foreach ($idGrupo->result_array() as $value) {
-					$idG[1] = $value['idgrupo']; //Guardando mis datos en un arreglo
+					$idG[1] = $value['idgrupo']; 
 				 }
 			
 				return($idG[1]);
@@ -142,11 +141,11 @@
 			$this->db->select('idlaboratorios, nombrelaboratorios');
 			$this->db->from('laboratorios');
 
-			$labos=$this->db->get(); //Vacía el contenido de la consulta en la variable
+			$labos=$this->db->get(); 
 			$indice=1;
-			if(($labos->num_rows())>0){ //Verificando si tengo datos a cargar
+			if(($labos->num_rows())>0){ 
 				foreach ($labos->result_array() as $value) {
-					$laboratorios[$indice] = $value; //Guardando mis datos en un arreglo
+					$laboratorios[$indice] = $value; 
 					$indice++;
 				 }
 			

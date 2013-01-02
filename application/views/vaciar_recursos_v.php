@@ -36,7 +36,7 @@
 						</div><hr>
 
 						<div class="four columns"></div>
-						<input type="submit" id="vaciarBtn" class="button four columns" value="Vaciar" />
+							<input type="submit" id="vaciarBtn" class="button four columns" value="Vaciar" />
 						<div class="four columns"></div>
 
 					</form>

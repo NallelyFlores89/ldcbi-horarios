@@ -13,19 +13,14 @@
   	<script src="<?=base_url(); ?>statics/js/jquery-1.8.2.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/foundation.min.js"></script>
   	<script src="<?=base_url(); ?>statics/foundation/javascripts/modernizr.foundation.js"></script>
-	<script src="<?=base_url(); ?>statics/js/solicitarLab.js"></script>
-
-
 </head>
 
 <body>
 		<div class="row">
-			<div class="twelve columns">
-				<br>
+			<div class="twelve columns"><br>
 				<h3>Agregar recursos</h3><br>
 
 				<fieldset >
-					
 					<form class="custom" action="" method="post">
 						<div class="row">
 							<label for="recursoInput">Recurso</label>
@@ -48,7 +43,6 @@
 						</div><hr>
 
 						<input type="submit" id="AgregarRecursoBtn" class="button offset-by-two" value="Agregar" />
-<!-- 					<input id="cancelarSolicitudBtn" type="submit" class="button large offset-by-three" value="Cancelar"/><br><br><br>					 -->					
 					</form>
 				</fieldset>
 

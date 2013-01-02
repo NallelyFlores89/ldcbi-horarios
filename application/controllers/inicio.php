@@ -11,11 +11,11 @@
 		
 		}
 	
-		function index(){           //Cargamos vista
+		function index(){           
 			
 			$DataCBI['datosCBI']=$this->Inicio_m->obtenListaGruposCBI(); //Obteniendo mis datos
-			$DataCBS['datosCBS']=$this->Inicio_m->ObtenListaUeasCBS(); //Obteniendo mis datos
-			$DataCSH['datosCSH']=$this->Inicio_m->ObtenListaUeasCSH(); //Obteniendo mis datos
+			$DataCBS['datosCBS']=$this->Inicio_m->ObtenListaUeasCBS(); 
+			$DataCSH['datosCSH']=$this->Inicio_m->ObtenListaUeasCSH(); 
 
 			$DataUPG['datosUPG']=$this->Inicio_m->obtenListaUeaProfesorGrupo();
 

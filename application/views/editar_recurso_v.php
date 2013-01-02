@@ -27,7 +27,6 @@
 						<label for="recursoInput">Recurso</label>
 						<input type="text" name="recursoInput" id"recursoInput">						
 						<input type="submit" id="EditarBtn" class="button offset-by-two" value="Guardar cambios" />
-<!-- 					<input id="cancelarSolicitudBtn" type="submit" class="button offset-by-three" value="Cancelar"/><br><br><br>					 -->					
 					</form>
 				</fieldset>
 
